@@ -23,8 +23,16 @@ class ProductController extends AbstractController
         return $this->render('product/index.html.twig', [
             'products' => $productRepository->findAll(),
         ]);
+
     }
 
+    #[Route('/f', name: 'app_productf_index', methods: ['GET'])]
+    public function indexf(ProductRepository $productRepository): Response
+    {
+        return $this->render('product/index2.html.twig', [
+            'products' => $productRepository->findAll(),
+        ]);
+    }
     #[Route('/new', name: 'app_product_new', methods: ['GET', 'POST'])]
     public function new(Request $request, EntityManagerInterface $entityManager, SluggerInterface $slugger): Response
     {

@@ -11,6 +11,7 @@ return [
         '/category' => [[['_route' => 'app_product_category_index', '_controller' => 'App\\Controller\\ProductCategoryController::index'], null, ['GET' => 0], null, true, false, null]],
         '/category/new' => [[['_route' => 'app_product_category_new', '_controller' => 'App\\Controller\\ProductCategoryController::new'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
         '/product' => [[['_route' => 'app_product_index', '_controller' => 'App\\Controller\\ProductController::index'], null, ['GET' => 0], null, true, false, null]],
+        '/product/f' => [[['_route' => 'app_productf_index', '_controller' => 'App\\Controller\\ProductController::indexf'], null, ['GET' => 0], null, false, false, null]],
         '/product/new' => [[['_route' => 'app_product_new', '_controller' => 'App\\Controller\\ProductController::new'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
         '/subcategory' => [[['_route' => 'app_product_sub_category_index', '_controller' => 'App\\Controller\\ProductSubCategoryController::index'], null, ['GET' => 0], null, true, false, null]],
         '/subcategory/new' => [[['_route' => 'app_product_sub_category_new', '_controller' => 'App\\Controller\\ProductSubCategoryController::new'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],

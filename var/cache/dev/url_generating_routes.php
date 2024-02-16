@@ -9,6 +9,7 @@ return [
     'app_product_category_edit' => [['id'], ['_controller' => 'App\\Controller\\ProductCategoryController::edit'], [], [['text', '/edit'], ['variable', '/', '[^/]++', 'id', true], ['text', '/category']], [], [], []],
     'app_product_category_delete' => [['id'], ['_controller' => 'App\\Controller\\ProductCategoryController::delete'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/category']], [], [], []],
     'app_product_index' => [[], ['_controller' => 'App\\Controller\\ProductController::index'], [], [['text', '/product/']], [], [], []],
+    'app_productf_index' => [[], ['_controller' => 'App\\Controller\\ProductController::indexf'], [], [['text', '/product/f']], [], [], []],
     'app_product_new' => [[], ['_controller' => 'App\\Controller\\ProductController::new'], [], [['text', '/product/new']], [], [], []],
     'app_product_show' => [['id'], ['_controller' => 'App\\Controller\\ProductController::show'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/product']], [], [], []],
     'app_product_edit' => [['id'], ['_controller' => 'App\\Controller\\ProductController::edit'], [], [['text', '/edit'], ['variable', '/', '[^/]++', 'id', true], ['text', '/product']], [], [], []],
