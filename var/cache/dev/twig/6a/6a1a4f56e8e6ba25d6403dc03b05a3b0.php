@@ -167,6 +167,6 @@ class __TwigTemplate_d4ea77f8f06c6ded63a8c91efe74c7d5 extends Template
 </div>
 {% endblock %}
 
-", "product/new.html.twig", "/Users/hassan/Desktop/ProductsManagement/templates/product/new.html.twig");
+", "product/new.html.twig", "/Users/hassan/Desktop/ProductsManagement /templates/product/new.html.twig");
     }
 }

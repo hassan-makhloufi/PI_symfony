@@ -104,6 +104,7 @@ class __TwigTemplate_ea18621d8906447cc3ca4a868e92d39e extends Template
         // line 32
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("BackOffice/assets/css/style.css"), "html", null, true);
         echo "\" rel=\"stylesheet\">
+  
 
   <!-- =======================================================
   * Template Name: NiceAdmin
@@ -122,7 +123,7 @@ class __TwigTemplate_ea18621d8906447cc3ca4a868e92d39e extends Template
     <div class=\"d-flex align-items-center justify-content-between\">
       <a href=\"#\" class=\"logo d-flex align-items-center\">
         <img src=\"";
-        // line 50
+        // line 51
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("BackOffice/assets/img/logo..png"), "html", null, true);
         echo "\" alt=\"\">
         <span class=\"d-none d-lg-block\">Dashboard</span>
@@ -240,7 +241,7 @@ class __TwigTemplate_ea18621d8906447cc3ca4a868e92d39e extends Template
             <li class=\"message-item\">
               <a href=\"#\">
                 <img src=\"";
-        // line 165
+        // line 166
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("BackOffice/assets/img/messages-1.jpg"), "html", null, true);
         echo "\" alt=\"\" class=\"rounded-circle\">
                 <div>
@@ -257,7 +258,7 @@ class __TwigTemplate_ea18621d8906447cc3ca4a868e92d39e extends Template
             <li class=\"message-item\">
               <a href=\"#\">
                 <img src=\"";
-        // line 179
+        // line 180
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("BackOffice/assets/img/messages-2.jpg"), "html", null, true);
         echo "\" alt=\"\" class=\"rounded-circle\">
                 <div>
@@ -274,7 +275,7 @@ class __TwigTemplate_ea18621d8906447cc3ca4a868e92d39e extends Template
             <li class=\"message-item\">
               <a href=\"#\">
                 <img src=\"";
-        // line 193
+        // line 194
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("BackOffice/assets/img/messages-3.jpg"), "html", null, true);
         echo "\" alt=\"\" class=\"rounded-circle\">
                 <div>
@@ -300,7 +301,7 @@ class __TwigTemplate_ea18621d8906447cc3ca4a868e92d39e extends Template
 
           <a class=\"nav-link nav-profile d-flex align-items-center pe-0\" href=\"#\" data-bs-toggle=\"dropdown\">
             <img src=\"";
-        // line 216
+        // line 217
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("BackOffice/assets/img/profile-img.jpg"), "html", null, true);
         echo "\" alt=\"Profile\" class=\"rounded-circle\">
             <span class=\"d-none d-md-block dropdown-toggle ps-2\">K. Anderson</span>
@@ -365,9 +366,9 @@ class __TwigTemplate_ea18621d8906447cc3ca4a868e92d39e extends Template
 
     <ul class=\"sidebar-nav\" id=\"sidebar-nav\">
     ";
-        // line 278
+        // line 279
         $this->displayBlock('sidebarnav', $context, $blocks);
-        // line 388
+        // line 389
         echo " 
     </ul>
 
@@ -375,9 +376,9 @@ class __TwigTemplate_ea18621d8906447cc3ca4a868e92d39e extends Template
 
   <main id=\"main\" class=\"main\">
   ";
-        // line 394
+        // line 395
         $this->displayBlock('body', $context, $blocks);
-        // line 1039
+        // line 398
         echo "  </main><!-- End #main -->
 
   <!-- ======= Footer ======= -->
@@ -398,41 +399,41 @@ class __TwigTemplate_ea18621d8906447cc3ca4a868e92d39e extends Template
 
   <!-- Vendor JS Files -->
   <script src=\"";
-        // line 1058
+        // line 417
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("BackOffice/assets/vendor/apexcharts/apexcharts.min.js"), "html", null, true);
         echo "\"></script>
   <script src=\"";
-        // line 1059
+        // line 418
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("BackOffice/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"), "html", null, true);
         echo "\"></script>
   <script src=\"";
-        // line 1060
+        // line 419
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("BackOffice/assets/vendor/chart.js/chart.umd.js"), "html", null, true);
         echo "\"></script>
   <script src=\"";
-        // line 1061
+        // line 420
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("BackOffice/assets/vendor/echarts/echarts.min.js"), "html", null, true);
         echo "\"></script>
   <script src=\"";
-        // line 1062
+        // line 421
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("BackOffice/assets/vendor/quill/quill.min.js"), "html", null, true);
         echo "\"></script>
   <script src=\"";
-        // line 1063
+        // line 422
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("BackOffice/assets/vendor/simple-datatables/simple-datatables.js"), "html", null, true);
         echo "\"></script>
   <script src=\"";
-        // line 1064
+        // line 423
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("BackOffice/assets/vendor/tinymce/tinymce.min.js"), "html", null, true);
         echo "\"></script>
   <script src=\"";
-        // line 1065
+        // line 424
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("BackOffice/assets/vendor/php-email-form/validate.js"), "html", null, true);
         echo "\"></script>
 
   <!-- Template Main JS File -->
   <script src=\"";
-        // line 1068
+        // line 427
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("BackOffice/assets/js/main.js"), "html", null, true);
         echo "\"></script>
 
@@ -447,7 +448,7 @@ class __TwigTemplate_ea18621d8906447cc3ca4a868e92d39e extends Template
 
     }
 
-    // line 278
+    // line 279
     public function block_sidebarnav($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -457,7 +458,7 @@ class __TwigTemplate_ea18621d8906447cc3ca4a868e92d39e extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "sidebarnav"));
 
-        // line 279
+        // line 280
         echo "      <li class=\"nav-item\">
         <a class=\"nav-link \" href=\"#\">
           <i class=\"bi bi-grid\"></i>
@@ -576,7 +577,7 @@ class __TwigTemplate_ea18621d8906447cc3ca4a868e92d39e extends Template
 
     }
 
-    // line 394
+    // line 395
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -586,680 +587,8 @@ class __TwigTemplate_ea18621d8906447cc3ca4a868e92d39e extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
-        // line 395
-        echo "    <div class=\"pagetitle\">
-      <h1>Dashboard</h1>
-      <nav>
-        <ol class=\"breadcrumb\">
-          <li class=\"breadcrumb-item\"><a href=\"#l\">Home</a></li>
-          <li class=\"breadcrumb-item active\">Dashboard</li>
-        </ol>
-      </nav>
-    </div><!-- End Page Title -->
-
-    <section class=\"section dashboard\">
-      <div class=\"row\">
-
-        <!-- Left side columns -->
-        <div class=\"col-lg-8\">
-          <div class=\"row\">
-
-            <!-- Sales Card -->
-            <div class=\"col-xxl-4 col-md-6\">
-              <div class=\"card info-card sales-card\">
-
-                <div class=\"filter\">
-                  <a class=\"icon\" href=\"#\" data-bs-toggle=\"dropdown\"><i class=\"bi bi-three-dots\"></i></a>
-                  <ul class=\"dropdown-menu dropdown-menu-end dropdown-menu-arrow\">
-                    <li class=\"dropdown-header text-start\">
-                      <h6>Filter</h6>
-                    </li>
-
-                    <li><a class=\"dropdown-item\" href=\"#\">Today</a></li>
-                    <li><a class=\"dropdown-item\" href=\"#\">This Month</a></li>
-                    <li><a class=\"dropdown-item\" href=\"#\">This Year</a></li>
-                  </ul>
-                </div>
-
-                <div class=\"card-body\">
-                  <h5 class=\"card-title\">Sales <span>| Today</span></h5>
-
-                  <div class=\"d-flex align-items-center\">
-                    <div class=\"card-icon rounded-circle d-flex align-items-center justify-content-center\">
-                      <i class=\"bi bi-cart\"></i>
-                    </div>
-                    <div class=\"ps-3\">
-                      <h6>145</h6>
-                      <span class=\"text-success small pt-1 fw-bold\">12%</span> <span class=\"text-muted small pt-2 ps-1\">increase</span>
-
-                    </div>
-                  </div>
-                </div>
-
-              </div>
-            </div><!-- End Sales Card -->
-
-            <!-- Revenue Card -->
-            <div class=\"col-xxl-4 col-md-6\">
-              <div class=\"card info-card revenue-card\">
-
-                <div class=\"filter\">
-                  <a class=\"icon\" href=\"#\" data-bs-toggle=\"dropdown\"><i class=\"bi bi-three-dots\"></i></a>
-                  <ul class=\"dropdown-menu dropdown-menu-end dropdown-menu-arrow\">
-                    <li class=\"dropdown-header text-start\">
-                      <h6>Filter</h6>
-                    </li>
-
-                    <li><a class=\"dropdown-item\" href=\"#\">Today</a></li>
-                    <li><a class=\"dropdown-item\" href=\"#\">This Month</a></li>
-                    <li><a class=\"dropdown-item\" href=\"#\">This Year</a></li>
-                  </ul>
-                </div>
-
-                <div class=\"card-body\">
-                  <h5 class=\"card-title\">Revenue <span>| This Month</span></h5>
-
-                  <div class=\"d-flex align-items-center\">
-                    <div class=\"card-icon rounded-circle d-flex align-items-center justify-content-center\">
-                      <i class=\"bi bi-currency-dollar\"></i>
-                    </div>
-                    <div class=\"ps-3\">
-                      <h6>\$3,264</h6>
-                      <span class=\"text-success small pt-1 fw-bold\">8%</span> <span class=\"text-muted small pt-2 ps-1\">increase</span>
-
-                    </div>
-                  </div>
-                </div>
-
-              </div>
-            </div><!-- End Revenue Card -->
-
-            <!-- Customers Card -->
-            <div class=\"col-xxl-4 col-xl-12\">
-
-              <div class=\"card info-card customers-card\">
-
-                <div class=\"filter\">
-                  <a class=\"icon\" href=\"#\" data-bs-toggle=\"dropdown\"><i class=\"bi bi-three-dots\"></i></a>
-                  <ul class=\"dropdown-menu dropdown-menu-end dropdown-menu-arrow\">
-                    <li class=\"dropdown-header text-start\">
-                      <h6>Filter</h6>
-                    </li>
-
-                    <li><a class=\"dropdown-item\" href=\"#\">Today</a></li>
-                    <li><a class=\"dropdown-item\" href=\"#\">This Month</a></li>
-                    <li><a class=\"dropdown-item\" href=\"#\">This Year</a></li>
-                  </ul>
-                </div>
-
-                <div class=\"card-body\">
-                  <h5 class=\"card-title\">Customers <span>| This Year</span></h5>
-
-                  <div class=\"d-flex align-items-center\">
-                    <div class=\"card-icon rounded-circle d-flex align-items-center justify-content-center\">
-                      <i class=\"bi bi-people\"></i>
-                    </div>
-                    <div class=\"ps-3\">
-                      <h6>1244</h6>
-                      <span class=\"text-danger small pt-1 fw-bold\">12%</span> <span class=\"text-muted small pt-2 ps-1\">decrease</span>
-
-                    </div>
-                  </div>
-
-                </div>
-              </div>
-
-            </div><!-- End Customers Card -->
-
-            <!-- Reports -->
-            <div class=\"col-12\">
-              <div class=\"card\">
-
-                <div class=\"filter\">
-                  <a class=\"icon\" href=\"#\" data-bs-toggle=\"dropdown\"><i class=\"bi bi-three-dots\"></i></a>
-                  <ul class=\"dropdown-menu dropdown-menu-end dropdown-menu-arrow\">
-                    <li class=\"dropdown-header text-start\">
-                      <h6>Filter</h6>
-                    </li>
-
-                    <li><a class=\"dropdown-item\" href=\"#\">Today</a></li>
-                    <li><a class=\"dropdown-item\" href=\"#\">This Month</a></li>
-                    <li><a class=\"dropdown-item\" href=\"#\">This Year</a></li>
-                  </ul>
-                </div>
-
-                <div class=\"card-body\">
-                  <h5 class=\"card-title\">Reports <span>/Today</span></h5>
-
-                  <!-- Line Chart -->
-                  <div id=\"reportsChart\"></div>
-
-                  <script>
-                    document.addEventListener(\"DOMContentLoaded\", () => {
-                      new ApexCharts(document.querySelector(\"#reportsChart\"), {
-                        series: [{
-                          name: 'Sales',
-                          data: [31, 40, 28, 51, 42, 82, 56],
-                        }, {
-                          name: 'Revenue',
-                          data: [11, 32, 45, 32, 34, 52, 41]
-                        }, {
-                          name: 'Customers',
-                          data: [15, 11, 32, 18, 9, 24, 11]
-                        }],
-                        chart: {
-                          height: 350,
-                          type: 'area',
-                          toolbar: {
-                            show: false
-                          },
-                        },
-                        markers: {
-                          size: 4
-                        },
-                        colors: ['#4154f1', '#2eca6a', '#ff771d'],
-                        fill: {
-                          type: \"gradient\",
-                          gradient: {
-                            shadeIntensity: 1,
-                            opacityFrom: 0.3,
-                            opacityTo: 0.4,
-                            stops: [0, 90, 100]
-                          }
-                        },
-                        dataLabels: {
-                          enabled: false
-                        },
-                        stroke: {
-                          curve: 'smooth',
-                          width: 2
-                        },
-                        xaxis: {
-                          type: 'datetime',
-                          categories: [\"2018-09-19T00:00:00.000Z\", \"2018-09-19T01:30:00.000Z\", \"2018-09-19T02:30:00.000Z\", \"2018-09-19T03:30:00.000Z\", \"2018-09-19T04:30:00.000Z\", \"2018-09-19T05:30:00.000Z\", \"2018-09-19T06:30:00.000Z\"]
-                        },
-                        tooltip: {
-                          x: {
-                            format: 'dd/MM/yy HH:mm'
-                          },
-                        }
-                      }).render();
-                    });
-                  </script>
-                  <!-- End Line Chart -->
-
-                </div>
-
-              </div>
-            </div><!-- End Reports -->
-
-            <!-- Recent Sales -->
-            <div class=\"col-12\">
-              <div class=\"card recent-sales overflow-auto\">
-
-                <div class=\"filter\">
-                  <a class=\"icon\" href=\"#\" data-bs-toggle=\"dropdown\"><i class=\"bi bi-three-dots\"></i></a>
-                  <ul class=\"dropdown-menu dropdown-menu-end dropdown-menu-arrow\">
-                    <li class=\"dropdown-header text-start\">
-                      <h6>Filter</h6>
-                    </li>
-
-                    <li><a class=\"dropdown-item\" href=\"#\">Today</a></li>
-                    <li><a class=\"dropdown-item\" href=\"#\">This Month</a></li>
-                    <li><a class=\"dropdown-item\" href=\"#\">This Year</a></li>
-                  </ul>
-                </div>
-
-                <div class=\"card-body\">
-                  <h5 class=\"card-title\">Recent Sales <span>| Today</span></h5>
-
-                  <table class=\"table table-borderless datatable\">
-                    <thead>
-                      <tr>
-                        <th scope=\"col\">#</th>
-                        <th scope=\"col\">Customer</th>
-                        <th scope=\"col\">Product</th>
-                        <th scope=\"col\">Price</th>
-                        <th scope=\"col\">Status</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <th scope=\"row\"><a href=\"#\">#2457</a></th>
-                        <td>Brandon Jacob</td>
-                        <td><a href=\"#\" class=\"text-primary\">At praesentium minu</a></td>
-                        <td>\$64</td>
-                        <td><span class=\"badge bg-success\">Approved</span></td>
-                      </tr>
-                      <tr>
-                        <th scope=\"row\"><a href=\"#\">#2147</a></th>
-                        <td>Bridie Kessler</td>
-                        <td><a href=\"#\" class=\"text-primary\">Blanditiis dolor omnis similique</a></td>
-                        <td>\$47</td>
-                        <td><span class=\"badge bg-warning\">Pending</span></td>
-                      </tr>
-                      <tr>
-                        <th scope=\"row\"><a href=\"#\">#2049</a></th>
-                        <td>Ashleigh Langosh</td>
-                        <td><a href=\"#\" class=\"text-primary\">At recusandae consectetur</a></td>
-                        <td>\$147</td>
-                        <td><span class=\"badge bg-success\">Approved</span></td>
-                      </tr>
-                      <tr>
-                        <th scope=\"row\"><a href=\"#\">#2644</a></th>
-                        <td>Angus Grady</td>
-                        <td><a href=\"#\" class=\"text-primar\">Ut voluptatem id earum et</a></td>
-                        <td>\$67</td>
-                        <td><span class=\"badge bg-danger\">Rejected</span></td>
-                      </tr>
-                      <tr>
-                        <th scope=\"row\"><a href=\"#\">#2644</a></th>
-                        <td>Raheem Lehner</td>
-                        <td><a href=\"#\" class=\"text-primary\">Sunt similique distinctio</a></td>
-                        <td>\$165</td>
-                        <td><span class=\"badge bg-success\">Approved</span></td>
-                      </tr>
-                    </tbody>
-                  </table>
-
-                </div>
-
-              </div>
-            </div><!-- End Recent Sales -->
-
-            <!-- Top Selling -->
-            <div class=\"col-12\">
-              <div class=\"card top-selling overflow-auto\">
-
-                <div class=\"filter\">
-                  <a class=\"icon\" href=\"#\" data-bs-toggle=\"dropdown\"><i class=\"bi bi-three-dots\"></i></a>
-                  <ul class=\"dropdown-menu dropdown-menu-end dropdown-menu-arrow\">
-                    <li class=\"dropdown-header text-start\">
-                      <h6>Filter</h6>
-                    </li>
-
-                    <li><a class=\"dropdown-item\" href=\"#\">Today</a></li>
-                    <li><a class=\"dropdown-item\" href=\"#\">This Month</a></li>
-                    <li><a class=\"dropdown-item\" href=\"#\">This Year</a></li>
-                  </ul>
-                </div>
-
-                <div class=\"card-body pb-0\">
-                  <h5 class=\"card-title\">Top Selling <span>| Today</span></h5>
-
-                  <table class=\"table table-borderless\">
-                    <thead>
-                      <tr>
-                        <th scope=\"col\">Preview</th>
-                        <th scope=\"col\">Product</th>
-                        <th scope=\"col\">Price</th>
-                        <th scope=\"col\">Sold</th>
-                        <th scope=\"col\">Revenue</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <th scope=\"row\"><a href=\"#\"><img src=\"";
-        // line 707
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("BackOffice/assets/img/product-1.jpg"), "html", null, true);
-        echo "\" alt=\"\"></a></th>
-                        <td><a href=\"#\" class=\"text-primary fw-bold\">Ut inventore ipsa voluptas nulla</a></td>
-                        <td>\$64</td>
-                        <td class=\"fw-bold\">124</td>
-                        <td>\$5,828</td>
-                      </tr>
-                      <tr>
-                        <th scope=\"row\"><a href=\"#\"><img src=\"";
-        // line 714
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("BackOffice/assets/img/product-2.jpg"), "html", null, true);
-        echo "\" alt=\"\"></a></th>
-                        <td><a href=\"#\" class=\"text-primary fw-bold\">Exercitationem similique doloremque</a></td>
-                        <td>\$46</td>
-                        <td class=\"fw-bold\">98</td>
-                        <td>\$4,508</td>
-                      </tr>
-                      <tr>
-                        <th scope=\"row\"><a href=\"#\"><img src=\"";
-        // line 721
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("BackOffice/assets/img/product-3.jpg"), "html", null, true);
-        echo "\" alt=\"\"></a></th>
-                        <td><a href=\"#\" class=\"text-primary fw-bold\">Doloribus nisi exercitationem</a></td>
-                        <td>\$59</td>
-                        <td class=\"fw-bold\">74</td>
-                        <td>\$4,366</td>
-                      </tr>
-                      <tr>
-                        <th scope=\"row\"><a href=\"#\"><img src=\"";
-        // line 728
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("BackOffice/assets/img/product-4.jpg"), "html", null, true);
-        echo "\" alt=\"\"></a></th>
-                        <td><a href=\"#\" class=\"text-primary fw-bold\">Officiis quaerat sint rerum error</a></td>
-                        <td>\$32</td>
-                        <td class=\"fw-bold\">63</td>
-                        <td>\$2,016</td>
-                      </tr>
-                      <tr>
-                        <th scope=\"row\"><a href=\"#\"><img src=\"";
-        // line 735
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("BackOffice/assets/img/product-5.jpg"), "html", null, true);
-        echo "\" alt=\"\"></a></th>
-                        <td><a href=\"#\" class=\"text-primary fw-bold\">Sit unde debitis delectus repellendus</a></td>
-                        <td>\$79</td>
-                        <td class=\"fw-bold\">41</td>
-                        <td>\$3,239</td>
-                      </tr>
-                    </tbody>
-                  </table>
-
-                </div>
-
-              </div>
-            </div><!-- End Top Selling -->
-
-          </div>
-        </div><!-- End Left side columns -->
-
-        <!-- Right side columns -->
-        <div class=\"col-lg-4\">
-
-          <!-- Recent Activity -->
-          <div class=\"card\">
-            <div class=\"filter\">
-              <a class=\"icon\" href=\"#\" data-bs-toggle=\"dropdown\"><i class=\"bi bi-three-dots\"></i></a>
-              <ul class=\"dropdown-menu dropdown-menu-end dropdown-menu-arrow\">
-                <li class=\"dropdown-header text-start\">
-                  <h6>Filter</h6>
-                </li>
-
-                <li><a class=\"dropdown-item\" href=\"#\">Today</a></li>
-                <li><a class=\"dropdown-item\" href=\"#\">This Month</a></li>
-                <li><a class=\"dropdown-item\" href=\"#\">This Year</a></li>
-              </ul>
-            </div>
-
-            <div class=\"card-body\">
-              <h5 class=\"card-title\">Recent Activity <span>| Today</span></h5>
-
-              <div class=\"activity\">
-
-                <div class=\"activity-item d-flex\">
-                  <div class=\"activite-label\">32 min</div>
-                  <i class='bi bi-circle-fill activity-badge text-success align-self-start'></i>
-                  <div class=\"activity-content\">
-                    Quia quae rerum <a href=\"#\" class=\"fw-bold text-dark\">explicabo officiis</a> beatae
-                  </div>
-                </div><!-- End activity item-->
-
-                <div class=\"activity-item d-flex\">
-                  <div class=\"activite-label\">56 min</div>
-                  <i class='bi bi-circle-fill activity-badge text-danger align-self-start'></i>
-                  <div class=\"activity-content\">
-                    Voluptatem blanditiis blanditiis eveniet
-                  </div>
-                </div><!-- End activity item-->
-
-                <div class=\"activity-item d-flex\">
-                  <div class=\"activite-label\">2 hrs</div>
-                  <i class='bi bi-circle-fill activity-badge text-primary align-self-start'></i>
-                  <div class=\"activity-content\">
-                    Voluptates corrupti molestias voluptatem
-                  </div>
-                </div><!-- End activity item-->
-
-                <div class=\"activity-item d-flex\">
-                  <div class=\"activite-label\">1 day</div>
-                  <i class='bi bi-circle-fill activity-badge text-info align-self-start'></i>
-                  <div class=\"activity-content\">
-                    Tempore autem saepe <a href=\"#\" class=\"fw-bold text-dark\">occaecati voluptatem</a> tempore
-                  </div>
-                </div><!-- End activity item-->
-
-                <div class=\"activity-item d-flex\">
-                  <div class=\"activite-label\">2 days</div>
-                  <i class='bi bi-circle-fill activity-badge text-warning align-self-start'></i>
-                  <div class=\"activity-content\">
-                    Est sit eum reiciendis exercitationem
-                  </div>
-                </div><!-- End activity item-->
-
-                <div class=\"activity-item d-flex\">
-                  <div class=\"activite-label\">4 weeks</div>
-                  <i class='bi bi-circle-fill activity-badge text-muted align-self-start'></i>
-                  <div class=\"activity-content\">
-                    Dicta dolorem harum nulla eius. Ut quidem quidem sit quas
-                  </div>
-                </div><!-- End activity item-->
-
-              </div>
-
-            </div>
-          </div><!-- End Recent Activity -->
-
-          <!-- Budget Report -->
-          <div class=\"card\">
-            <div class=\"filter\">
-              <a class=\"icon\" href=\"#\" data-bs-toggle=\"dropdown\"><i class=\"bi bi-three-dots\"></i></a>
-              <ul class=\"dropdown-menu dropdown-menu-end dropdown-menu-arrow\">
-                <li class=\"dropdown-header text-start\">
-                  <h6>Filter</h6>
-                </li>
-
-                <li><a class=\"dropdown-item\" href=\"#\">Today</a></li>
-                <li><a class=\"dropdown-item\" href=\"#\">This Month</a></li>
-                <li><a class=\"dropdown-item\" href=\"#\">This Year</a></li>
-              </ul>
-            </div>
-
-            <div class=\"card-body pb-0\">
-              <h5 class=\"card-title\">Budget Report <span>| This Month</span></h5>
-
-              <div id=\"budgetChart\" style=\"min-height: 400px;\" class=\"echart\"></div>
-
-              <script>
-                document.addEventListener(\"DOMContentLoaded\", () => {
-                  var budgetChart = echarts.init(document.querySelector(\"#budgetChart\")).setOption({
-                    legend: {
-                      data: ['Allocated Budget', 'Actual Spending']
-                    },
-                    radar: {
-                      // shape: 'circle',
-                      indicator: [{
-                          name: 'Sales',
-                          max: 6500
-                        },
-                        {
-                          name: 'Administration',
-                          max: 16000
-                        },
-                        {
-                          name: 'Information Technology',
-                          max: 30000
-                        },
-                        {
-                          name: 'Customer Support',
-                          max: 38000
-                        },
-                        {
-                          name: 'Development',
-                          max: 52000
-                        },
-                        {
-                          name: 'Marketing',
-                          max: 25000
-                        }
-                      ]
-                    },
-                    series: [{
-                      name: 'Budget vs spending',
-                      type: 'radar',
-                      data: [{
-                          value: [4200, 3000, 20000, 35000, 50000, 18000],
-                          name: 'Allocated Budget'
-                        },
-                        {
-                          value: [5000, 14000, 28000, 26000, 42000, 21000],
-                          name: 'Actual Spending'
-                        }
-                      ]
-                    }]
-                  });
-                });
-              </script>
-
-            </div>
-          </div><!-- End Budget Report -->
-
-          <!-- Website Traffic -->
-          <div class=\"card\">
-            <div class=\"filter\">
-              <a class=\"icon\" href=\"#\" data-bs-toggle=\"dropdown\"><i class=\"bi bi-three-dots\"></i></a>
-              <ul class=\"dropdown-menu dropdown-menu-end dropdown-menu-arrow\">
-                <li class=\"dropdown-header text-start\">
-                  <h6>Filter</h6>
-                </li>
-
-                <li><a class=\"dropdown-item\" href=\"#\">Today</a></li>
-                <li><a class=\"dropdown-item\" href=\"#\">This Month</a></li>
-                <li><a class=\"dropdown-item\" href=\"#\">This Year</a></li>
-              </ul>
-            </div>
-
-            <div class=\"card-body pb-0\">
-              <h5 class=\"card-title\">Website Traffic <span>| Today</span></h5>
-
-              <div id=\"trafficChart\" style=\"min-height: 400px;\" class=\"echart\"></div>
-
-              <script>
-                document.addEventListener(\"DOMContentLoaded\", () => {
-                  echarts.init(document.querySelector(\"#trafficChart\")).setOption({
-                    tooltip: {
-                      trigger: 'item'
-                    },
-                    legend: {
-                      top: '5%',
-                      left: 'center'
-                    },
-                    series: [{
-                      name: 'Access From',
-                      type: 'pie',
-                      radius: ['40%', '70%'],
-                      avoidLabelOverlap: false,
-                      label: {
-                        show: false,
-                        position: 'center'
-                      },
-                      emphasis: {
-                        label: {
-                          show: true,
-                          fontSize: '18',
-                          fontWeight: 'bold'
-                        }
-                      },
-                      labelLine: {
-                        show: false
-                      },
-                      data: [{
-                          value: 1048,
-                          name: 'Search Engine'
-                        },
-                        {
-                          value: 735,
-                          name: 'Direct'
-                        },
-                        {
-                          value: 580,
-                          name: 'Email'
-                        },
-                        {
-                          value: 484,
-                          name: 'Union Ads'
-                        },
-                        {
-                          value: 300,
-                          name: 'Video Ads'
-                        }
-                      ]
-                    }]
-                  });
-                });
-              </script>
-
-            </div>
-          </div><!-- End Website Traffic -->
-
-          <!-- News & Updates Traffic -->
-          <div class=\"card\">
-            <div class=\"filter\">
-              <a class=\"icon\" href=\"#\" data-bs-toggle=\"dropdown\"><i class=\"bi bi-three-dots\"></i></a>
-              <ul class=\"dropdown-menu dropdown-menu-end dropdown-menu-arrow\">
-                <li class=\"dropdown-header text-start\">
-                  <h6>Filter</h6>
-                </li>
-
-                <li><a class=\"dropdown-item\" href=\"#\">Today</a></li>
-                <li><a class=\"dropdown-item\" href=\"#\">This Month</a></li>
-                <li><a class=\"dropdown-item\" href=\"#\">This Year</a></li>
-              </ul>
-            </div>
-
-            <div class=\"card-body pb-0\">
-              <h5 class=\"card-title\">News &amp; Updates <span>| Today</span></h5>
-
-              <div class=\"news\">
-                <div class=\"post-item clearfix\">
-                  <img src=\"";
-        // line 1000
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("BackOffice/assets/img/news-1.jpg"), "html", null, true);
-        echo "\" alt=\"\">
-                  <h4><a href=\"#\">Nihil blanditiis at in nihil autem</a></h4>
-                  <p>Sit recusandae non aspernatur laboriosam. Quia enim eligendi sed ut harum...</p>
-                </div>
-
-                <div class=\"post-item clearfix\">
-                  <img src=\"";
-        // line 1006
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("BackOffice/assets/img/news-2.jpg"), "html", null, true);
-        echo "\" alt=\"\">
-                  <h4><a href=\"#\">Quidem autem et impedit</a></h4>
-                  <p>Illo nemo neque maiores vitae officiis cum eum turos elan dries werona nande...</p>
-                </div>
-
-                <div class=\"post-item clearfix\">
-                  <img src=\"";
-        // line 1012
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("BackOffice/assets/img/news-3.jpg"), "html", null, true);
-        echo "\" alt=\"\">
-                  <h4><a href=\"#\">Id quia et et ut maxime similique occaecati ut</a></h4>
-                  <p>Fugiat voluptas vero eaque accusantium eos. Consequuntur sed ipsam et totam...</p>
-                </div>
-
-                <div class=\"post-item clearfix\">
-                  <img src=\"";
-        // line 1018
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("BackOffice/assets/img/news-4.jpg"), "html", null, true);
-        echo "\" alt=\"\">
-                  <h4><a href=\"#\">Laborum corporis quo dara net para</a></h4>
-                  <p>Qui enim quia optio. Eligendi aut asperiores enim repellendusvel rerum cuder...</p>
-                </div>
-
-                <div class=\"post-item clearfix\">
-                  <img src=\"";
-        // line 1024
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("BackOffice/assets/img/news-5.jpg"), "html", null, true);
-        echo "\" alt=\"\">
-                  <h4><a href=\"#\">Et dolores corrupti quae illo quod dolor</a></h4>
-                  <p>Odit ut eveniet modi reiciendis. Atque cupiditate libero beatae dignissimos eius...</p>
-                </div>
-
-              </div><!-- End sidebar recent posts-->
-
-            </div>
-          </div><!-- End News & Updates -->
-
-        </div><!-- End Right side columns -->
-
-      </div>
-    </section>
+        // line 396
+        echo "    
   ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
@@ -1290,7 +619,7 @@ class __TwigTemplate_ea18621d8906447cc3ca4a868e92d39e extends Template
      */
     public function getDebugInfo()
     {
-        return array (  1248 => 1024,  1239 => 1018,  1230 => 1012,  1221 => 1006,  1212 => 1000,  944 => 735,  934 => 728,  924 => 721,  914 => 714,  904 => 707,  590 => 395,  580 => 394,  461 => 279,  451 => 278,  436 => 1068,  430 => 1065,  426 => 1064,  422 => 1063,  418 => 1062,  414 => 1061,  410 => 1060,  406 => 1059,  402 => 1058,  381 => 1039,  379 => 394,  371 => 388,  369 => 278,  304 => 216,  278 => 193,  261 => 179,  244 => 165,  126 => 50,  105 => 32,  99 => 29,  95 => 28,  91 => 27,  87 => 26,  83 => 25,  79 => 24,  75 => 23,  65 => 16,  61 => 15,  45 => 1,);
+        return array (  591 => 396,  581 => 395,  462 => 280,  452 => 279,  437 => 427,  431 => 424,  427 => 423,  423 => 422,  419 => 421,  415 => 420,  411 => 419,  407 => 418,  403 => 417,  382 => 398,  380 => 395,  372 => 389,  370 => 279,  305 => 217,  279 => 194,  262 => 180,  245 => 166,  127 => 51,  105 => 32,  99 => 29,  95 => 28,  91 => 27,  87 => 26,  83 => 25,  79 => 24,  75 => 23,  65 => 16,  61 => 15,  45 => 1,);
     }
 
     public function getSourceContext()
@@ -1327,6 +656,7 @@ class __TwigTemplate_ea18621d8906447cc3ca4a868e92d39e extends Template
 
   <!-- Template Main CSS File -->
   <link href=\"{{ asset('BackOffice/assets/css/style.css') }}\" rel=\"stylesheet\">
+  
 
   <!-- =======================================================
   * Template Name: NiceAdmin
@@ -1689,649 +1019,7 @@ class __TwigTemplate_ea18621d8906447cc3ca4a868e92d39e extends Template
 
   <main id=\"main\" class=\"main\">
   {% block body %}
-    <div class=\"pagetitle\">
-      <h1>Dashboard</h1>
-      <nav>
-        <ol class=\"breadcrumb\">
-          <li class=\"breadcrumb-item\"><a href=\"#l\">Home</a></li>
-          <li class=\"breadcrumb-item active\">Dashboard</li>
-        </ol>
-      </nav>
-    </div><!-- End Page Title -->
-
-    <section class=\"section dashboard\">
-      <div class=\"row\">
-
-        <!-- Left side columns -->
-        <div class=\"col-lg-8\">
-          <div class=\"row\">
-
-            <!-- Sales Card -->
-            <div class=\"col-xxl-4 col-md-6\">
-              <div class=\"card info-card sales-card\">
-
-                <div class=\"filter\">
-                  <a class=\"icon\" href=\"#\" data-bs-toggle=\"dropdown\"><i class=\"bi bi-three-dots\"></i></a>
-                  <ul class=\"dropdown-menu dropdown-menu-end dropdown-menu-arrow\">
-                    <li class=\"dropdown-header text-start\">
-                      <h6>Filter</h6>
-                    </li>
-
-                    <li><a class=\"dropdown-item\" href=\"#\">Today</a></li>
-                    <li><a class=\"dropdown-item\" href=\"#\">This Month</a></li>
-                    <li><a class=\"dropdown-item\" href=\"#\">This Year</a></li>
-                  </ul>
-                </div>
-
-                <div class=\"card-body\">
-                  <h5 class=\"card-title\">Sales <span>| Today</span></h5>
-
-                  <div class=\"d-flex align-items-center\">
-                    <div class=\"card-icon rounded-circle d-flex align-items-center justify-content-center\">
-                      <i class=\"bi bi-cart\"></i>
-                    </div>
-                    <div class=\"ps-3\">
-                      <h6>145</h6>
-                      <span class=\"text-success small pt-1 fw-bold\">12%</span> <span class=\"text-muted small pt-2 ps-1\">increase</span>
-
-                    </div>
-                  </div>
-                </div>
-
-              </div>
-            </div><!-- End Sales Card -->
-
-            <!-- Revenue Card -->
-            <div class=\"col-xxl-4 col-md-6\">
-              <div class=\"card info-card revenue-card\">
-
-                <div class=\"filter\">
-                  <a class=\"icon\" href=\"#\" data-bs-toggle=\"dropdown\"><i class=\"bi bi-three-dots\"></i></a>
-                  <ul class=\"dropdown-menu dropdown-menu-end dropdown-menu-arrow\">
-                    <li class=\"dropdown-header text-start\">
-                      <h6>Filter</h6>
-                    </li>
-
-                    <li><a class=\"dropdown-item\" href=\"#\">Today</a></li>
-                    <li><a class=\"dropdown-item\" href=\"#\">This Month</a></li>
-                    <li><a class=\"dropdown-item\" href=\"#\">This Year</a></li>
-                  </ul>
-                </div>
-
-                <div class=\"card-body\">
-                  <h5 class=\"card-title\">Revenue <span>| This Month</span></h5>
-
-                  <div class=\"d-flex align-items-center\">
-                    <div class=\"card-icon rounded-circle d-flex align-items-center justify-content-center\">
-                      <i class=\"bi bi-currency-dollar\"></i>
-                    </div>
-                    <div class=\"ps-3\">
-                      <h6>\$3,264</h6>
-                      <span class=\"text-success small pt-1 fw-bold\">8%</span> <span class=\"text-muted small pt-2 ps-1\">increase</span>
-
-                    </div>
-                  </div>
-                </div>
-
-              </div>
-            </div><!-- End Revenue Card -->
-
-            <!-- Customers Card -->
-            <div class=\"col-xxl-4 col-xl-12\">
-
-              <div class=\"card info-card customers-card\">
-
-                <div class=\"filter\">
-                  <a class=\"icon\" href=\"#\" data-bs-toggle=\"dropdown\"><i class=\"bi bi-three-dots\"></i></a>
-                  <ul class=\"dropdown-menu dropdown-menu-end dropdown-menu-arrow\">
-                    <li class=\"dropdown-header text-start\">
-                      <h6>Filter</h6>
-                    </li>
-
-                    <li><a class=\"dropdown-item\" href=\"#\">Today</a></li>
-                    <li><a class=\"dropdown-item\" href=\"#\">This Month</a></li>
-                    <li><a class=\"dropdown-item\" href=\"#\">This Year</a></li>
-                  </ul>
-                </div>
-
-                <div class=\"card-body\">
-                  <h5 class=\"card-title\">Customers <span>| This Year</span></h5>
-
-                  <div class=\"d-flex align-items-center\">
-                    <div class=\"card-icon rounded-circle d-flex align-items-center justify-content-center\">
-                      <i class=\"bi bi-people\"></i>
-                    </div>
-                    <div class=\"ps-3\">
-                      <h6>1244</h6>
-                      <span class=\"text-danger small pt-1 fw-bold\">12%</span> <span class=\"text-muted small pt-2 ps-1\">decrease</span>
-
-                    </div>
-                  </div>
-
-                </div>
-              </div>
-
-            </div><!-- End Customers Card -->
-
-            <!-- Reports -->
-            <div class=\"col-12\">
-              <div class=\"card\">
-
-                <div class=\"filter\">
-                  <a class=\"icon\" href=\"#\" data-bs-toggle=\"dropdown\"><i class=\"bi bi-three-dots\"></i></a>
-                  <ul class=\"dropdown-menu dropdown-menu-end dropdown-menu-arrow\">
-                    <li class=\"dropdown-header text-start\">
-                      <h6>Filter</h6>
-                    </li>
-
-                    <li><a class=\"dropdown-item\" href=\"#\">Today</a></li>
-                    <li><a class=\"dropdown-item\" href=\"#\">This Month</a></li>
-                    <li><a class=\"dropdown-item\" href=\"#\">This Year</a></li>
-                  </ul>
-                </div>
-
-                <div class=\"card-body\">
-                  <h5 class=\"card-title\">Reports <span>/Today</span></h5>
-
-                  <!-- Line Chart -->
-                  <div id=\"reportsChart\"></div>
-
-                  <script>
-                    document.addEventListener(\"DOMContentLoaded\", () => {
-                      new ApexCharts(document.querySelector(\"#reportsChart\"), {
-                        series: [{
-                          name: 'Sales',
-                          data: [31, 40, 28, 51, 42, 82, 56],
-                        }, {
-                          name: 'Revenue',
-                          data: [11, 32, 45, 32, 34, 52, 41]
-                        }, {
-                          name: 'Customers',
-                          data: [15, 11, 32, 18, 9, 24, 11]
-                        }],
-                        chart: {
-                          height: 350,
-                          type: 'area',
-                          toolbar: {
-                            show: false
-                          },
-                        },
-                        markers: {
-                          size: 4
-                        },
-                        colors: ['#4154f1', '#2eca6a', '#ff771d'],
-                        fill: {
-                          type: \"gradient\",
-                          gradient: {
-                            shadeIntensity: 1,
-                            opacityFrom: 0.3,
-                            opacityTo: 0.4,
-                            stops: [0, 90, 100]
-                          }
-                        },
-                        dataLabels: {
-                          enabled: false
-                        },
-                        stroke: {
-                          curve: 'smooth',
-                          width: 2
-                        },
-                        xaxis: {
-                          type: 'datetime',
-                          categories: [\"2018-09-19T00:00:00.000Z\", \"2018-09-19T01:30:00.000Z\", \"2018-09-19T02:30:00.000Z\", \"2018-09-19T03:30:00.000Z\", \"2018-09-19T04:30:00.000Z\", \"2018-09-19T05:30:00.000Z\", \"2018-09-19T06:30:00.000Z\"]
-                        },
-                        tooltip: {
-                          x: {
-                            format: 'dd/MM/yy HH:mm'
-                          },
-                        }
-                      }).render();
-                    });
-                  </script>
-                  <!-- End Line Chart -->
-
-                </div>
-
-              </div>
-            </div><!-- End Reports -->
-
-            <!-- Recent Sales -->
-            <div class=\"col-12\">
-              <div class=\"card recent-sales overflow-auto\">
-
-                <div class=\"filter\">
-                  <a class=\"icon\" href=\"#\" data-bs-toggle=\"dropdown\"><i class=\"bi bi-three-dots\"></i></a>
-                  <ul class=\"dropdown-menu dropdown-menu-end dropdown-menu-arrow\">
-                    <li class=\"dropdown-header text-start\">
-                      <h6>Filter</h6>
-                    </li>
-
-                    <li><a class=\"dropdown-item\" href=\"#\">Today</a></li>
-                    <li><a class=\"dropdown-item\" href=\"#\">This Month</a></li>
-                    <li><a class=\"dropdown-item\" href=\"#\">This Year</a></li>
-                  </ul>
-                </div>
-
-                <div class=\"card-body\">
-                  <h5 class=\"card-title\">Recent Sales <span>| Today</span></h5>
-
-                  <table class=\"table table-borderless datatable\">
-                    <thead>
-                      <tr>
-                        <th scope=\"col\">#</th>
-                        <th scope=\"col\">Customer</th>
-                        <th scope=\"col\">Product</th>
-                        <th scope=\"col\">Price</th>
-                        <th scope=\"col\">Status</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <th scope=\"row\"><a href=\"#\">#2457</a></th>
-                        <td>Brandon Jacob</td>
-                        <td><a href=\"#\" class=\"text-primary\">At praesentium minu</a></td>
-                        <td>\$64</td>
-                        <td><span class=\"badge bg-success\">Approved</span></td>
-                      </tr>
-                      <tr>
-                        <th scope=\"row\"><a href=\"#\">#2147</a></th>
-                        <td>Bridie Kessler</td>
-                        <td><a href=\"#\" class=\"text-primary\">Blanditiis dolor omnis similique</a></td>
-                        <td>\$47</td>
-                        <td><span class=\"badge bg-warning\">Pending</span></td>
-                      </tr>
-                      <tr>
-                        <th scope=\"row\"><a href=\"#\">#2049</a></th>
-                        <td>Ashleigh Langosh</td>
-                        <td><a href=\"#\" class=\"text-primary\">At recusandae consectetur</a></td>
-                        <td>\$147</td>
-                        <td><span class=\"badge bg-success\">Approved</span></td>
-                      </tr>
-                      <tr>
-                        <th scope=\"row\"><a href=\"#\">#2644</a></th>
-                        <td>Angus Grady</td>
-                        <td><a href=\"#\" class=\"text-primar\">Ut voluptatem id earum et</a></td>
-                        <td>\$67</td>
-                        <td><span class=\"badge bg-danger\">Rejected</span></td>
-                      </tr>
-                      <tr>
-                        <th scope=\"row\"><a href=\"#\">#2644</a></th>
-                        <td>Raheem Lehner</td>
-                        <td><a href=\"#\" class=\"text-primary\">Sunt similique distinctio</a></td>
-                        <td>\$165</td>
-                        <td><span class=\"badge bg-success\">Approved</span></td>
-                      </tr>
-                    </tbody>
-                  </table>
-
-                </div>
-
-              </div>
-            </div><!-- End Recent Sales -->
-
-            <!-- Top Selling -->
-            <div class=\"col-12\">
-              <div class=\"card top-selling overflow-auto\">
-
-                <div class=\"filter\">
-                  <a class=\"icon\" href=\"#\" data-bs-toggle=\"dropdown\"><i class=\"bi bi-three-dots\"></i></a>
-                  <ul class=\"dropdown-menu dropdown-menu-end dropdown-menu-arrow\">
-                    <li class=\"dropdown-header text-start\">
-                      <h6>Filter</h6>
-                    </li>
-
-                    <li><a class=\"dropdown-item\" href=\"#\">Today</a></li>
-                    <li><a class=\"dropdown-item\" href=\"#\">This Month</a></li>
-                    <li><a class=\"dropdown-item\" href=\"#\">This Year</a></li>
-                  </ul>
-                </div>
-
-                <div class=\"card-body pb-0\">
-                  <h5 class=\"card-title\">Top Selling <span>| Today</span></h5>
-
-                  <table class=\"table table-borderless\">
-                    <thead>
-                      <tr>
-                        <th scope=\"col\">Preview</th>
-                        <th scope=\"col\">Product</th>
-                        <th scope=\"col\">Price</th>
-                        <th scope=\"col\">Sold</th>
-                        <th scope=\"col\">Revenue</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <th scope=\"row\"><a href=\"#\"><img src=\"{{ asset('BackOffice/assets/img/product-1.jpg') }}\" alt=\"\"></a></th>
-                        <td><a href=\"#\" class=\"text-primary fw-bold\">Ut inventore ipsa voluptas nulla</a></td>
-                        <td>\$64</td>
-                        <td class=\"fw-bold\">124</td>
-                        <td>\$5,828</td>
-                      </tr>
-                      <tr>
-                        <th scope=\"row\"><a href=\"#\"><img src=\"{{ asset('BackOffice/assets/img/product-2.jpg') }}\" alt=\"\"></a></th>
-                        <td><a href=\"#\" class=\"text-primary fw-bold\">Exercitationem similique doloremque</a></td>
-                        <td>\$46</td>
-                        <td class=\"fw-bold\">98</td>
-                        <td>\$4,508</td>
-                      </tr>
-                      <tr>
-                        <th scope=\"row\"><a href=\"#\"><img src=\"{{ asset('BackOffice/assets/img/product-3.jpg') }}\" alt=\"\"></a></th>
-                        <td><a href=\"#\" class=\"text-primary fw-bold\">Doloribus nisi exercitationem</a></td>
-                        <td>\$59</td>
-                        <td class=\"fw-bold\">74</td>
-                        <td>\$4,366</td>
-                      </tr>
-                      <tr>
-                        <th scope=\"row\"><a href=\"#\"><img src=\"{{ asset('BackOffice/assets/img/product-4.jpg') }}\" alt=\"\"></a></th>
-                        <td><a href=\"#\" class=\"text-primary fw-bold\">Officiis quaerat sint rerum error</a></td>
-                        <td>\$32</td>
-                        <td class=\"fw-bold\">63</td>
-                        <td>\$2,016</td>
-                      </tr>
-                      <tr>
-                        <th scope=\"row\"><a href=\"#\"><img src=\"{{ asset('BackOffice/assets/img/product-5.jpg') }}\" alt=\"\"></a></th>
-                        <td><a href=\"#\" class=\"text-primary fw-bold\">Sit unde debitis delectus repellendus</a></td>
-                        <td>\$79</td>
-                        <td class=\"fw-bold\">41</td>
-                        <td>\$3,239</td>
-                      </tr>
-                    </tbody>
-                  </table>
-
-                </div>
-
-              </div>
-            </div><!-- End Top Selling -->
-
-          </div>
-        </div><!-- End Left side columns -->
-
-        <!-- Right side columns -->
-        <div class=\"col-lg-4\">
-
-          <!-- Recent Activity -->
-          <div class=\"card\">
-            <div class=\"filter\">
-              <a class=\"icon\" href=\"#\" data-bs-toggle=\"dropdown\"><i class=\"bi bi-three-dots\"></i></a>
-              <ul class=\"dropdown-menu dropdown-menu-end dropdown-menu-arrow\">
-                <li class=\"dropdown-header text-start\">
-                  <h6>Filter</h6>
-                </li>
-
-                <li><a class=\"dropdown-item\" href=\"#\">Today</a></li>
-                <li><a class=\"dropdown-item\" href=\"#\">This Month</a></li>
-                <li><a class=\"dropdown-item\" href=\"#\">This Year</a></li>
-              </ul>
-            </div>
-
-            <div class=\"card-body\">
-              <h5 class=\"card-title\">Recent Activity <span>| Today</span></h5>
-
-              <div class=\"activity\">
-
-                <div class=\"activity-item d-flex\">
-                  <div class=\"activite-label\">32 min</div>
-                  <i class='bi bi-circle-fill activity-badge text-success align-self-start'></i>
-                  <div class=\"activity-content\">
-                    Quia quae rerum <a href=\"#\" class=\"fw-bold text-dark\">explicabo officiis</a> beatae
-                  </div>
-                </div><!-- End activity item-->
-
-                <div class=\"activity-item d-flex\">
-                  <div class=\"activite-label\">56 min</div>
-                  <i class='bi bi-circle-fill activity-badge text-danger align-self-start'></i>
-                  <div class=\"activity-content\">
-                    Voluptatem blanditiis blanditiis eveniet
-                  </div>
-                </div><!-- End activity item-->
-
-                <div class=\"activity-item d-flex\">
-                  <div class=\"activite-label\">2 hrs</div>
-                  <i class='bi bi-circle-fill activity-badge text-primary align-self-start'></i>
-                  <div class=\"activity-content\">
-                    Voluptates corrupti molestias voluptatem
-                  </div>
-                </div><!-- End activity item-->
-
-                <div class=\"activity-item d-flex\">
-                  <div class=\"activite-label\">1 day</div>
-                  <i class='bi bi-circle-fill activity-badge text-info align-self-start'></i>
-                  <div class=\"activity-content\">
-                    Tempore autem saepe <a href=\"#\" class=\"fw-bold text-dark\">occaecati voluptatem</a> tempore
-                  </div>
-                </div><!-- End activity item-->
-
-                <div class=\"activity-item d-flex\">
-                  <div class=\"activite-label\">2 days</div>
-                  <i class='bi bi-circle-fill activity-badge text-warning align-self-start'></i>
-                  <div class=\"activity-content\">
-                    Est sit eum reiciendis exercitationem
-                  </div>
-                </div><!-- End activity item-->
-
-                <div class=\"activity-item d-flex\">
-                  <div class=\"activite-label\">4 weeks</div>
-                  <i class='bi bi-circle-fill activity-badge text-muted align-self-start'></i>
-                  <div class=\"activity-content\">
-                    Dicta dolorem harum nulla eius. Ut quidem quidem sit quas
-                  </div>
-                </div><!-- End activity item-->
-
-              </div>
-
-            </div>
-          </div><!-- End Recent Activity -->
-
-          <!-- Budget Report -->
-          <div class=\"card\">
-            <div class=\"filter\">
-              <a class=\"icon\" href=\"#\" data-bs-toggle=\"dropdown\"><i class=\"bi bi-three-dots\"></i></a>
-              <ul class=\"dropdown-menu dropdown-menu-end dropdown-menu-arrow\">
-                <li class=\"dropdown-header text-start\">
-                  <h6>Filter</h6>
-                </li>
-
-                <li><a class=\"dropdown-item\" href=\"#\">Today</a></li>
-                <li><a class=\"dropdown-item\" href=\"#\">This Month</a></li>
-                <li><a class=\"dropdown-item\" href=\"#\">This Year</a></li>
-              </ul>
-            </div>
-
-            <div class=\"card-body pb-0\">
-              <h5 class=\"card-title\">Budget Report <span>| This Month</span></h5>
-
-              <div id=\"budgetChart\" style=\"min-height: 400px;\" class=\"echart\"></div>
-
-              <script>
-                document.addEventListener(\"DOMContentLoaded\", () => {
-                  var budgetChart = echarts.init(document.querySelector(\"#budgetChart\")).setOption({
-                    legend: {
-                      data: ['Allocated Budget', 'Actual Spending']
-                    },
-                    radar: {
-                      // shape: 'circle',
-                      indicator: [{
-                          name: 'Sales',
-                          max: 6500
-                        },
-                        {
-                          name: 'Administration',
-                          max: 16000
-                        },
-                        {
-                          name: 'Information Technology',
-                          max: 30000
-                        },
-                        {
-                          name: 'Customer Support',
-                          max: 38000
-                        },
-                        {
-                          name: 'Development',
-                          max: 52000
-                        },
-                        {
-                          name: 'Marketing',
-                          max: 25000
-                        }
-                      ]
-                    },
-                    series: [{
-                      name: 'Budget vs spending',
-                      type: 'radar',
-                      data: [{
-                          value: [4200, 3000, 20000, 35000, 50000, 18000],
-                          name: 'Allocated Budget'
-                        },
-                        {
-                          value: [5000, 14000, 28000, 26000, 42000, 21000],
-                          name: 'Actual Spending'
-                        }
-                      ]
-                    }]
-                  });
-                });
-              </script>
-
-            </div>
-          </div><!-- End Budget Report -->
-
-          <!-- Website Traffic -->
-          <div class=\"card\">
-            <div class=\"filter\">
-              <a class=\"icon\" href=\"#\" data-bs-toggle=\"dropdown\"><i class=\"bi bi-three-dots\"></i></a>
-              <ul class=\"dropdown-menu dropdown-menu-end dropdown-menu-arrow\">
-                <li class=\"dropdown-header text-start\">
-                  <h6>Filter</h6>
-                </li>
-
-                <li><a class=\"dropdown-item\" href=\"#\">Today</a></li>
-                <li><a class=\"dropdown-item\" href=\"#\">This Month</a></li>
-                <li><a class=\"dropdown-item\" href=\"#\">This Year</a></li>
-              </ul>
-            </div>
-
-            <div class=\"card-body pb-0\">
-              <h5 class=\"card-title\">Website Traffic <span>| Today</span></h5>
-
-              <div id=\"trafficChart\" style=\"min-height: 400px;\" class=\"echart\"></div>
-
-              <script>
-                document.addEventListener(\"DOMContentLoaded\", () => {
-                  echarts.init(document.querySelector(\"#trafficChart\")).setOption({
-                    tooltip: {
-                      trigger: 'item'
-                    },
-                    legend: {
-                      top: '5%',
-                      left: 'center'
-                    },
-                    series: [{
-                      name: 'Access From',
-                      type: 'pie',
-                      radius: ['40%', '70%'],
-                      avoidLabelOverlap: false,
-                      label: {
-                        show: false,
-                        position: 'center'
-                      },
-                      emphasis: {
-                        label: {
-                          show: true,
-                          fontSize: '18',
-                          fontWeight: 'bold'
-                        }
-                      },
-                      labelLine: {
-                        show: false
-                      },
-                      data: [{
-                          value: 1048,
-                          name: 'Search Engine'
-                        },
-                        {
-                          value: 735,
-                          name: 'Direct'
-                        },
-                        {
-                          value: 580,
-                          name: 'Email'
-                        },
-                        {
-                          value: 484,
-                          name: 'Union Ads'
-                        },
-                        {
-                          value: 300,
-                          name: 'Video Ads'
-                        }
-                      ]
-                    }]
-                  });
-                });
-              </script>
-
-            </div>
-          </div><!-- End Website Traffic -->
-
-          <!-- News & Updates Traffic -->
-          <div class=\"card\">
-            <div class=\"filter\">
-              <a class=\"icon\" href=\"#\" data-bs-toggle=\"dropdown\"><i class=\"bi bi-three-dots\"></i></a>
-              <ul class=\"dropdown-menu dropdown-menu-end dropdown-menu-arrow\">
-                <li class=\"dropdown-header text-start\">
-                  <h6>Filter</h6>
-                </li>
-
-                <li><a class=\"dropdown-item\" href=\"#\">Today</a></li>
-                <li><a class=\"dropdown-item\" href=\"#\">This Month</a></li>
-                <li><a class=\"dropdown-item\" href=\"#\">This Year</a></li>
-              </ul>
-            </div>
-
-            <div class=\"card-body pb-0\">
-              <h5 class=\"card-title\">News &amp; Updates <span>| Today</span></h5>
-
-              <div class=\"news\">
-                <div class=\"post-item clearfix\">
-                  <img src=\"{{ asset('BackOffice/assets/img/news-1.jpg') }}\" alt=\"\">
-                  <h4><a href=\"#\">Nihil blanditiis at in nihil autem</a></h4>
-                  <p>Sit recusandae non aspernatur laboriosam. Quia enim eligendi sed ut harum...</p>
-                </div>
-
-                <div class=\"post-item clearfix\">
-                  <img src=\"{{ asset('BackOffice/assets/img/news-2.jpg') }}\" alt=\"\">
-                  <h4><a href=\"#\">Quidem autem et impedit</a></h4>
-                  <p>Illo nemo neque maiores vitae officiis cum eum turos elan dries werona nande...</p>
-                </div>
-
-                <div class=\"post-item clearfix\">
-                  <img src=\"{{ asset('BackOffice/assets/img/news-3.jpg') }}\" alt=\"\">
-                  <h4><a href=\"#\">Id quia et et ut maxime similique occaecati ut</a></h4>
-                  <p>Fugiat voluptas vero eaque accusantium eos. Consequuntur sed ipsam et totam...</p>
-                </div>
-
-                <div class=\"post-item clearfix\">
-                  <img src=\"{{ asset('BackOffice/assets/img/news-4.jpg') }}\" alt=\"\">
-                  <h4><a href=\"#\">Laborum corporis quo dara net para</a></h4>
-                  <p>Qui enim quia optio. Eligendi aut asperiores enim repellendusvel rerum cuder...</p>
-                </div>
-
-                <div class=\"post-item clearfix\">
-                  <img src=\"{{ asset('BackOffice/assets/img/news-5.jpg') }}\" alt=\"\">
-                  <h4><a href=\"#\">Et dolores corrupti quae illo quod dolor</a></h4>
-                  <p>Odit ut eveniet modi reiciendis. Atque cupiditate libero beatae dignissimos eius...</p>
-                </div>
-
-              </div><!-- End sidebar recent posts-->
-
-            </div>
-          </div><!-- End News & Updates -->
-
-        </div><!-- End Right side columns -->
-
-      </div>
-    </section>
+    
   {% endblock body %}
   </main><!-- End #main -->
 
@@ -2366,6 +1054,6 @@ class __TwigTemplate_ea18621d8906447cc3ca4a868e92d39e extends Template
 
 </body>
 
-</html>", "dashboard.html.twig", "/Users/hassan/Desktop/ProductsManagement/templates/dashboard.html.twig");
+</html>", "dashboard.html.twig", "/Users/hassan/Desktop/ProductsManagement /templates/dashboard.html.twig");
     }
 }
