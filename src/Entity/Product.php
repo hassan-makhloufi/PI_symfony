@@ -37,13 +37,22 @@ class Product
 
     #[ORM\OneToMany(targetEntity: TradeRequest::class, mappedBy: 'toProduct', orphanRemoval: true)]
     private Collection $toRequestTreades;
+    #[ORM\OneToMany(targetEntity: TradeRequest::class, mappedBy: 'fromProduct', orphanRemoval: true)]
+    private Collection $fromRequestTreades;
 
     #[ORM\Column(nullable: true)]
     private ?bool $traded = null;
 
+    #[ORM\Column]
+    private ?int $quanity = null;
+
+    #[ORM\OneToMany(targetEntity: Reclamation::class, mappedBy: 'product')]
+    private Collection $reclamations;
+
     public function __construct()
     {
         $this->toRequestTreades = new ArrayCollection();
+        $this->reclamations = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -185,14 +194,61 @@ class Product
         }
         return $can;
     }
-    public function canTradeWith(User $user){
-        $can = true;
-        foreach ($user->getFromRequestTrades() as $requestTrade){
-            if($requestTrade->getToProduct()->getId()==$this->getId()){
-                $can=false;
+    public function isTradableByUser(User $user){
+        if($this->getQuanity()<=0){
+            return false;
+        }
+       if($this->getAdder()->getId() == $user->getId()){
+            return false;
+       }
+       return true;
+    }
+
+    public function getQuanity(): ?int
+    {
+        return $this->quanity;
+    }
+
+    public function setQuanity(int $quanity): static
+    {
+        $this->quanity = $quanity;
+
+        return $this;
+    }
+    public function isDeletable(){
+        return count($this->fromRequestTreades)==0 &&count($this->toRequestTreades)==0 ;
+
+    }
+
+    /**
+     * @return Collection<int, Reclamation>
+     */
+    public function getReclamations(): Collection
+    {
+        return $this->reclamations;
+    }
+
+    public function addReclamation(Reclamation $reclamation): static
+    {
+        if (!$this->reclamations->contains($reclamation)) {
+            $this->reclamations->add($reclamation);
+            $reclamation->setProduct($this);
+        }
+
+        return $this;
+    }
+
+    public function removeReclamation(Reclamation $reclamation): static
+    {
+        if ($this->reclamations->removeElement($reclamation)) {
+            // set the owning side to null (unless already changed)
+            if ($reclamation->getProduct() === $this) {
+                $reclamation->setProduct(null);
             }
         }
-        return $can;
+
+        return $this;
     }
+
 
 }

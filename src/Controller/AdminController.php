@@ -3,8 +3,15 @@
 namespace App\Controller;
 
 use App\Entity\Category;
+use App\Entity\ReclamationResponse;
 use App\Form\CategoryType;
+use App\Form\ResponseType;
 use App\Repository\CategoryRepository;
+use App\Repository\ForumRepository;
+use App\Repository\LivraisonRepository;
+use App\Repository\ProductRepository;
+use App\Repository\ReclamationRepository;
+use App\Repository\ReclamationResponseRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Flasher\Prime\FlasherInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -108,6 +115,143 @@ class AdminController extends AbstractController
         $flasher->addSuccess('category deleted successfully');
         return $this->redirectToRoute('app_admin_categories_list');
     }
+    #[Route('/admin/forums', name: 'app_admin_forums')]
+    public function findAllForums(ForumRepository $forumRepository){
+      return $this->render('back/forum/list.html.twig',[
+          'forums'=>$forumRepository->findAll()
+      ]);
+
+    }
+    #[Route('/admin/forums/delete/{id}', name: 'app_admin_forums_delete')]
+    public function deleteForum(int $id,ForumRepository $forumRepository,EntityManagerInterface $entityManager,FlasherInterface $flasher){
+        $forum = $forumRepository->find($id);
+        if($forum){
+            $entityManager->remove($forum);
+            $entityManager->flush();
+            $flasher->addSuccess('forum deleted successfully');
+        }
+        else{
+            $flasher->addError('forum not found');
+        }
+        return $this->redirectToRoute('app_admin_forums');
+
+
+    }
+    #[Route('/admin/products', name: 'app_admin_products')]
+    public function findAllProducts(ProductRepository $productRepository){
+            return $this->render('back/products/list.html.twig',[
+                'products'=>$productRepository->findAll()
+            ]);
+    }
+    #[Route('/admin/products/delete/{id}', name: 'app_admin_products_delete')]
+    public function delete(int $id, ProductRepository $productRepository,EntityManagerInterface $entityManager,FlasherInterface $flasher){
+        $product = $productRepository->find($id);
+        if($product && $product->isDeletable()){
+            $entityManager->remove($product);
+            $entityManager->flush();
+            $flasher->addSuccess('product deleted successfully');
+        }
+        else{
+            $flasher->addError('this product can not be deleted');
+        }
+        return $this->redirectToRoute('app_admin_products');
+    }
+    #[Route('/admin/reclamations', name: 'app_admin_reclamation')]
+    public function findAllReclamations(ReclamationRepository $reclamationRepository){
+        return $this->render('back/reclamations/list.html.twig',[
+            'reclamations'=>$reclamationRepository->findAll()
+        ]);
+    }
+    #[Route('/admin/response/{reclamation_id}', name: 'app_admin_response_create')]
+    public function createResponse(int $reclamation_id,ReclamationRepository $reclamationRepository,Request $request,ValidatorInterface $validator,FlasherInterface $flasher,EntityManagerInterface $entityManager){
+        $reclamation = $reclamationRepository->find($reclamation_id);
+        if($reclamation){
+            $response = new ReclamationResponse();
+            $form = $this->createForm(ResponseType::class,$response);
+            $form->handleRequest($request);
+            if($form->isSubmitted()){
+                $errors = $validator->validate($response);
+                if(count($errors)>0){
+                        foreach ($errors as $e){
+                            $flasher->addError($e->getMessage());
+                        }
+                }
+                else{
+                    $response->setReclamation($reclamation);
+                    $entityManager->persist($response);
+                    $entityManager->flush();
+                }
+
+            }
+            else{
+                return $this->render('back/reclamations/add.html.twig',[
+                    'form'=>$form,
+                    'action'=>'add'
+                ]);
+            }
+
+        }
+        else{
+           $flasher->addError('reclamation not found');
+        }
+        return $this->redirectToRoute('app_admin_reclamation');
+    }
+    #[Route('/admin/response/update/{id}', name: 'app_admin_response_update')]
+    public function updateResponse(int $id,ReclamationResponseRepository $reclamationResponseRepository,Request $request,ValidatorInterface $validator,FlasherInterface $flasher,EntityManagerInterface $entityManager){
+        $response = $reclamationResponseRepository->find($id);
+        if($response){
+
+            $form = $this->createForm(ResponseType::class,$response);
+            $form->handleRequest($request);
+            if($form->isSubmitted()){
+                $errors = $validator->validate($response);
+                if(count($errors)>0){
+                    foreach ($errors as $e){
+                        $flasher->addError($e->getMessage());
+                    }
+                }
+                else{
+
+                    $entityManager->flush();
+                }
+
+            }
+            else{
+                return $this->render('back/reclamations/add.html.twig',[
+                    'form'=>$form,
+                    'action'=>'update'
+                ]);
+            }
+
+        }
+        else{
+            $flasher->addError('response not found');
+        }
+        return $this->redirectToRoute('app_admin_reclamation');
+    }
+    #[Route('/admin/livraison', name: 'app_admin_livraison')]
+    public function findAllShipping(LivraisonRepository $livraisonRepository){
+            return $this->render('back/livraison/list.html.twig',[
+                'livraisons'=>$livraisonRepository->findAll()
+            ]);
+    }
+    #[Route('/admin/livraison/{state}/{id}', name: 'app_admin_livraison_update')]
+    public function updateLivraison(string $state,int $id,LivraisonRepository $livraisonRepository,EntityManagerInterface $entityManager,FlasherInterface $flasher){
+        $livraison = $livraisonRepository->find($id);
+        if($livraison){
+            $livraison->setEtat($state);
+            $entityManager->flush();
+            $flasher->addSuccess('livraison updated successfully');
+        }
+        else{
+            $flasher->addError('livraison not found');
+        }
+        return $this->redirectToRoute('app_admin_livraison');
+    }
+
+
+
+
 
 
 }

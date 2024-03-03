@@ -83,70 +83,7 @@ class ProfileController extends AbstractController
         }
 
     }
-    #[Route('/profile/trades', name: 'app_profile_trades')]
-    public function getTrades(TradeRequestRepository $tradeRequestRepository): Response
-    {
-        $user = $this->getUser();
-        if($user){
-            return $this->render('front/profile/my_trades/my_trades.html.twig', [
-                'active' => 'my_trades',
-                'nav_bar_active'=>'profile',
-                'request_trades'=>$tradeRequestRepository->findBy(['fromUser'=>$user->getId()]),
-                'sent_request_trades'=>$tradeRequestRepository->findBy(['toUser'=>$user->getId()])
-            ]);
-        }
-        else{
-            return $this->redirectToRoute('app_login');
-        }
 
-    }
-    #[Route('/profile/trades/{id}', name: 'app_profile_trades_delete')]
-    public function deleteTradeRequest(int $id,TradeRequestRepository $tradeRequestRepository,FlasherInterface $flasher,EntityManagerInterface $entityManager){
-         $user = $this->getUser();
-         if($user){
-             $trade = $tradeRequestRepository->find($id);
-             if($trade->getFromUser()->getId() == $user->getId() && !$trade->isComplete()){
-                  $entityManager->remove($trade);
-                  $entityManager->flush();
-
-                 $flasher->addSuccess('trade deleted successfully');
-             }
-             else{
-                 $flasher->addError('cannot remove this trade');
-             }
-             return $this->redirectToRoute('app_profile_trades');
-
-         }
-         else{
-             return $this->redirectToRoute('app_login');
-         }
-    }
-    #[Route('/profile/trades/validate/{id}', name: 'app_profile_trades_validate')]
-    public function validateTradeRequest(int $id,TradeRequestRepository $tradeRequestRepository,FlasherInterface $flasher,EntityManagerInterface $entityManager){
-        $user = $this->getUser();
-        if($user){
-            $trade = $tradeRequestRepository->find($id);
-
-            if($trade->getToUser()->getId() == $user->getId() && !$trade->isComplete()){
-
-                $trade->setComplete(true);
-                $toProduct = $trade->getToProduct();
-                $fromProduct = $trade->getFromProduct();
-                $toProduct->setTraded(true);
-                $fromProduct->setTraded(true);
-                $entityManager->flush();
-                $flasher->addSuccess('trade validated successfully');
-            }
-            else{
-                $flasher->addError('cannot remove this trade');
-            }
-            return $this->redirectToRoute('app_profile_trades');
-
-        }
-        else{
-            return $this->redirectToRoute('app_login');
-        }
-    }
     #[Route('/profile/update', name: 'app_profile_update')]
     public function updateProfile(ValidatorInterface $validator, Request  $request,FlasherInterface  $flasher,EntityManagerInterface $em,UserPasswordHasherInterface $passwordHasher): Response
     {

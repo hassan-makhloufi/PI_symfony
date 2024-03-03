@@ -158,29 +158,6 @@ class HomeController extends AbstractController
 
     }
 
-    #[Route('/trade', name: 'app_trade',methods:['POST'])]
-    public function tradeProduct(Request $request,ProductRepository $productRepository,EntityManagerInterface $entityManager,FlasherInterface $flasher){
-
-        $user = $this->getUser();
-       $fromProduct = $productRepository->find($request->request->get('from'));
-        $toProduct = $productRepository->find($request->request->get('to'));
-        if($fromProduct and $toProduct){
-            $tradeRequest = new TradeRequest();
-            $tradeRequest->setFromProduct($fromProduct);
-            $tradeRequest->setToProduct($toProduct);
-            $tradeRequest->setFromUser($fromProduct->getAdder());
-            $tradeRequest->setToUser($toProduct->getAdder());
-            $entityManager->persist($tradeRequest);
-            $entityManager->flush();
-            $flasher->addSuccess("a trade request sent to ".$toProduct->getAdder()->getFirstname()." ".$toProduct->getAdder()->getLastname());
-            return $this->redirectToRoute('app_profile_trades');
-        }
-        else{
-            $flasher->addError('something went wrong');
-            return $this->redirectToRoute('app_products');
-        }
-
-    }
 
 
 
