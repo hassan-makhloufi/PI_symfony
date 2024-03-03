@@ -17,6 +17,7 @@ class TransportConfig
     private $options;
     private $failureTransport;
     private $retryStrategy;
+    private $rateLimiter;
     private $_usedProperties = [];
 
     /**
@@ -24,7 +25,7 @@ class TransportConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function dsn($value): self
+    public function dsn($value): static
     {
         $this->_usedProperties['dsn'] = true;
         $this->dsn = $value;
@@ -38,7 +39,7 @@ class TransportConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function serializer($value): self
+    public function serializer($value): static
     {
         $this->_usedProperties['serializer'] = true;
         $this->serializer = $value;
@@ -47,10 +48,11 @@ class TransportConfig
     }
 
     /**
-     * @param ParamConfigurator|list<mixed|ParamConfigurator> $value
+     * @param ParamConfigurator|list<ParamConfigurator|mixed> $value
+     *
      * @return $this
      */
-    public function options($value): self
+    public function options(ParamConfigurator|array $value): static
     {
         $this->_usedProperties['options'] = true;
         $this->options = $value;
@@ -64,7 +66,7 @@ class TransportConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function failureTransport($value): self
+    public function failureTransport($value): static
     {
         $this->_usedProperties['failureTransport'] = true;
         $this->failureTransport = $value;
@@ -73,9 +75,13 @@ class TransportConfig
     }
 
     /**
+     * @template TValue
+     * @param TValue $value
+     * @default {"service":null,"max_retries":3,"delay":1000,"multiplier":2,"max_delay":0}
      * @return \Symfony\Config\Framework\Messenger\TransportConfig\RetryStrategyConfig|$this
+     * @psalm-return (TValue is array ? \Symfony\Config\Framework\Messenger\TransportConfig\RetryStrategyConfig : static)
      */
-    public function retryStrategy($value = [])
+    public function retryStrategy(mixed $value = []): \Symfony\Config\Framework\Messenger\TransportConfig\RetryStrategyConfig|static
     {
         if (!\is_array($value)) {
             $this->_usedProperties['retryStrategy'] = true;
@@ -92,6 +98,20 @@ class TransportConfig
         }
 
         return $this->retryStrategy;
+    }
+
+    /**
+     * Rate limiter name to use when processing messages
+     * @default null
+     * @param ParamConfigurator|mixed $value
+     * @return $this
+     */
+    public function rateLimiter($value): static
+    {
+        $this->_usedProperties['rateLimiter'] = true;
+        $this->rateLimiter = $value;
+
+        return $this;
     }
 
     public function __construct(array $value = [])
@@ -126,6 +146,12 @@ class TransportConfig
             unset($value['retry_strategy']);
         }
 
+        if (array_key_exists('rate_limiter', $value)) {
+            $this->_usedProperties['rateLimiter'] = true;
+            $this->rateLimiter = $value['rate_limiter'];
+            unset($value['rate_limiter']);
+        }
+
         if ([] !== $value) {
             throw new InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__).implode(', ', array_keys($value)));
         }
@@ -148,6 +174,9 @@ class TransportConfig
         }
         if (isset($this->_usedProperties['retryStrategy'])) {
             $output['retry_strategy'] = $this->retryStrategy instanceof \Symfony\Config\Framework\Messenger\TransportConfig\RetryStrategyConfig ? $this->retryStrategy->toArray() : $this->retryStrategy;
+        }
+        if (isset($this->_usedProperties['rateLimiter'])) {
+            $output['rate_limiter'] = $this->rateLimiter;
         }
 
         return $output;

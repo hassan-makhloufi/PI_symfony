@@ -1,0 +1,21 @@
+{% extends 'front/base.html.twig' %}
+
+{% block content %}
+
+    <div class="container-fluid py-5 mb-5 hero-header">
+        <div class="container py-5">
+            <div class="text-center mx-auto" style="max-width: 700px;">
+            <h1> login</h1>
+
+            </div>
+            <form action="{{ path('app_login') }}" method="post">
+                <input type="text" class="w-100 form-control border-0 py-3 mb-4" name="_username" placeholder="email ...">
+                <input type="password" class="w-100 form-control border-0 py-3 mb-4" name="_password"  placeholder="password ...">
+                <button class="w-100 btn form-control border-secondary py-3 bg-white text-primary " type="submit">Submit</button>
+
+            </form>
+
+
+        </div>
+    </div>
+{% endblock %}

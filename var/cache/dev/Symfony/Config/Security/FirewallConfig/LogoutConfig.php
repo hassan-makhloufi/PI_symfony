@@ -12,23 +12,49 @@ use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
  */
 class LogoutConfig 
 {
-    private $csrfParameter;
-    private $csrfTokenGenerator;
+    private $enableCsrf;
     private $csrfTokenId;
+    private $csrfParameter;
+    private $csrfTokenManager;
     private $path;
     private $target;
-    private $successHandler;
     private $invalidateSession;
+    private $clearSiteData;
     private $deleteCookies;
-    private $handlers;
     private $_usedProperties = [];
+
+    /**
+     * @default null
+     * @param ParamConfigurator|bool $value
+     * @return $this
+     */
+    public function enableCsrf($value): static
+    {
+        $this->_usedProperties['enableCsrf'] = true;
+        $this->enableCsrf = $value;
+
+        return $this;
+    }
+
+    /**
+     * @default 'logout'
+     * @param ParamConfigurator|mixed $value
+     * @return $this
+     */
+    public function csrfTokenId($value): static
+    {
+        $this->_usedProperties['csrfTokenId'] = true;
+        $this->csrfTokenId = $value;
+
+        return $this;
+    }
 
     /**
      * @default '_csrf_token'
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function csrfParameter($value): self
+    public function csrfParameter($value): static
     {
         $this->_usedProperties['csrfParameter'] = true;
         $this->csrfParameter = $value;
@@ -41,23 +67,10 @@ class LogoutConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function csrfTokenGenerator($value): self
+    public function csrfTokenManager($value): static
     {
-        $this->_usedProperties['csrfTokenGenerator'] = true;
-        $this->csrfTokenGenerator = $value;
-
-        return $this;
-    }
-
-    /**
-     * @default 'logout'
-     * @param ParamConfigurator|mixed $value
-     * @return $this
-     */
-    public function csrfTokenId($value): self
-    {
-        $this->_usedProperties['csrfTokenId'] = true;
-        $this->csrfTokenId = $value;
+        $this->_usedProperties['csrfTokenManager'] = true;
+        $this->csrfTokenManager = $value;
 
         return $this;
     }
@@ -67,7 +80,7 @@ class LogoutConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function path($value): self
+    public function path($value): static
     {
         $this->_usedProperties['path'] = true;
         $this->path = $value;
@@ -80,24 +93,10 @@ class LogoutConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function target($value): self
+    public function target($value): static
     {
         $this->_usedProperties['target'] = true;
         $this->target = $value;
-
-        return $this;
-    }
-
-    /**
-     * @default null
-     * @param ParamConfigurator|mixed $value
-     * @deprecated The "success_handler" at path "logout" is deprecated, register a listener on the "Symfony\Component\Security\Http\Event\LogoutEvent" event instead.
-     * @return $this
-     */
-    public function successHandler($value): self
-    {
-        $this->_usedProperties['successHandler'] = true;
-        $this->successHandler = $value;
 
         return $this;
     }
@@ -107,7 +106,7 @@ class LogoutConfig
      * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function invalidateSession($value): self
+    public function invalidateSession($value): static
     {
         $this->_usedProperties['invalidateSession'] = true;
         $this->invalidateSession = $value;
@@ -116,9 +115,25 @@ class LogoutConfig
     }
 
     /**
-     * @return \Symfony\Config\Security\FirewallConfig\Logout\DeleteCookieConfig|$this
+     * @param ParamConfigurator|list<ParamConfigurator|mixed>|string $value
+     *
+     * @return $this
      */
-    public function deleteCookie(string $name, $value = [])
+    public function clearSiteData(ParamConfigurator|string|array $value): static
+    {
+        $this->_usedProperties['clearSiteData'] = true;
+        $this->clearSiteData = $value;
+
+        return $this;
+    }
+
+    /**
+     * @template TValue
+     * @param TValue $value
+     * @return \Symfony\Config\Security\FirewallConfig\Logout\DeleteCookieConfig|$this
+     * @psalm-return (TValue is array ? \Symfony\Config\Security\FirewallConfig\Logout\DeleteCookieConfig : static)
+     */
+    public function deleteCookie(string $name, array $value = []): \Symfony\Config\Security\FirewallConfig\Logout\DeleteCookieConfig|static
     {
         if (!\is_array($value)) {
             $this->_usedProperties['deleteCookies'] = true;
@@ -137,36 +152,30 @@ class LogoutConfig
         return $this->deleteCookies[$name];
     }
 
-    /**
-     * @param ParamConfigurator|list<mixed|ParamConfigurator> $value
-     * @return $this
-     */
-    public function handlers($value): self
-    {
-        $this->_usedProperties['handlers'] = true;
-        $this->handlers = $value;
-
-        return $this;
-    }
-
     public function __construct(array $value = [])
     {
-        if (array_key_exists('csrf_parameter', $value)) {
-            $this->_usedProperties['csrfParameter'] = true;
-            $this->csrfParameter = $value['csrf_parameter'];
-            unset($value['csrf_parameter']);
-        }
-
-        if (array_key_exists('csrf_token_generator', $value)) {
-            $this->_usedProperties['csrfTokenGenerator'] = true;
-            $this->csrfTokenGenerator = $value['csrf_token_generator'];
-            unset($value['csrf_token_generator']);
+        if (array_key_exists('enable_csrf', $value)) {
+            $this->_usedProperties['enableCsrf'] = true;
+            $this->enableCsrf = $value['enable_csrf'];
+            unset($value['enable_csrf']);
         }
 
         if (array_key_exists('csrf_token_id', $value)) {
             $this->_usedProperties['csrfTokenId'] = true;
             $this->csrfTokenId = $value['csrf_token_id'];
             unset($value['csrf_token_id']);
+        }
+
+        if (array_key_exists('csrf_parameter', $value)) {
+            $this->_usedProperties['csrfParameter'] = true;
+            $this->csrfParameter = $value['csrf_parameter'];
+            unset($value['csrf_parameter']);
+        }
+
+        if (array_key_exists('csrf_token_manager', $value)) {
+            $this->_usedProperties['csrfTokenManager'] = true;
+            $this->csrfTokenManager = $value['csrf_token_manager'];
+            unset($value['csrf_token_manager']);
         }
 
         if (array_key_exists('path', $value)) {
@@ -181,28 +190,22 @@ class LogoutConfig
             unset($value['target']);
         }
 
-        if (array_key_exists('success_handler', $value)) {
-            $this->_usedProperties['successHandler'] = true;
-            $this->successHandler = $value['success_handler'];
-            unset($value['success_handler']);
-        }
-
         if (array_key_exists('invalidate_session', $value)) {
             $this->_usedProperties['invalidateSession'] = true;
             $this->invalidateSession = $value['invalidate_session'];
             unset($value['invalidate_session']);
         }
 
-        if (array_key_exists('delete_cookies', $value)) {
-            $this->_usedProperties['deleteCookies'] = true;
-            $this->deleteCookies = array_map(function ($v) { return \is_array($v) ? new \Symfony\Config\Security\FirewallConfig\Logout\DeleteCookieConfig($v) : $v; }, $value['delete_cookies']);
-            unset($value['delete_cookies']);
+        if (array_key_exists('clear_site_data', $value)) {
+            $this->_usedProperties['clearSiteData'] = true;
+            $this->clearSiteData = $value['clear_site_data'];
+            unset($value['clear_site_data']);
         }
 
-        if (array_key_exists('handlers', $value)) {
-            $this->_usedProperties['handlers'] = true;
-            $this->handlers = $value['handlers'];
-            unset($value['handlers']);
+        if (array_key_exists('delete_cookies', $value)) {
+            $this->_usedProperties['deleteCookies'] = true;
+            $this->deleteCookies = array_map(fn ($v) => \is_array($v) ? new \Symfony\Config\Security\FirewallConfig\Logout\DeleteCookieConfig($v) : $v, $value['delete_cookies']);
+            unset($value['delete_cookies']);
         }
 
         if ([] !== $value) {
@@ -213,14 +216,17 @@ class LogoutConfig
     public function toArray(): array
     {
         $output = [];
-        if (isset($this->_usedProperties['csrfParameter'])) {
-            $output['csrf_parameter'] = $this->csrfParameter;
-        }
-        if (isset($this->_usedProperties['csrfTokenGenerator'])) {
-            $output['csrf_token_generator'] = $this->csrfTokenGenerator;
+        if (isset($this->_usedProperties['enableCsrf'])) {
+            $output['enable_csrf'] = $this->enableCsrf;
         }
         if (isset($this->_usedProperties['csrfTokenId'])) {
             $output['csrf_token_id'] = $this->csrfTokenId;
+        }
+        if (isset($this->_usedProperties['csrfParameter'])) {
+            $output['csrf_parameter'] = $this->csrfParameter;
+        }
+        if (isset($this->_usedProperties['csrfTokenManager'])) {
+            $output['csrf_token_manager'] = $this->csrfTokenManager;
         }
         if (isset($this->_usedProperties['path'])) {
             $output['path'] = $this->path;
@@ -228,17 +234,14 @@ class LogoutConfig
         if (isset($this->_usedProperties['target'])) {
             $output['target'] = $this->target;
         }
-        if (isset($this->_usedProperties['successHandler'])) {
-            $output['success_handler'] = $this->successHandler;
-        }
         if (isset($this->_usedProperties['invalidateSession'])) {
             $output['invalidate_session'] = $this->invalidateSession;
         }
-        if (isset($this->_usedProperties['deleteCookies'])) {
-            $output['delete_cookies'] = array_map(function ($v) { return $v instanceof \Symfony\Config\Security\FirewallConfig\Logout\DeleteCookieConfig ? $v->toArray() : $v; }, $this->deleteCookies);
+        if (isset($this->_usedProperties['clearSiteData'])) {
+            $output['clear_site_data'] = $this->clearSiteData;
         }
-        if (isset($this->_usedProperties['handlers'])) {
-            $output['handlers'] = $this->handlers;
+        if (isset($this->_usedProperties['deleteCookies'])) {
+            $output['delete_cookies'] = array_map(fn ($v) => $v instanceof \Symfony\Config\Security\FirewallConfig\Logout\DeleteCookieConfig ? $v->toArray() : $v, $this->deleteCookies);
         }
 
         return $output;

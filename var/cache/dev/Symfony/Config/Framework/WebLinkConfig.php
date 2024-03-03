@@ -14,11 +14,11 @@ class WebLinkConfig
     private $_usedProperties = [];
 
     /**
-     * @default true
+     * @default false
      * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function enabled($value): self
+    public function enabled($value): static
     {
         $this->_usedProperties['enabled'] = true;
         $this->enabled = $value;

@@ -1,0 +1,31 @@
+{% for p in products %}
+    <div class="col-md-6 col-lg-6 col-xl-4">
+        <div class="rounded position-relative fruite-item">
+            <div class="fruite-img">
+                <img src="{{ absolute_url(asset(p.image)) }}" class="img-fluid w-100 rounded-top" alt="">
+            </div>
+            <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">
+                {{ p.category.name }}</div>
+            <div class="p-4 border border-secondary border-top-0 rounded-bottom">
+                <h4>{{ p.name }}</h4>
+                <p>{{ p.longDescription }}</p>
+                <div class="d-flex justify-content-between flex-lg-wrap">
+                    <a href="{{path('app_product_single',{id:p.id})}}" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-eye me-2 text-primary"></i> view more</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endfor %}
+                                {% if numberOfPages > 0 %}
+                                    <div class="col-12">
+                                        <div class="pagination d-flex justify-content-center mt-5">
+                                            <a href="#" class="rounded">&laquo;</a>
+                                            {% for p in 1..numberOfPages %}
+                                                <a href="{{ path('app_products',{'page':p}) }}"
+                                                   class="paginationSelector {% if p ==currentPage %}active{% endif%} rounded">{{ p }}</a>
+                                            {% endfor %}
+                                            <a href="#" class="rounded">&raquo;</a>
+
+                                        </div>
+                                    </div>
+                                {% endif %}

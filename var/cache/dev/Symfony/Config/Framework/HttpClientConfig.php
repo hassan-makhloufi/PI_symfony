@@ -21,11 +21,11 @@ class HttpClientConfig
     private $_usedProperties = [];
 
     /**
-     * @default true
+     * @default false
      * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function enabled($value): self
+    public function enabled($value): static
     {
         $this->_usedProperties['enabled'] = true;
         $this->enabled = $value;
@@ -39,7 +39,7 @@ class HttpClientConfig
      * @param ParamConfigurator|int $value
      * @return $this
      */
-    public function maxHostConnections($value): self
+    public function maxHostConnections($value): static
     {
         $this->_usedProperties['maxHostConnections'] = true;
         $this->maxHostConnections = $value;
@@ -65,7 +65,7 @@ class HttpClientConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function mockResponseFactory($value): self
+    public function mockResponseFactory($value): static
     {
         $this->_usedProperties['mockResponseFactory'] = true;
         $this->mockResponseFactory = $value;
@@ -74,9 +74,12 @@ class HttpClientConfig
     }
 
     /**
+     * @template TValue
+     * @param TValue $value
      * @return \Symfony\Config\Framework\HttpClient\ScopedClientConfig|$this
+     * @psalm-return (TValue is array ? \Symfony\Config\Framework\HttpClient\ScopedClientConfig : static)
      */
-    public function scopedClient(string $name, $value = [])
+    public function scopedClient(string $name, mixed $value = []): \Symfony\Config\Framework\HttpClient\ScopedClientConfig|static
     {
         if (!\is_array($value)) {
             $this->_usedProperties['scopedClients'] = true;
@@ -123,7 +126,7 @@ class HttpClientConfig
 
         if (array_key_exists('scoped_clients', $value)) {
             $this->_usedProperties['scopedClients'] = true;
-            $this->scopedClients = array_map(function ($v) { return \is_array($v) ? new \Symfony\Config\Framework\HttpClient\ScopedClientConfig($v) : $v; }, $value['scoped_clients']);
+            $this->scopedClients = array_map(fn ($v) => \is_array($v) ? new \Symfony\Config\Framework\HttpClient\ScopedClientConfig($v) : $v, $value['scoped_clients']);
             unset($value['scoped_clients']);
         }
 
@@ -148,7 +151,7 @@ class HttpClientConfig
             $output['mock_response_factory'] = $this->mockResponseFactory;
         }
         if (isset($this->_usedProperties['scopedClients'])) {
-            $output['scoped_clients'] = array_map(function ($v) { return $v instanceof \Symfony\Config\Framework\HttpClient\ScopedClientConfig ? $v->toArray() : $v; }, $this->scopedClients);
+            $output['scoped_clients'] = array_map(fn ($v) => $v instanceof \Symfony\Config\Framework\HttpClient\ScopedClientConfig ? $v->toArray() : $v, $this->scopedClients);
         }
 
         return $output;

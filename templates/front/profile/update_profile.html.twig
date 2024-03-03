@@ -1,0 +1,25 @@
+{% extends 'front/profile/profile_base.html.twig' %}
+{% block tabcontent %}
+    <div id="tab-3" class="tab-pane fade show p-0 active">
+        <div class="text-center mx-auto" style="max-width: 700px;">
+            <h1> Update Profile</h1>
+
+        </div>
+        {{ form_start(form) }}
+
+
+        <input type="text" name="{{ field_name(form.email) }}" value="{{ app.user.email }}"  class="w-100 form-control border-0 py-3 mb-4" placeholder="email ...">
+        <input type="text" name="{{ field_name(form.firstname) }}" value="{{ app.user.firstname }}" class="w-100 form-control border-0 py-3 mb-4" placeholder="firstname ...">
+        <input type="text" name="{{ field_name(form.lastname) }}" value="{{ app.user.lastname }}" class="w-100 form-control border-0 py-3 mb-4" placeholder="lastname ...">
+
+        <!--<form action="" class="">
+
+            <button class="w-100 btn form-control border-secondary py-3 bg-white text-primary " type="submit">Submit</button>
+
+        </form>-->
+        <button class="w-100 btn form-control border-secondary py-3 bg-white text-primary " type="submit">Submit</button>
+
+        {{ form_end(form) }}
+
+    </div>
+{% endblock %}

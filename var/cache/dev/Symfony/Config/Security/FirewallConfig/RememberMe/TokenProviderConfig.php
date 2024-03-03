@@ -22,7 +22,7 @@ class TokenProviderConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function service($value): self
+    public function service($value): static
     {
         $this->_usedProperties['service'] = true;
         $this->service = $value;
@@ -31,9 +31,13 @@ class TokenProviderConfig
     }
 
     /**
+     * @template TValue
+     * @param TValue $value
+     * @default {"enabled":false,"connection":null}
      * @return \Symfony\Config\Security\FirewallConfig\RememberMe\TokenProvider\DoctrineConfig|$this
+     * @psalm-return (TValue is array ? \Symfony\Config\Security\FirewallConfig\RememberMe\TokenProvider\DoctrineConfig : static)
      */
-    public function doctrine($value = [])
+    public function doctrine(array $value = []): \Symfony\Config\Security\FirewallConfig\RememberMe\TokenProvider\DoctrineConfig|static
     {
         if (!\is_array($value)) {
             $this->_usedProperties['doctrine'] = true;

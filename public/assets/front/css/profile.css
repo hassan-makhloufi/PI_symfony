@@ -1,0 +1,155 @@
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+}
+
+.card {
+    margin-bottom: 30px;
+}
+
+.overflow-hidden {
+    overflow: hidden!important;
+}
+
+.p-0 {
+    padding: 0!important;
+}
+
+.mt-n5 {
+    margin-top: -3rem!important;
+}
+
+.linear-gradient {
+    background-image: linear-gradient(#50b2fc,#f44c66);
+}
+
+.rounded-circle {
+    border-radius: 50%!important;
+}
+
+.align-items-center {
+    align-items: center!important;
+}
+
+.justify-content-center {
+    justify-content: center!important;
+}
+
+.d-flex {
+    display: flex!important;
+}
+
+.rounded-2 {
+    border-radius: 7px !important;
+}
+
+.bg-light-info {
+    --bs-bg-opacity: 1;
+    background-color: rgba(235,243,254,1)!important;
+}
+
+.card {
+    margin-bottom: 30px;
+}
+
+.position-relative {
+    position: relative!important;
+}
+
+.shadow-none {
+    box-shadow: none!important;
+}
+
+.overflow-hidden {
+    overflow: hidden!important;
+}
+
+.border {
+    border: 1px solid #ebf1f6 !important;
+}
+
+.fs-6 {
+    font-size: 1.25rem!important;
+}
+
+.mb-2 {
+    margin-bottom: 0.5rem!important;
+}
+
+.d-block {
+    display: block!important;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+
+.mb-9 {
+    margin-bottom: 20px!important;
+}
+
+.fw-semibold {
+    font-weight: 600!important;
+}
+.fs-4 {
+    font-size: 1rem!important;
+}
+
+.card, .bg-light {
+    box-shadow: 0 20px 27px 0 rgb(0 0 0 / 5%);
+}
+
+.fs-2 {
+    font-size: .75rem!important;
+}
+
+.rounded-4 {
+    border-radius: 4px !important;
+}
+
+.ms-7 {
+    margin-left: 30px!important;
+}
+.fab-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    user-select: none;
+    position: absolute;
+    bottom: 120px;
+    right: 150px;
+    cursor: pointer;
+}
+.fab {
+    position: relative;
+    height: 70px;
+    width: 70px;
+    background-color: -moz-default-color;
+    border-radius: 50%;
+    z-index: 2;
+}
+.fab::before {
+     content: " ";
+     position: absolute;
+     bottom: 0; right: 0;
+     height: 35px; width: 35px;
+     background-color: inherit;
+     border-radius: 0 0 10px 0;
+     z-index: -1;
+ }
+.fab-content {
+    display: flex;
+    align-items: center; justify-content: center;
+    height: 100%; width: 100%;
+    border-radius: 50%;
+
+}
+.addButton{
+    color:  #FFB524;
+    text-shadow: 1px 1px 1px #ccc;
+    font-size: 1.5em;
+}
+

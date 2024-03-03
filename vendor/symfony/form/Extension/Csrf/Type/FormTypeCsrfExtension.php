@@ -28,12 +28,12 @@ use Symfony\Contracts\Translation\TranslatorInterface;
  */
 class FormTypeCsrfExtension extends AbstractTypeExtension
 {
-    private $defaultTokenManager;
-    private $defaultEnabled;
-    private $defaultFieldName;
-    private $translator;
-    private $translationDomain;
-    private $serverParams;
+    private CsrfTokenManagerInterface $defaultTokenManager;
+    private bool $defaultEnabled;
+    private string $defaultFieldName;
+    private ?TranslatorInterface $translator;
+    private ?string $translationDomain;
+    private ?ServerParams $serverParams;
 
     public function __construct(CsrfTokenManagerInterface $defaultTokenManager, bool $defaultEnabled = true, string $defaultFieldName = '_token', ?TranslatorInterface $translator = null, ?string $translationDomain = null, ?ServerParams $serverParams = null)
     {
@@ -48,7 +48,7 @@ class FormTypeCsrfExtension extends AbstractTypeExtension
     /**
      * Adds a CSRF field to the form when the CSRF protection is enabled.
      */
-    public function buildForm(FormBuilderInterface $builder, array $options)
+    public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         if (!$options['csrf_protection']) {
             return;
@@ -58,7 +58,7 @@ class FormTypeCsrfExtension extends AbstractTypeExtension
             ->addEventSubscriber(new CsrfValidationListener(
                 $options['csrf_field_name'],
                 $options['csrf_token_manager'],
-                $options['csrf_token_id'] ?: ($builder->getName() ?: \get_class($builder->getType()->getInnerType())),
+                $options['csrf_token_id'] ?: ($builder->getName() ?: $builder->getType()->getInnerType()::class),
                 $options['csrf_message'],
                 $this->translator,
                 $this->translationDomain,
@@ -70,11 +70,11 @@ class FormTypeCsrfExtension extends AbstractTypeExtension
     /**
      * Adds a CSRF field to the root form view.
      */
-    public function finishView(FormView $view, FormInterface $form, array $options)
+    public function finishView(FormView $view, FormInterface $form, array $options): void
     {
         if ($options['csrf_protection'] && !$view->parent && $options['compound']) {
             $factory = $form->getConfig()->getFormFactory();
-            $tokenId = $options['csrf_token_id'] ?: ($form->getName() ?: \get_class($form->getConfig()->getType()->getInnerType()));
+            $tokenId = $options['csrf_token_id'] ?: ($form->getName() ?: $form->getConfig()->getType()->getInnerType()::class);
             $data = (string) $options['csrf_token_manager']->getToken($tokenId);
 
             $csrfForm = $factory->createNamed($options['csrf_field_name'], HiddenType::class, $data, [
@@ -86,10 +86,7 @@ class FormTypeCsrfExtension extends AbstractTypeExtension
         }
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function configureOptions(OptionsResolver $resolver)
+    public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
             'csrf_protection' => $this->defaultEnabled,
@@ -100,9 +97,6 @@ class FormTypeCsrfExtension extends AbstractTypeExtension
         ]);
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public static function getExtendedTypes(): iterable
     {
         return [FormType::class];

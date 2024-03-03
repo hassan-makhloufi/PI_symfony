@@ -3,8 +3,9 @@
 namespace App\Entity;
 
 use App\Repository\ProductRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: ProductRepository::class)]
 class Product
@@ -13,46 +14,37 @@ class Product
     #[ORM\GeneratedValue]
     #[ORM\Column]
     private ?int $id = null;
-    #[Assert\NotNull]
-    #[ORM\Column(length: 150)]
-    #[Assert\Length(
-        min: 2,
-        max: 50,
-        minMessage: 'Product name must be at least {{ limit }} characters long',
-        maxMessage: 'Product name cannot be longer than {{ limit }} characters',
-    )]
-    #[Assert\Regex('/^[a-z0-9]+$/',
-        message:'Product name must only Contain Letters and Numbers'
-    )]
+
+    #[ORM\Column(length: 255)]
     private ?string $name = null;
-    #[Assert\NotNull]
+
+
+    #[ORM\Column(length: 255)]
+    private ?string $image = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $short_description = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $long_description = null;
+
     #[ORM\ManyToOne(inversedBy: 'products')]
-    #[ORM\JoinColumn(nullable: false)]
-    private ?User $user = null;
-    #[Assert\NotNull]
-    #[Assert\Length(
-        min: 2,
-        max: 150,
-        minMessage: 'Product description must be at least {{ limit }} characters long',
-        maxMessage: 'Product description cannot be longer than {{ limit }} characters',
-    )]
-    #[Assert\Regex('/^[a-z0-9]+$/',
-        message:'Product description must only Contain Letters and Numbers'
-    )]
-    #[ORM\Column(length: 150)]
-    private ?string $description = null;
-    #[ORM\Column(length: 150)]
-    private ?string $picture = null;
+    private ?Category $category = null;
 
     #[ORM\ManyToOne(inversedBy: 'products')]
     #[ORM\JoinColumn(nullable: false)]
-    private ?ProductSubCategory $subcategory = null;
+    private ?User $adder = null;
 
-    #[ORM\Column]
-    private ?\DateTimeImmutable $created_at = null;
-    #[Assert\GreaterThan(0,message:'Product quantity should be greater atleast 1')]
-    #[ORM\Column]
-    private ?int $quantity = null;
+    #[ORM\OneToMany(targetEntity: TradeRequest::class, mappedBy: 'toProduct', orphanRemoval: true)]
+    private Collection $toRequestTreades;
+
+    #[ORM\Column(nullable: true)]
+    private ?bool $traded = null;
+
+    public function __construct()
+    {
+        $this->toRequestTreades = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -71,79 +63,136 @@ class Product
         return $this;
     }
 
-    public function getUser(): ?User
+    public function getPrix(): ?float
     {
-        return $this->user;
+        return $this->prix;
     }
 
-    public function setUser(?User $user): static
+    public function setPrix(float $prix): static
     {
-        $this->user = $user;
+        $this->prix = $prix;
 
         return $this;
     }
 
-    public function getDescription(): ?string
+    public function getImage(): ?string
     {
-        return $this->description;
+        return $this->image;
     }
 
-    public function setDescription(string $description): static
+    public function setImage(string $image): static
     {
-        $this->description = $description;
+        $this->image = $image;
 
         return $this;
     }
 
-    public function getPicture(): ?string
+    public function getShortDescription(): ?string
     {
-        return $this->picture;
+        return $this->short_description;
     }
 
-    public function setPicture(string $picture): static
+    public function setShortDescription(string $short_description): static
     {
-        $this->picture = $picture;
+        $this->short_description = $short_description;
 
         return $this;
     }
 
-    public function getSubcategory(): ?ProductSubCategory
+    public function getLongDescription(): ?string
     {
-        return $this->subcategory;
+        return $this->long_description;
     }
 
-    public function setSubcategory(?ProductSubCategory $subcategory): static
+    public function setLongDescription(string $long_description): static
     {
-        $this->subcategory = $subcategory;
+        $this->long_description = $long_description;
 
         return $this;
     }
 
-    public function getCreatedAt(): ?\DateTimeImmutable
+    public function getCategory(): ?Category
     {
-        return $this->created_at;
+        return $this->category;
     }
 
-    public function setCreatedAt(\DateTimeImmutable $created_at): static
+    public function setCategory(?Category $category): static
     {
-        $this->created_at = $created_at;
+        $this->category = $category;
+
+        return $this;
+    }
+
+    public function getAdder(): ?User
+    {
+        return $this->adder;
+    }
+
+    public function setAdder(?User $adder): static
+    {
+        $this->adder = $adder;
 
         return $this;
     }
 
-    public function getQuantity(): ?int
+    /**
+     * @return Collection<int, TradeRequest>
+     */
+    public function getToRequestTreades(): Collection
     {
-        return $this->quantity;
+        return $this->toRequestTreades;
     }
 
-    public function setQuantity(int $quantity): static
+    public function addToRequestTreade(TradeRequest $toRequestTreade): static
     {
-        $this->quantity = $quantity;
+        if (!$this->toRequestTreades->contains($toRequestTreade)) {
+            $this->toRequestTreades->add($toRequestTreade);
+            $toRequestTreade->setToProduct($this);
+        }
 
         return $this;
     }
-    public function __toString() : string
+
+    public function removeToRequestTreade(TradeRequest $toRequestTreade): static
     {
-        return $this->name;
+        if ($this->toRequestTreades->removeElement($toRequestTreade)) {
+            // set the owning side to null (unless already changed)
+            if ($toRequestTreade->getToProduct() === $this) {
+                $toRequestTreade->setToProduct(null);
+            }
+        }
+
+        return $this;
     }
+
+    public function isTraded(): ?bool
+    {
+        return $this->traded;
+    }
+
+    public function setTraded(?bool $traded): static
+    {
+        $this->traded = $traded;
+
+        return $this;
+    }
+    public function  canUseForTrade(User $user){
+        $can = true;
+        foreach ($user->getFromRequestTrades() as $requestTrade){
+            if($requestTrade->getFromProduct()->getId()==$this->getId()){
+                $can=false;
+            }
+        }
+        return $can;
+    }
+    public function canTradeWith(User $user){
+        $can = true;
+        foreach ($user->getFromRequestTrades() as $requestTrade){
+            if($requestTrade->getToProduct()->getId()==$this->getId()){
+                $can=false;
+            }
+        }
+        return $can;
+    }
+
 }

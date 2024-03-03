@@ -16,7 +16,6 @@ class FormLoginConfig
     private $failureHandler;
     private $checkPath;
     private $useForward;
-    private $requirePreviousSession;
     private $loginPath;
     private $usernameParameter;
     private $passwordParameter;
@@ -32,7 +31,6 @@ class FormLoginConfig
     private $failurePath;
     private $failureForward;
     private $failurePathParameter;
-    private $csrfTokenGenerator;
     private $_usedProperties = [];
 
     /**
@@ -40,7 +38,7 @@ class FormLoginConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function provider($value): self
+    public function provider($value): static
     {
         $this->_usedProperties['provider'] = true;
         $this->provider = $value;
@@ -53,7 +51,7 @@ class FormLoginConfig
      * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function rememberMe($value): self
+    public function rememberMe($value): static
     {
         $this->_usedProperties['rememberMe'] = true;
         $this->rememberMe = $value;
@@ -66,7 +64,7 @@ class FormLoginConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function successHandler($value): self
+    public function successHandler($value): static
     {
         $this->_usedProperties['successHandler'] = true;
         $this->successHandler = $value;
@@ -79,7 +77,7 @@ class FormLoginConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function failureHandler($value): self
+    public function failureHandler($value): static
     {
         $this->_usedProperties['failureHandler'] = true;
         $this->failureHandler = $value;
@@ -92,7 +90,7 @@ class FormLoginConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function checkPath($value): self
+    public function checkPath($value): static
     {
         $this->_usedProperties['checkPath'] = true;
         $this->checkPath = $value;
@@ -105,23 +103,10 @@ class FormLoginConfig
      * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function useForward($value): self
+    public function useForward($value): static
     {
         $this->_usedProperties['useForward'] = true;
         $this->useForward = $value;
-
-        return $this;
-    }
-
-    /**
-     * @default false
-     * @param ParamConfigurator|bool $value
-     * @return $this
-     */
-    public function requirePreviousSession($value): self
-    {
-        $this->_usedProperties['requirePreviousSession'] = true;
-        $this->requirePreviousSession = $value;
 
         return $this;
     }
@@ -131,7 +116,7 @@ class FormLoginConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function loginPath($value): self
+    public function loginPath($value): static
     {
         $this->_usedProperties['loginPath'] = true;
         $this->loginPath = $value;
@@ -144,7 +129,7 @@ class FormLoginConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function usernameParameter($value): self
+    public function usernameParameter($value): static
     {
         $this->_usedProperties['usernameParameter'] = true;
         $this->usernameParameter = $value;
@@ -157,7 +142,7 @@ class FormLoginConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function passwordParameter($value): self
+    public function passwordParameter($value): static
     {
         $this->_usedProperties['passwordParameter'] = true;
         $this->passwordParameter = $value;
@@ -170,7 +155,7 @@ class FormLoginConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function csrfParameter($value): self
+    public function csrfParameter($value): static
     {
         $this->_usedProperties['csrfParameter'] = true;
         $this->csrfParameter = $value;
@@ -183,7 +168,7 @@ class FormLoginConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function csrfTokenId($value): self
+    public function csrfTokenId($value): static
     {
         $this->_usedProperties['csrfTokenId'] = true;
         $this->csrfTokenId = $value;
@@ -196,7 +181,7 @@ class FormLoginConfig
      * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function enableCsrf($value): self
+    public function enableCsrf($value): static
     {
         $this->_usedProperties['enableCsrf'] = true;
         $this->enableCsrf = $value;
@@ -209,7 +194,7 @@ class FormLoginConfig
      * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function postOnly($value): self
+    public function postOnly($value): static
     {
         $this->_usedProperties['postOnly'] = true;
         $this->postOnly = $value;
@@ -222,7 +207,7 @@ class FormLoginConfig
      * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function formOnly($value): self
+    public function formOnly($value): static
     {
         $this->_usedProperties['formOnly'] = true;
         $this->formOnly = $value;
@@ -235,7 +220,7 @@ class FormLoginConfig
      * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function alwaysUseDefaultTargetPath($value): self
+    public function alwaysUseDefaultTargetPath($value): static
     {
         $this->_usedProperties['alwaysUseDefaultTargetPath'] = true;
         $this->alwaysUseDefaultTargetPath = $value;
@@ -248,7 +233,7 @@ class FormLoginConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function defaultTargetPath($value): self
+    public function defaultTargetPath($value): static
     {
         $this->_usedProperties['defaultTargetPath'] = true;
         $this->defaultTargetPath = $value;
@@ -261,7 +246,7 @@ class FormLoginConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function targetPathParameter($value): self
+    public function targetPathParameter($value): static
     {
         $this->_usedProperties['targetPathParameter'] = true;
         $this->targetPathParameter = $value;
@@ -274,7 +259,7 @@ class FormLoginConfig
      * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function useReferer($value): self
+    public function useReferer($value): static
     {
         $this->_usedProperties['useReferer'] = true;
         $this->useReferer = $value;
@@ -287,7 +272,7 @@ class FormLoginConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function failurePath($value): self
+    public function failurePath($value): static
     {
         $this->_usedProperties['failurePath'] = true;
         $this->failurePath = $value;
@@ -300,7 +285,7 @@ class FormLoginConfig
      * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function failureForward($value): self
+    public function failureForward($value): static
     {
         $this->_usedProperties['failureForward'] = true;
         $this->failureForward = $value;
@@ -313,23 +298,10 @@ class FormLoginConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function failurePathParameter($value): self
+    public function failurePathParameter($value): static
     {
         $this->_usedProperties['failurePathParameter'] = true;
         $this->failurePathParameter = $value;
-
-        return $this;
-    }
-
-    /**
-     * @default null
-     * @param ParamConfigurator|mixed $value
-     * @return $this
-     */
-    public function csrfTokenGenerator($value): self
-    {
-        $this->_usedProperties['csrfTokenGenerator'] = true;
-        $this->csrfTokenGenerator = $value;
 
         return $this;
     }
@@ -370,12 +342,6 @@ class FormLoginConfig
             $this->_usedProperties['useForward'] = true;
             $this->useForward = $value['use_forward'];
             unset($value['use_forward']);
-        }
-
-        if (array_key_exists('require_previous_session', $value)) {
-            $this->_usedProperties['requirePreviousSession'] = true;
-            $this->requirePreviousSession = $value['require_previous_session'];
-            unset($value['require_previous_session']);
         }
 
         if (array_key_exists('login_path', $value)) {
@@ -468,12 +434,6 @@ class FormLoginConfig
             unset($value['failure_path_parameter']);
         }
 
-        if (array_key_exists('csrf_token_generator', $value)) {
-            $this->_usedProperties['csrfTokenGenerator'] = true;
-            $this->csrfTokenGenerator = $value['csrf_token_generator'];
-            unset($value['csrf_token_generator']);
-        }
-
         if ([] !== $value) {
             throw new InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__).implode(', ', array_keys($value)));
         }
@@ -499,9 +459,6 @@ class FormLoginConfig
         }
         if (isset($this->_usedProperties['useForward'])) {
             $output['use_forward'] = $this->useForward;
-        }
-        if (isset($this->_usedProperties['requirePreviousSession'])) {
-            $output['require_previous_session'] = $this->requirePreviousSession;
         }
         if (isset($this->_usedProperties['loginPath'])) {
             $output['login_path'] = $this->loginPath;
@@ -547,9 +504,6 @@ class FormLoginConfig
         }
         if (isset($this->_usedProperties['failurePathParameter'])) {
             $output['failure_path_parameter'] = $this->failurePathParameter;
-        }
-        if (isset($this->_usedProperties['csrfTokenGenerator'])) {
-            $output['csrf_token_generator'] = $this->csrfTokenGenerator;
         }
 
         return $output;

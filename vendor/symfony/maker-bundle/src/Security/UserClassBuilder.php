@@ -13,7 +13,7 @@ namespace Symfony\Bundle\MakerBundle\Security;
 
 use PhpParser\Node;
 use Symfony\Bundle\MakerBundle\Util\ClassSourceManipulator;
-use Symfony\Component\HttpKernel\Kernel;
+use Symfony\Bundle\MakerBundle\Util\ClassSource\Model\ClassProperty;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 
@@ -39,13 +39,6 @@ final class UserClassBuilder
 
     private function addPasswordImplementation(ClassSourceManipulator $manipulator, UserClassConfiguration $userClassConfig): void
     {
-        // @legacy Drop conditional when Symfony 5.4 is no longer supported
-        if (60000 > Kernel::VERSION_ID) {
-            // Add methods required to fulfill the UserInterface contract
-            $this->addGetPassword($manipulator, $userClassConfig);
-            $this->addGetSalt($manipulator, $userClassConfig);
-        }
-
         if (!$userClassConfig->hasPassword()) {
             return;
         }
@@ -60,13 +53,12 @@ final class UserClassBuilder
         if ($userClassConfig->isEntity()) {
             // add entity property
             $manipulator->addEntityField(
-                $userClassConfig->getIdentityPropertyName(),
-                [
-                    'type' => 'string',
-                    // https://github.com/FriendsOfSymfony/FOSUserBundle/issues/1919
-                    'length' => 180,
-                    'unique' => true,
-                ]
+                new ClassProperty(
+                    propertyName: $userClassConfig->getIdentityPropertyName(),
+                    type: 'string',
+                    length: 180,
+                    unique: true,
+                )
             );
         } else {
             // add normal property
@@ -100,19 +92,6 @@ final class UserClassBuilder
             ],
             true
         );
-
-        // @legacy Drop when Symfony 5.4 is no longer supported.
-        if (method_exists(UserInterface::class, 'getSalt')) {
-            // also add the deprecated getUsername method
-            $manipulator->addAccessorMethod(
-                $userClassConfig->getIdentityPropertyName(),
-                'getUsername',
-                'string',
-                false,
-                ['@deprecated since Symfony 5.3, use getUserIdentifier instead'],
-                true
-            );
-        }
     }
 
     private function addGetRoles(ClassSourceManipulator $manipulator, UserClassConfiguration $userClassConfig): void
@@ -120,10 +99,7 @@ final class UserClassBuilder
         if ($userClassConfig->isEntity()) {
             // add entity property
             $manipulator->addEntityField(
-                'roles',
-                [
-                    'type' => 'json',
-                ]
+                new ClassProperty(propertyName: 'roles', type: 'json')
             );
         } else {
             // add normal property
@@ -223,11 +199,7 @@ final class UserClassBuilder
         if ($userClassConfig->isEntity()) {
             // add entity property
             $manipulator->addEntityField(
-                'password',
-                [
-                    'type' => 'string',
-                ],
-                [$propertyDocs]
+                new ClassProperty(propertyName: 'password', type: 'string', comments: [$propertyDocs])
             );
         } else {
             // add normal property
@@ -259,44 +231,6 @@ final class UserClassBuilder
                 '@see PasswordAuthenticatedUserInterface',
             ]
         );
-    }
-
-    private function addGetSalt(ClassSourceManipulator $manipulator, UserClassConfiguration $userClassConfig): void
-    {
-        if ($userClassConfig->hasPassword()) {
-            $methodDescription = [
-                'Returning a salt is only needed, if you are not using a modern',
-                'hashing algorithm (e.g. bcrypt or sodium) in your security.yaml.',
-            ];
-        } else {
-            $methodDescription = [
-                'This method can be removed in Symfony 6.0 - is not needed for apps that do not check user passwords.',
-            ];
-        }
-
-        // add getSalt(): ?string - always returning null
-        $builder = $manipulator->createMethodBuilder(
-            'getSalt',
-            'string',
-            true,
-            array_merge(
-                $methodDescription,
-                [
-                    '',
-                    '@see UserInterface',
-                ]
-            )
-        );
-
-        $builder->addStmt(
-            new Node\Stmt\Return_(
-                new Node\Expr\ConstFetch(
-                    new Node\Name('null')
-                )
-            )
-        );
-
-        $manipulator->addMethodBuilder($builder);
     }
 
     private function addEraseCredentials(ClassSourceManipulator $manipulator): void

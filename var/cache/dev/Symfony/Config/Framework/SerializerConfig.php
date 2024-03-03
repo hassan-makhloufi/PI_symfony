@@ -13,7 +13,7 @@ use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
 class SerializerConfig 
 {
     private $enabled;
-    private $enableAnnotations;
+    private $enableAttributes;
     private $nameConverter;
     private $circularReferenceHandler;
     private $maxDepthHandler;
@@ -22,11 +22,11 @@ class SerializerConfig
     private $_usedProperties = [];
 
     /**
-     * @default true
+     * @default false
      * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function enabled($value): self
+    public function enabled($value): static
     {
         $this->_usedProperties['enabled'] = true;
         $this->enabled = $value;
@@ -39,10 +39,10 @@ class SerializerConfig
      * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function enableAnnotations($value): self
+    public function enableAttributes($value): static
     {
-        $this->_usedProperties['enableAnnotations'] = true;
-        $this->enableAnnotations = $value;
+        $this->_usedProperties['enableAttributes'] = true;
+        $this->enableAttributes = $value;
 
         return $this;
     }
@@ -52,7 +52,7 @@ class SerializerConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function nameConverter($value): self
+    public function nameConverter($value): static
     {
         $this->_usedProperties['nameConverter'] = true;
         $this->nameConverter = $value;
@@ -65,7 +65,7 @@ class SerializerConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function circularReferenceHandler($value): self
+    public function circularReferenceHandler($value): static
     {
         $this->_usedProperties['circularReferenceHandler'] = true;
         $this->circularReferenceHandler = $value;
@@ -78,7 +78,7 @@ class SerializerConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function maxDepthHandler($value): self
+    public function maxDepthHandler($value): static
     {
         $this->_usedProperties['maxDepthHandler'] = true;
         $this->maxDepthHandler = $value;
@@ -86,6 +86,9 @@ class SerializerConfig
         return $this;
     }
 
+    /**
+     * @default {"paths":[]}
+    */
     public function mapping(array $value = []): \Symfony\Config\Framework\Serializer\MappingConfig
     {
         if (null === $this->mapping) {
@@ -99,10 +102,9 @@ class SerializerConfig
     }
 
     /**
-     * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function defaultContext(string $name, $value): self
+    public function defaultContext(string $name, mixed $value): static
     {
         $this->_usedProperties['defaultContext'] = true;
         $this->defaultContext[$name] = $value;
@@ -118,10 +120,10 @@ class SerializerConfig
             unset($value['enabled']);
         }
 
-        if (array_key_exists('enable_annotations', $value)) {
-            $this->_usedProperties['enableAnnotations'] = true;
-            $this->enableAnnotations = $value['enable_annotations'];
-            unset($value['enable_annotations']);
+        if (array_key_exists('enable_attributes', $value)) {
+            $this->_usedProperties['enableAttributes'] = true;
+            $this->enableAttributes = $value['enable_attributes'];
+            unset($value['enable_attributes']);
         }
 
         if (array_key_exists('name_converter', $value)) {
@@ -165,8 +167,8 @@ class SerializerConfig
         if (isset($this->_usedProperties['enabled'])) {
             $output['enabled'] = $this->enabled;
         }
-        if (isset($this->_usedProperties['enableAnnotations'])) {
-            $output['enable_annotations'] = $this->enableAnnotations;
+        if (isset($this->_usedProperties['enableAttributes'])) {
+            $output['enable_attributes'] = $this->enableAttributes;
         }
         if (isset($this->_usedProperties['nameConverter'])) {
             $output['name_converter'] = $this->nameConverter;

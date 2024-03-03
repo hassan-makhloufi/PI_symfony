@@ -16,12 +16,25 @@ class User extends \App\Entity\User implements \Doctrine\ORM\Proxy\InternalProxy
     }
 
     private const LAZY_OBJECT_PROPERTY_SCOPES = [
+        "\0".parent::class."\0".'email' => [parent::class, 'email', null],
+        "\0".parent::class."\0".'firstname' => [parent::class, 'firstname', null],
+        "\0".parent::class."\0".'fromRequestTrades' => [parent::class, 'fromRequestTrades', null],
         "\0".parent::class."\0".'id' => [parent::class, 'id', null],
-        "\0".parent::class."\0".'name' => [parent::class, 'name', null],
+        "\0".parent::class."\0".'isAdmin' => [parent::class, 'isAdmin', null],
+        "\0".parent::class."\0".'lastname' => [parent::class, 'lastname', null],
+        "\0".parent::class."\0".'password' => [parent::class, 'password', null],
         "\0".parent::class."\0".'products' => [parent::class, 'products', null],
+        "\0".parent::class."\0".'toRequestTrades' => [parent::class, 'toRequestTrades', null],
+        'confirmPassword' => [parent::class, 'confirmPassword', null],
+        'email' => [parent::class, 'email', null],
+        'firstname' => [parent::class, 'firstname', null],
+        'fromRequestTrades' => [parent::class, 'fromRequestTrades', null],
         'id' => [parent::class, 'id', null],
-        'name' => [parent::class, 'name', null],
+        'isAdmin' => [parent::class, 'isAdmin', null],
+        'lastname' => [parent::class, 'lastname', null],
+        'password' => [parent::class, 'password', null],
         'products' => [parent::class, 'products', null],
+        'toRequestTrades' => [parent::class, 'toRequestTrades', null],
     ];
 
     public function __isInitialized(): bool

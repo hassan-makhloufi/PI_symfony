@@ -28,9 +28,13 @@ class WorkflowsConfig
     private $_usedProperties = [];
 
     /**
+     * @template TValue
+     * @param TValue $value
+     * @default {"enabled":false}
      * @return \Symfony\Config\Framework\Workflows\WorkflowsConfig\AuditTrailConfig|$this
+     * @psalm-return (TValue is array ? \Symfony\Config\Framework\Workflows\WorkflowsConfig\AuditTrailConfig : static)
      */
-    public function auditTrail($value = [])
+    public function auditTrail(array $value = []): \Symfony\Config\Framework\Workflows\WorkflowsConfig\AuditTrailConfig|static
     {
         if (!\is_array($value)) {
             $this->_usedProperties['auditTrail'] = true;
@@ -54,7 +58,7 @@ class WorkflowsConfig
      * @param ParamConfigurator|'workflow'|'state_machine' $value
      * @return $this
      */
-    public function type($value): self
+    public function type($value): static
     {
         $this->_usedProperties['type'] = true;
         $this->type = $value;
@@ -75,10 +79,11 @@ class WorkflowsConfig
     }
 
     /**
-     * @param ParamConfigurator|list<mixed|ParamConfigurator> $value
+     * @param ParamConfigurator|list<ParamConfigurator|mixed>|string $value
+     *
      * @return $this
      */
-    public function supports($value): self
+    public function supports(ParamConfigurator|string|array $value): static
     {
         $this->_usedProperties['supports'] = true;
         $this->supports = $value;
@@ -91,7 +96,7 @@ class WorkflowsConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function supportStrategy($value): self
+    public function supportStrategy($value): static
     {
         $this->_usedProperties['supportStrategy'] = true;
         $this->supportStrategy = $value;
@@ -100,10 +105,11 @@ class WorkflowsConfig
     }
 
     /**
-     * @param ParamConfigurator|list<mixed|ParamConfigurator> $value
+     * @param ParamConfigurator|list<ParamConfigurator|mixed>|mixed $value
+     *
      * @return $this
      */
-    public function initialMarking($value): self
+    public function initialMarking(mixed $value): static
     {
         $this->_usedProperties['initialMarking'] = true;
         $this->initialMarking = $value;
@@ -117,9 +123,10 @@ class WorkflowsConfig
      * @example workflow.transition
      * @default null
      * @param ParamConfigurator|mixed $value
+     *
      * @return $this
      */
-    public function eventsToDispatch($value = NULL): self
+    public function eventsToDispatch(mixed $value = NULL): static
     {
         $this->_usedProperties['eventsToDispatch'] = true;
         $this->eventsToDispatch = $value;
@@ -128,9 +135,12 @@ class WorkflowsConfig
     }
 
     /**
+     * @template TValue
+     * @param TValue $value
      * @return \Symfony\Config\Framework\Workflows\WorkflowsConfig\PlaceConfig|$this
+     * @psalm-return (TValue is array ? \Symfony\Config\Framework\Workflows\WorkflowsConfig\PlaceConfig : static)
      */
-    public function place($value = [])
+    public function place(mixed $value = []): \Symfony\Config\Framework\Workflows\WorkflowsConfig\PlaceConfig|static
     {
         $this->_usedProperties['places'] = true;
         if (!\is_array($value)) {
@@ -143,9 +153,12 @@ class WorkflowsConfig
     }
 
     /**
+     * @template TValue
+     * @param TValue $value
      * @return \Symfony\Config\Framework\Workflows\WorkflowsConfig\TransitionConfig|$this
+     * @psalm-return (TValue is array ? \Symfony\Config\Framework\Workflows\WorkflowsConfig\TransitionConfig : static)
      */
-    public function transition($value = [])
+    public function transition(mixed $value = []): \Symfony\Config\Framework\Workflows\WorkflowsConfig\TransitionConfig|static
     {
         $this->_usedProperties['transitions'] = true;
         if (!\is_array($value)) {
@@ -158,10 +171,11 @@ class WorkflowsConfig
     }
 
     /**
-     * @param ParamConfigurator|list<mixed|ParamConfigurator> $value
+     * @param ParamConfigurator|list<ParamConfigurator|mixed> $value
+     *
      * @return $this
      */
-    public function metadata($value): self
+    public function metadata(ParamConfigurator|array $value): static
     {
         $this->_usedProperties['metadata'] = true;
         $this->metadata = $value;
@@ -215,13 +229,13 @@ class WorkflowsConfig
 
         if (array_key_exists('places', $value)) {
             $this->_usedProperties['places'] = true;
-            $this->places = array_map(function ($v) { return \is_array($v) ? new \Symfony\Config\Framework\Workflows\WorkflowsConfig\PlaceConfig($v) : $v; }, $value['places']);
+            $this->places = array_map(fn ($v) => \is_array($v) ? new \Symfony\Config\Framework\Workflows\WorkflowsConfig\PlaceConfig($v) : $v, $value['places']);
             unset($value['places']);
         }
 
         if (array_key_exists('transitions', $value)) {
             $this->_usedProperties['transitions'] = true;
-            $this->transitions = array_map(function ($v) { return \is_array($v) ? new \Symfony\Config\Framework\Workflows\WorkflowsConfig\TransitionConfig($v) : $v; }, $value['transitions']);
+            $this->transitions = array_map(fn ($v) => \is_array($v) ? new \Symfony\Config\Framework\Workflows\WorkflowsConfig\TransitionConfig($v) : $v, $value['transitions']);
             unset($value['transitions']);
         }
 
@@ -261,10 +275,10 @@ class WorkflowsConfig
             $output['events_to_dispatch'] = $this->eventsToDispatch;
         }
         if (isset($this->_usedProperties['places'])) {
-            $output['places'] = array_map(function ($v) { return $v instanceof \Symfony\Config\Framework\Workflows\WorkflowsConfig\PlaceConfig ? $v->toArray() : $v; }, $this->places);
+            $output['places'] = array_map(fn ($v) => $v instanceof \Symfony\Config\Framework\Workflows\WorkflowsConfig\PlaceConfig ? $v->toArray() : $v, $this->places);
         }
         if (isset($this->_usedProperties['transitions'])) {
-            $output['transitions'] = array_map(function ($v) { return $v instanceof \Symfony\Config\Framework\Workflows\WorkflowsConfig\TransitionConfig ? $v->toArray() : $v; }, $this->transitions);
+            $output['transitions'] = array_map(fn ($v) => $v instanceof \Symfony\Config\Framework\Workflows\WorkflowsConfig\TransitionConfig ? $v->toArray() : $v, $this->transitions);
         }
         if (isset($this->_usedProperties['metadata'])) {
             $output['metadata'] = $this->metadata;

@@ -16,7 +16,6 @@ class JsonLoginConfig
     private $failureHandler;
     private $checkPath;
     private $useForward;
-    private $requirePreviousSession;
     private $loginPath;
     private $usernamePath;
     private $passwordPath;
@@ -27,7 +26,7 @@ class JsonLoginConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function provider($value): self
+    public function provider($value): static
     {
         $this->_usedProperties['provider'] = true;
         $this->provider = $value;
@@ -40,7 +39,7 @@ class JsonLoginConfig
      * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function rememberMe($value): self
+    public function rememberMe($value): static
     {
         $this->_usedProperties['rememberMe'] = true;
         $this->rememberMe = $value;
@@ -53,7 +52,7 @@ class JsonLoginConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function successHandler($value): self
+    public function successHandler($value): static
     {
         $this->_usedProperties['successHandler'] = true;
         $this->successHandler = $value;
@@ -66,7 +65,7 @@ class JsonLoginConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function failureHandler($value): self
+    public function failureHandler($value): static
     {
         $this->_usedProperties['failureHandler'] = true;
         $this->failureHandler = $value;
@@ -79,7 +78,7 @@ class JsonLoginConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function checkPath($value): self
+    public function checkPath($value): static
     {
         $this->_usedProperties['checkPath'] = true;
         $this->checkPath = $value;
@@ -92,23 +91,10 @@ class JsonLoginConfig
      * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function useForward($value): self
+    public function useForward($value): static
     {
         $this->_usedProperties['useForward'] = true;
         $this->useForward = $value;
-
-        return $this;
-    }
-
-    /**
-     * @default false
-     * @param ParamConfigurator|bool $value
-     * @return $this
-     */
-    public function requirePreviousSession($value): self
-    {
-        $this->_usedProperties['requirePreviousSession'] = true;
-        $this->requirePreviousSession = $value;
 
         return $this;
     }
@@ -118,7 +104,7 @@ class JsonLoginConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function loginPath($value): self
+    public function loginPath($value): static
     {
         $this->_usedProperties['loginPath'] = true;
         $this->loginPath = $value;
@@ -131,7 +117,7 @@ class JsonLoginConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function usernamePath($value): self
+    public function usernamePath($value): static
     {
         $this->_usedProperties['usernamePath'] = true;
         $this->usernamePath = $value;
@@ -144,7 +130,7 @@ class JsonLoginConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function passwordPath($value): self
+    public function passwordPath($value): static
     {
         $this->_usedProperties['passwordPath'] = true;
         $this->passwordPath = $value;
@@ -190,12 +176,6 @@ class JsonLoginConfig
             unset($value['use_forward']);
         }
 
-        if (array_key_exists('require_previous_session', $value)) {
-            $this->_usedProperties['requirePreviousSession'] = true;
-            $this->requirePreviousSession = $value['require_previous_session'];
-            unset($value['require_previous_session']);
-        }
-
         if (array_key_exists('login_path', $value)) {
             $this->_usedProperties['loginPath'] = true;
             $this->loginPath = $value['login_path'];
@@ -239,9 +219,6 @@ class JsonLoginConfig
         }
         if (isset($this->_usedProperties['useForward'])) {
             $output['use_forward'] = $this->useForward;
-        }
-        if (isset($this->_usedProperties['requirePreviousSession'])) {
-            $output['require_previous_session'] = $this->requirePreviousSession;
         }
         if (isset($this->_usedProperties['loginPath'])) {
             $output['login_path'] = $this->loginPath;

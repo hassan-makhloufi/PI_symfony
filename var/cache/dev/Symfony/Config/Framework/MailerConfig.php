@@ -22,11 +22,11 @@ class MailerConfig
     private $_usedProperties = [];
 
     /**
-     * @default true
+     * @default false
      * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function enabled($value): self
+    public function enabled($value): static
     {
         $this->_usedProperties['enabled'] = true;
         $this->enabled = $value;
@@ -40,7 +40,7 @@ class MailerConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function messageBus($value): self
+    public function messageBus($value): static
     {
         $this->_usedProperties['messageBus'] = true;
         $this->messageBus = $value;
@@ -53,7 +53,7 @@ class MailerConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function dsn($value): self
+    public function dsn($value): static
     {
         $this->_usedProperties['dsn'] = true;
         $this->dsn = $value;
@@ -62,10 +62,9 @@ class MailerConfig
     }
 
     /**
-     * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function transport(string $name, $value): self
+    public function transport(string $name, mixed $value): static
     {
         $this->_usedProperties['transports'] = true;
         $this->transports[$name] = $value;
@@ -73,6 +72,9 @@ class MailerConfig
         return $this;
     }
 
+    /**
+     * Mailer Envelope configuration
+    */
     public function envelope(array $value = []): \Symfony\Config\Framework\Mailer\EnvelopeConfig
     {
         if (null === $this->envelope) {
@@ -86,9 +88,12 @@ class MailerConfig
     }
 
     /**
+     * @template TValue
+     * @param TValue $value
      * @return \Symfony\Config\Framework\Mailer\HeaderConfig|$this
+     * @psalm-return (TValue is array ? \Symfony\Config\Framework\Mailer\HeaderConfig : static)
      */
-    public function header(string $name, $value = [])
+    public function header(string $name, mixed $value = []): \Symfony\Config\Framework\Mailer\HeaderConfig|static
     {
         if (!\is_array($value)) {
             $this->_usedProperties['headers'] = true;
@@ -141,7 +146,7 @@ class MailerConfig
 
         if (array_key_exists('headers', $value)) {
             $this->_usedProperties['headers'] = true;
-            $this->headers = array_map(function ($v) { return \is_array($v) ? new \Symfony\Config\Framework\Mailer\HeaderConfig($v) : $v; }, $value['headers']);
+            $this->headers = array_map(fn ($v) => \is_array($v) ? new \Symfony\Config\Framework\Mailer\HeaderConfig($v) : $v, $value['headers']);
             unset($value['headers']);
         }
 
@@ -169,7 +174,7 @@ class MailerConfig
             $output['envelope'] = $this->envelope->toArray();
         }
         if (isset($this->_usedProperties['headers'])) {
-            $output['headers'] = array_map(function ($v) { return $v instanceof \Symfony\Config\Framework\Mailer\HeaderConfig ? $v->toArray() : $v; }, $this->headers);
+            $output['headers'] = array_map(fn ($v) => $v instanceof \Symfony\Config\Framework\Mailer\HeaderConfig ? $v->toArray() : $v, $this->headers);
         }
 
         return $output;

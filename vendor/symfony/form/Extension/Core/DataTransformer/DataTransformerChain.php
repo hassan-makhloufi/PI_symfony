@@ -21,7 +21,7 @@ use Symfony\Component\Form\Exception\TransformationFailedException;
  */
 class DataTransformerChain implements DataTransformerInterface
 {
-    protected $transformers;
+    protected array $transformers;
 
     /**
      * Uses the given value transformers to transform values.
@@ -43,11 +43,9 @@ class DataTransformerChain implements DataTransformerInterface
      *
      * @param mixed $value The original value
      *
-     * @return mixed
-     *
      * @throws TransformationFailedException
      */
-    public function transform($value)
+    public function transform(mixed $value): mixed
     {
         foreach ($this->transformers as $transformer) {
             $value = $transformer->transform($value);
@@ -67,11 +65,9 @@ class DataTransformerChain implements DataTransformerInterface
      *
      * @param mixed $value The transformed value
      *
-     * @return mixed
-     *
      * @throws TransformationFailedException
      */
-    public function reverseTransform($value)
+    public function reverseTransform(mixed $value): mixed
     {
         for ($i = \count($this->transformers) - 1; $i >= 0; --$i) {
             $value = $this->transformers[$i]->reverseTransform($value);
@@ -83,7 +79,7 @@ class DataTransformerChain implements DataTransformerInterface
     /**
      * @return DataTransformerInterface[]
      */
-    public function getTransformers()
+    public function getTransformers(): array
     {
         return $this->transformers;
     }

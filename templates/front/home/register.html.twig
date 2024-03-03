@@ -1,0 +1,30 @@
+{% extends 'front/base.html.twig' %}
+{% block content %}
+
+    <div class="container-fluid py-5 mb-5 hero-header">
+        <div class="container py-5">
+            <div class="text-center mx-auto" style="max-width: 700px;">
+                <h1> register</h1>
+
+            </div>
+            {{ form_start(form) }}
+
+
+            <input type="text" name="{{ field_name(form.email) }}" class="w-100 form-control border-0 py-3 mb-4" placeholder="email ...">
+            <input type="text" name="{{ field_name(form.firstname) }}" class="w-100 form-control border-0 py-3 mb-4" placeholder="firstname ...">
+            <input type="text" name="{{ field_name(form.lastname) }}" class="w-100 form-control border-0 py-3 mb-4" placeholder="lastname ...">
+            <input type="password" name="{{ field_name(form.password) }}" class="w-100 form-control border-0 py-3 mb-4" placeholder="password ...">
+            <input type="password" name="{{ field_name(form.confirmPassword) }}"  class="w-100 form-control border-0 py-3 mb-4" placeholder="confirm password ...">
+
+            <!--<form action="" class="">
+
+                <button class="w-100 btn form-control border-secondary py-3 bg-white text-primary " type="submit">Submit</button>
+
+            </form>-->
+            <button class="w-100 btn form-control border-secondary py-3 bg-white text-primary " type="submit">Submit</button>
+
+            {{ form_end(form) }}
+
+        </div>
+    </div>
+{% endblock %}

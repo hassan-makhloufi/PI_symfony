@@ -14,10 +14,11 @@ class ChainConfig
     private $_usedProperties = [];
 
     /**
-     * @param ParamConfigurator|list<mixed|ParamConfigurator> $value
+     * @param ParamConfigurator|list<ParamConfigurator|mixed>|string $value
+     *
      * @return $this
      */
-    public function providers($value): self
+    public function providers(ParamConfigurator|string|array $value): static
     {
         $this->_usedProperties['providers'] = true;
         $this->providers = $value;

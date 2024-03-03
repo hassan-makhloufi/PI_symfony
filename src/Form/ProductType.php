@@ -2,12 +2,13 @@
 
 namespace App\Form;
 
+use App\Entity\Category;
 use App\Entity\Product;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Form\Extension\Core\Type\FileType;
-use Symfony\Component\Validator\Constraints\File;
 
 class ProductType extends AbstractType
 {
@@ -15,25 +16,17 @@ class ProductType extends AbstractType
     {
         $builder
             ->add('name')
-            ->add('description')
-            ->add('picture', FileType::class, [
-                'label' => 'Brochure (Picture file)',
-                'mapped' => false,
-                'required' => false,
-                'constraints' => [
-                    new File([
-                        'maxSize' => '1024k',
-                        'mimeTypes' => [
-                            'image/jpeg',
-                            'image/png',
-                        ],
-                        'mimeTypesMessage' => 'Please upload a valid JPG or PNG image',
-                    ])
-                ],
+            ->add('image',FileType::class,[
+                'required'=>true,
+                'multiple'=>false
+
             ])
-            ->add('quantity')
-            ->add('user')
-            ->add('subcategory')
+            ->add('short_description')
+            ->add('long_description')
+            ->add('category', EntityType::class, [
+                'class' => Category::class,
+                'choice_label' => 'name',
+            ])
         ;
     }
 
