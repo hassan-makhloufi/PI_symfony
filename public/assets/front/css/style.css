@@ -305,6 +305,10 @@
     height: 100%;
     transition: 0.5s;
 }
+.fruite-item.out-stock img{
+    filter: blur(10px);
+
+}
 .fruite .fruite-item:hover {
     box-shadow: 0 0 55px rgba(0, 0, 0, 0.4);
 }
@@ -496,6 +500,20 @@
 
 .footer .footer-item p.mb-4 {
     line-height: 35px;
+}
+.forum-reclamation{
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: #45595b;
+    color: white;
+    padding: 10px;
+    font-size: 20px;
+    font-weight: 700;
+    border: none;
 }
 /*** Footer End ***/
 

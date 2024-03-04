@@ -1,0 +1,51 @@
+{% extends 'front/profile/profile_base.html.twig' %}
+
+{% block tabcontent %}
+    <div id="tab-2" class="tab-pane fade show p-0 active">
+
+    <div class="table-responsive ">
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">User</th>
+                <th scope="col">Email</th>
+                <th scope="col">Country</th>
+                <th scope="col">State</th>
+
+                <th scope="col">Address</th>
+                <th scope="col">Shipping State</th>
+
+            </tr>
+            </thead>
+            <tbody>
+            {% for l in livraisons %}
+                <tr>
+                    <th scope="row">
+                        <p class="mb-0 mt-4">{{ l.adder.firstname }} {{ l.adder.lastname }}</p>
+                    </th>
+                    <th scope="row">
+                        <p class="mb-0 mt-4">{{ l.adder.email}}</p>
+                    </th>
+                    <td>
+                        <p class="mb-0 mt-4">{{ l.country }}</p>
+                    </td>
+                    <td>
+                        <p class="mb-0 mt-4">{{ l.state }}</p>
+                    </td>
+                    <td>
+                        <p class="mb-0 mt-4">{{ l.adress }}</p>
+                    </td>
+                    <td>
+                        <p class="mb-0 mt-4">{{ l.etat }}</p>
+                    </td>
+
+
+
+                </tr>
+            {% endfor %}
+
+
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

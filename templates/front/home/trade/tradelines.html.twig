@@ -1,0 +1,161 @@
+{% extends 'front/base.html.twig' %}
+{% block content %}
+    <div class="container-fluid page-header py-5">
+        <h1 class="text-center text-white display-6">Line Trades</h1>
+        <ol class="breadcrumb justify-content-center mb-0">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item"><a href="#">Pages</a></li>
+            <li class="breadcrumb-item active text-white">Line Trades</li>
+        </ol>
+    </div>
+    <div class="container-fluid py-5">
+        <div class="container py-5">
+            <div class="table-responsive">
+
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th scope="col">your product</th>
+                        <th scope="col">Quantity</th>
+                        <th scope="col">target product</th>
+                        <th scope="col">Quantity</th>
+                        <th scope="col">Handle</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        {% for l in lineTrades %}
+                        <tr class="lineTrade" id="line-trade-{{ l.id }}" >
+                            <th scope="row">
+                                <div class="d-flex align-items-center">
+                                    <img src="{{ absolute_url(asset(l.fromProduct.image)) }}" class="img-fluid me-5 rounded-circle" style="width: 80px; height: 80px;" alt="">
+                                </div>
+                            </th>
+                            <td>
+                                <div class="input-group quantity mt-4" style="width: 100px;">
+                                    <div class="input-group-btn">
+                                        <a id="minus-{{ l.fromProduct.id }}" class="btn btn-sm btn-minus rounded-circle bg-light border" >
+                                            <i class="fa fa-minus"></i>
+                                        </a>
+                                    </div>
+                                    <input type="text" id="value-quantity-{{ l.fromProduct.id }}" data-value="{{ l.fromProduct.quanity+1 }}" class="form-control form-control-sm text-center border-0" value="1">
+                                    <div class="input-group-btn">
+                                        <a  id="plus-{{ l.fromProduct.id }}" class="btn btn-sm btn-plus rounded-circle bg-light border add">
+                                            <i class="fa fa-plus"></i>
+                                        </a>
+                                    </div>
+                                </div>
+
+                            </td>
+                            <th scope="row">
+                                <div class="d-flex align-items-center">
+                                    <img src="{{ absolute_url(asset(l.toProduct.image)) }}" class="img-fluid me-5 rounded-circle" style="width: 80px; height: 80px;" alt="">
+                                </div>
+                            </th>
+                            <td>
+                                <p class="mb-0 mt-4">{{ l.toQuantity }}</p>
+                            </td>
+                            <td>
+                                <a class="btn btn-sm btn-plus rounded-circle bg-light border" style="margin-top: 1.5em" href="{{ path('app_trade_lines_delete',{id:l.id}) }}">
+                                    <i class="fa fa-times text-danger"></i>
+                                </a>
+
+                            </td>
+
+                        </tr>
+                        {% endfor  %}
+
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="row g-4 justify-content-end">
+                <div class="col-8"></div>
+                <div class="col-sm-8 col-md-7 col-lg-6 col-xl-4">
+                    <div class="bg-light rounded">
+
+                        <a id="validate-trades" class="btn border-secondary rounded-pill px-4 py-3 text-primary text-uppercase mb-4 ms-4" type="button">Validate Trades</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block scripts %}
+    <script>
+            const getInput = (id)=>{
+                return document.querySelector('#value-quantity-'+id)
+            }
+            const setMinus = (productId)=>{
+                const input = getInput(productId);
+                const currentValue = parseInt(input.value)
+
+                if(currentValue>1){
+                   input.value = `${currentValue-1}`
+                }
+            }
+            const setPlus = (productId)=>{
+                const input = getInput(productId);
+                const currentValue = parseInt(input.value)
+                const productQuantity = parseInt(input.getAttribute('data-value'))
+                if(currentValue<productQuantity){
+                    input.value = `${currentValue+1}`
+                }
+            }
+
+            document.querySelectorAll('.btn-minus').forEach(element=>{
+                element.addEventListener('click',evt => {
+                    evt.preventDefault()
+                    const id = element.getAttribute('id').replace('minus-','')
+                    setMinus(id)
+                })
+            })
+            document.querySelectorAll('.btn-plus.add').forEach(element=>{
+                element.addEventListener('click',evt => {
+                    evt.preventDefault()
+                    const id = element.getAttribute('id').replace('plus-','')
+                    setPlus(id)
+                })
+            })
+    </script>
+    <script>
+
+        document.querySelector('#validate-trades').addEventListener('click',async evt => {
+            let lineTrades = document.querySelectorAll('.lineTrade')
+            let formData = new FormData();
+            lineTrades.forEach((element,index)=>{
+
+                const lineId = element.getAttribute('id').replace('line-trade-','')
+                const fromQuantity = element.querySelector('input').value
+                formData.append(`${lineId}`,`${fromQuantity}`);
+            })
+
+
+            const path = "{{ path('app_trade_lines_validate') }}"
+            try{
+                const result = await fetch(path,{
+                    method:'POST',
+                    body:formData
+                }).then(data=>{
+                    return data.json()
+                })
+                if(result.status && result.status===200){
+                    window.location.href =" {{ path('app_profile_trades') }}"
+
+                }
+                else{
+                    if(result.message){
+                        alert(result.message);
+                    }
+                    else{
+                        alert('something went wrong');
+
+                    }
+                }
+            }catch (e){
+                alert('something went wrong');
+
+            }
+
+        })
+    </script>
+{% endblock %}

@@ -189,6 +189,7 @@
         function showSpinner(){
             spinner.style.visibility='visible'
         }
+        
         function onChangeCategory(cat_id){
             showSpinner()
             let addedString
@@ -221,7 +222,7 @@
             document.querySelectorAll('div.fruite-name').forEach(element=>{
                 categoriesElements.push(element)
             })
-            console.log(categoriesElements)
+            
             categoriesElements.forEach(element=>{
                 element.addEventListener('click',(e)=>{
 
@@ -229,7 +230,7 @@
                    onChangeCategory(element.getAttribute('data-value'))
                 })
             })
-        }
+            }
         function InitializePaginationSelector(){
                 if(paginationElements.length){
                     paginationElements.length=0

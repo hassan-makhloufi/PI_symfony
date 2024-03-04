@@ -1,0 +1,79 @@
+<a  href="{{ path('app_forum_create') }}" class="btn btn-primary" >
+    add a new forum
+</a>
+{%  if forums is defined %}
+    {%  for f in forums %}
+        <div class="forum-topic">
+            <div class="profile-pict">
+
+                <img src="{{ absolute_url(asset('default-profile-pict.png'))}}" alt="">
+            </div>
+            <div class="forum-topic-body">
+                <a class="forum-title" href="{{ path('app_forum_single',{id:f.id}) }}">
+                    {{ f.title }}
+                </a>
+                ({{ f.likes |length }} likes)
+                <div class="forum-topic-meta">
+                    <div class="forum-topic-tags">
+                        <div class="tags">
+                            <a href="" style="color: white;background-color: #4c6aa8;">
+                                {{ f.forumCategory.name }}
+                            </a>
+                        </div>
+
+                    </div>
+                    <a href="">  {{ f.author.firstname }}  {{ f.author.lastname }}
+                        ,</a>
+                    <a href="">{{ f.getTimeAgo() }}</a>
+                    {% if app.user and app.user.id ==f.author.id %}
+                        <a href="{{ path('app_forum_delete',{'id':f.id}) }}"> <i class="fa fa-trash"></i>  </a>
+                        <a href="{{ path('app_forum_update',{'id':f.id}) }}"><i class="fas fa-edit"></i>  </a>
+
+                    {% endif %}
+
+                </div>
+            </div>
+            <div class="form-replies">
+                <i class="fa fa-comment" aria-hidden="true"></i> {{ f.comments | length }}
+            </div>
+        </div>
+    {% endfor %}
+{% else %}
+    {%  for forum in customForums %}
+         {% set f = (forum | first) %}
+        <div class="forum-topic">
+            <div class="profile-pict">
+
+                <img src="{{ absolute_url(asset('default-profile-pict.png'))}}" alt="">
+            </div>
+            <div class="forum-topic-body">
+                <a class="forum-title" href="{{ path('app_forum_single',{id:f.id}) }}">
+                    {{ f.title }}
+                </a>
+                ({{ f.likes |length }} likes)
+                <div class="forum-topic-meta">
+                    <div class="forum-topic-tags">
+                        <div class="tags">
+                            <a href="" style="color: white;background-color: #4c6aa8;">
+                                {{ f.forumCategory.name }}
+                            </a>
+                        </div>
+
+                    </div>
+                    <a href="">  {{ f.author.firstname }}  {{ f.author.lastname }}
+                        ,</a>
+                    <a href="">{{ f.getTimeAgo() }}</a>
+                    {% if app.user and app.user.id ==f.author.id %}
+                        <a href="{{ path('app_forum_delete',{'id':f.id}) }}"> <i class="fa fa-trash"></i>  </a>
+                        <a href="{{ path('app_forum_update',{'id':f.id}) }}"><i class="fas fa-edit"></i>  </a>
+
+                    {% endif %}
+
+                </div>
+            </div>
+            <div class="form-replies">
+                <i class="fa fa-comment" aria-hidden="true"></i> {{ f.comments | length }}
+            </div>
+        </div>
+    {% endfor %}
+{% endif %}

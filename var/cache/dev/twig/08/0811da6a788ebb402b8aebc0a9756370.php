@@ -63,103 +63,91 @@ class __TwigTemplate_752c95aeaef417bc39a6965b8a155020 extends Template
         <table class=\"table\">
             <thead>
             <tr>
-                <th scope=\"col\">Product</th>
-                <th scope=\"col\">Name</th>
-                <th scope=\"col\">for</th>
-                <th scope=\"col\">Name</th>
+                <th scope=\"col\">Your Product</th>
+                <th scope=\"col\">Quantity</th>
+                <th scope=\"col\">Target Product</th>
                 <th scope=\"col\">Owner</th>
-                <th scope=\"col\">validated</th>
-                <th scope=\"col\">Delete</th>
+
+                <th scope=\"col\">Quantity</th>
+                <th scope=\"col\">State</th>
+                <th scope=\"col\">Action</th>
 
             </tr>
             </thead>
             <tbody>
             ";
-        // line 22
+        // line 23
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["request_trades"]) || array_key_exists("request_trades", $context) ? $context["request_trades"] : (function () { throw new RuntimeError('Variable "request_trades" does not exist.', 22, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["request_trades"]) || array_key_exists("request_trades", $context) ? $context["request_trades"] : (function () { throw new RuntimeError('Variable "request_trades" does not exist.', 23, $this->source); })()));
         foreach ($context['_seq'] as $context["_key"] => $context["rt"]) {
-            // line 23
+            // line 24
             echo "            <tr>
                 <th scope=\"row\">
                     <div class=\"d-flex align-items-center\">
                         <img src=\"";
-            // line 26
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\HttpFoundationExtension']->generateAbsoluteUrl($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["rt"], "fromProduct", [], "any", false, false, false, 26), "image", [], "any", false, false, false, 26))), "html", null, true);
+            // line 27
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\HttpFoundationExtension']->generateAbsoluteUrl($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["rt"], "fromProduct", [], "any", false, false, false, 27), "image", [], "any", false, false, false, 27))), "html", null, true);
             echo "\" class=\"img-fluid me-5 rounded-circle\" style=\"width: 80px; height: 80px;\" alt=\"\">
                     </div>
                 </th>
                 <td>
                     <p class=\"mb-0 mt-4\">";
-            // line 30
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["rt"], "fromProduct", [], "any", false, false, false, 30), "name", [], "any", false, false, false, 30), "html", null, true);
+            // line 31
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["rt"], "fromQuantity", [], "any", false, false, false, 31), "html", null, true);
             echo "</p>
                 </td>
                 <td>
                     <div class=\"d-flex align-items-center\">
                         <img src=\"";
-            // line 34
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\HttpFoundationExtension']->generateAbsoluteUrl($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["rt"], "toProduct", [], "any", false, false, false, 34), "image", [], "any", false, false, false, 34))), "html", null, true);
+            // line 35
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\HttpFoundationExtension']->generateAbsoluteUrl($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["rt"], "toProduct", [], "any", false, false, false, 35), "image", [], "any", false, false, false, 35))), "html", null, true);
             echo "\" class=\"img-fluid me-5 rounded-circle\" style=\"width: 80px; height: 80px;\" alt=\"\">
                     </div>
                 </td>
                 <td>
                     <p class=\"mb-0 mt-4\">";
-            // line 38
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["rt"], "toProduct", [], "any", false, false, false, 38), "name", [], "any", false, false, false, 38), "html", null, true);
+            // line 39
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["rt"], "toUser", [], "any", false, false, false, 39), "firstname", [], "any", false, false, false, 39), "html", null, true);
+            echo " ";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["rt"], "toUser", [], "any", false, false, false, 39), "lastname", [], "any", false, false, false, 39), "html", null, true);
             echo "</p>
                 </td>
                 <td>
                     <p class=\"mb-0 mt-4\">";
-            // line 41
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["rt"], "toUser", [], "any", false, false, false, 41), "firstname", [], "any", false, false, false, 41), "html", null, true);
-            echo " ";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["rt"], "toUser", [], "any", false, false, false, 41), "lastname", [], "any", false, false, false, 41), "html", null, true);
+            // line 42
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["rt"], "toQuantity", [], "any", false, false, false, 42), "html", null, true);
             echo "</p>
                 </td>
                 <td>
-                    ";
-            // line 44
-            if (twig_get_attribute($this->env, $this->source, $context["rt"], "isComplete", [], "any", false, false, false, 44)) {
-                // line 45
-                echo "                        <button class=\"btn btn-md rounded-circle bg-light border mt-4\" >
-                            <i class=\"fa fa-check text-success\"></i>
-                        </button>
-
-
-                    ";
-            } else {
-                // line 51
-                echo "                        <button class=\"btn btn-md rounded-circle bg-light border mt-4\" >
-                            <i class=\"fa fa-times text-danger\"></i>
-                        </button>
-
-                    ";
-            }
-            // line 56
-            echo "                </td>
+                    <p class=\"mb-0 mt-4\">";
+            // line 45
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["rt"], "state", [], "any", false, false, false, 45), "html", null, true);
+            echo " </p>
+                </td>
                 <td>
                     ";
-            // line 58
-            if (twig_get_attribute($this->env, $this->source, $context["rt"], "isComplete", [], "any", false, false, false, 58)) {
-                // line 59
-                echo "                        <button class=\"btn btn-md rounded-circle bg-light border mt-4\" >
-                            <i class=\"fa fa-calendar text-success\"></i>
-                        </button>
+            // line 48
+            if ((twig_get_attribute($this->env, $this->source, $context["rt"], "state", [], "any", false, false, false, 48) == "complete")) {
+                // line 49
+                echo "                        <a href=\"";
+                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_livraison_lines_create", ["id" => twig_get_attribute($this->env, $this->source, $context["rt"], "id", [], "any", false, false, false, 49)]), "html", null, true);
+                echo "\" class=\"btn btn-success rounded-circle border mt-4\" >
+                            <i class=\"fas fa-shipping-fast\"></i>
+                        </a>
 
 
                     ";
             } else {
-                // line 65
+                // line 55
                 echo "                        <a class=\"btn btn-danger rounded-circle border mt-4\" href=\"";
-                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_profile_trades_delete", ["id" => twig_get_attribute($this->env, $this->source, $context["rt"], "id", [], "any", false, false, false, 65)]), "html", null, true);
+                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_profile_trades_delete", ["id" => twig_get_attribute($this->env, $this->source, $context["rt"], "id", [], "any", false, false, false, 55)]), "html", null, true);
                 echo "\">
                             <i class=\"fa fa-trash\" aria-hidden=\"true\"></i>
                         </a>
 
                     ";
             }
-            // line 70
+            // line 60
             echo "
                 </td>
 
@@ -169,7 +157,7 @@ class __TwigTemplate_752c95aeaef417bc39a6965b8a155020 extends Template
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['rt'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 75
+        // line 65
         echo "
 
             </tbody>
@@ -182,97 +170,129 @@ class __TwigTemplate_752c95aeaef417bc39a6965b8a155020 extends Template
             <table class=\"table\">
                 <thead>
                 <tr>
-                    <th scope=\"col\">Product</th>
-                    <th scope=\"col\">Name</th>
-                    <th scope=\"col\">for</th>
-                    <th scope=\"col\">Name</th>
+                    <th scope=\"col\">Target Product</th>
                     <th scope=\"col\">Owner</th>
+                    <th scope=\"col\">Quantity</th>
+                    <th scope=\"col\">Your Product</th>
+                    <th scope=\"col\">Quantity</th>
                     <th scope=\"col\">validated</th>
-                    <th scope=\"col\">Delete</th>
+                    <th scope=\"col\">Action</th>
 
                 </tr>
                 </thead>
                 <tbody>
                 ";
-        // line 98
+        // line 88
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["sent_request_trades"]) || array_key_exists("sent_request_trades", $context) ? $context["sent_request_trades"] : (function () { throw new RuntimeError('Variable "sent_request_trades" does not exist.', 98, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["sent_request_trades"]) || array_key_exists("sent_request_trades", $context) ? $context["sent_request_trades"] : (function () { throw new RuntimeError('Variable "sent_request_trades" does not exist.', 88, $this->source); })()));
         foreach ($context['_seq'] as $context["_key"] => $context["rt"]) {
-            // line 99
-            echo "                    <tr>
-                        <th scope=\"row\">
-                            <div class=\"d-flex align-items-center\">
-                                <img src=\"";
-            // line 102
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\HttpFoundationExtension']->generateAbsoluteUrl($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["rt"], "fromProduct", [], "any", false, false, false, 102), "image", [], "any", false, false, false, 102))), "html", null, true);
-            echo "\" class=\"img-fluid me-5 rounded-circle\" style=\"width: 80px; height: 80px;\" alt=\"\">
-                            </div>
-                        </th>
-                        <td>
-                            <p class=\"mb-0 mt-4\">";
-            // line 106
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["rt"], "fromProduct", [], "any", false, false, false, 106), "name", [], "any", false, false, false, 106), "html", null, true);
-            echo "</p>
-                        </td>
-                        <td>
-                            <div class=\"d-flex align-items-center\">
-                                <img src=\"";
-            // line 110
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\HttpFoundationExtension']->generateAbsoluteUrl($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["rt"], "toProduct", [], "any", false, false, false, 110), "image", [], "any", false, false, false, 110))), "html", null, true);
-            echo "\" class=\"img-fluid me-5 rounded-circle\" style=\"width: 80px; height: 80px;\" alt=\"\">
-                            </div>
-                        </td>
-                        <td>
-                            <p class=\"mb-0 mt-4\">";
-            // line 114
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["rt"], "toProduct", [], "any", false, false, false, 114), "name", [], "any", false, false, false, 114), "html", null, true);
-            echo "</p>
-                        </td>
-                        <td>
-                            <p class=\"mb-0 mt-4\">";
-            // line 117
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["rt"], "toUser", [], "any", false, false, false, 117), "firstname", [], "any", false, false, false, 117), "html", null, true);
-            echo " ";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["rt"], "toUser", [], "any", false, false, false, 117), "lastname", [], "any", false, false, false, 117), "html", null, true);
-            echo "</p>
-                        </td>
-                        <td>
-                            ";
-            // line 120
-            if (twig_get_attribute($this->env, $this->source, $context["rt"], "isComplete", [], "any", false, false, false, 120)) {
+            // line 89
+            echo "                    ";
+            if ((twig_get_attribute($this->env, $this->source, $context["rt"], "state", [], "any", false, false, false, 89) != "declined")) {
+                // line 90
+                echo "                        <tr>
+                            <th scope=\"row\">
+                                <div class=\"d-flex align-items-center\">
+                                    <img src=\"";
+                // line 93
+                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\HttpFoundationExtension']->generateAbsoluteUrl($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["rt"], "fromProduct", [], "any", false, false, false, 93), "image", [], "any", false, false, false, 93))), "html", null, true);
+                echo "\" class=\"img-fluid me-5 rounded-circle\" style=\"width: 80px; height: 80px;\" alt=\"\">
+                                </div>
+                            </th>
+                            <td>
+                                <p class=\"mb-0 mt-4\">";
+                // line 97
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["rt"], "fromUser", [], "any", false, false, false, 97), "firstname", [], "any", false, false, false, 97), "html", null, true);
+                echo " ";
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["rt"], "fromUser", [], "any", false, false, false, 97), "lastname", [], "any", false, false, false, 97), "html", null, true);
+                echo "</p>
+                            </td>
+                            <td>
+                                <p class=\"mb-0 mt-4\">";
+                // line 100
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["rt"], "fromQuantity", [], "any", false, false, false, 100), "html", null, true);
+                echo "</p>
+                            </td>
+                            <td>
+                                <div class=\"d-flex align-items-center\">
+                                    <img src=\"";
+                // line 104
+                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\HttpFoundationExtension']->generateAbsoluteUrl($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["rt"], "toProduct", [], "any", false, false, false, 104), "image", [], "any", false, false, false, 104))), "html", null, true);
+                echo "\" class=\"img-fluid me-5 rounded-circle\" style=\"width: 80px; height: 80px;\" alt=\"\">
+                                </div>
+                            </td>
+                            <td>
+                                <p class=\"mb-0 mt-4\">";
+                // line 108
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["rt"], "toQuantity", [], "any", false, false, false, 108), "html", null, true);
+                echo "</p>
+                            </td>
+                            <td>
+                                ";
+                // line 111
+                if ((twig_get_attribute($this->env, $this->source, $context["rt"], "state", [], "any", false, false, false, 111) != "en attente")) {
+                    // line 112
+                    echo "                                    <button class=\"btn btn-md rounded-circle bg-light border mt-4\" >
+                                        <i class=\"fa fa-check text-success\"></i>
+                                    </button>
+                                ";
+                } else {
+                    // line 116
+                    echo "                                    <button class=\"btn btn-md rounded-circle bg-light border mt-4\" >
+                                        <i class=\"fa fa-times text-danger\"></i>
+                                    </button>
+
+                                ";
+                }
                 // line 121
-                echo "                                <button class=\"btn btn-md rounded-circle bg-light border mt-4\" >
-                                    <i class=\"fa fa-check text-success\"></i>
-                                </button>
+                echo "                            </td>
+                            <td>
+                                <div style=\"display: flex;gap: 10px;align-items: center\">
+                                ";
+                // line 124
+                if ((twig_get_attribute($this->env, $this->source, $context["rt"], "state", [], "any", false, false, false, 124) != "complete")) {
+                    // line 125
+                    echo "                                    <a class=\"btn btn-success rounded-circle border mt-4\" href=\"";
+                    echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_profile_trades_validate", ["id" => twig_get_attribute($this->env, $this->source, $context["rt"], "id", [], "any", false, false, false, 125), "action" => "validate"]), "html", null, true);
+                    echo "\">
+                                        <i class=\"fa fa-check\" aria-hidden=\"true\"></i>
+                                    </a>
+                                    ";
+                } else {
+                    // line 129
+                    echo "                                        <a class=\"btn btn-success rounded-circle border mt-4\" href=\"";
+                    echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_livraison_lines_create", ["id" => twig_get_attribute($this->env, $this->source, $context["rt"], "id", [], "any", false, false, false, 129)]), "html", null, true);
+                    echo "\">
+                                            <i class=\"fas fa-shipping-fast\"></i>
 
-
+                                        </a>
+                                ";
+                }
+                // line 134
+                echo "                            ";
+                if ((twig_get_attribute($this->env, $this->source, $context["rt"], "state", [], "any", false, false, false, 134) != "complete")) {
+                    // line 135
+                    echo "                                <a class=\"btn btn-md rounded-circle bg-light border mt-4\" href=\"";
+                    echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_profile_trades_validate", ["id" => twig_get_attribute($this->env, $this->source, $context["rt"], "id", [], "any", false, false, false, 135), "action" => "decline"]), "html", null, true);
+                    echo "\">
+                                        <i class=\"fa fa-times text-danger\"></i>
+                                    </a>
+                                </div>
                             ";
-            } else {
-                // line 127
-                echo "                                <button class=\"btn btn-md rounded-circle bg-light border mt-4\" >
-                                    <i class=\"fa fa-times text-danger\"></i>
-                                </button>
+                }
+                // line 140
+                echo "                            </td>
 
-                            ";
+                        </tr>
+                    ";
             }
-            // line 132
-            echo "                        </td>
-                        <td>
-                            <a class=\"btn btn-success rounded-circle border mt-4\" href=\"";
-            // line 134
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_profile_trades_validate", ["id" => twig_get_attribute($this->env, $this->source, $context["rt"], "id", [], "any", false, false, false, 134)]), "html", null, true);
-            echo "\">
-                                <i class=\"fa fa-check\" aria-hidden=\"true\"></i>
-                            </a>
-                        </td>
-
-                    </tr>
-                ";
+            // line 144
+            echo "                ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['rt'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 141
+        // line 145
         echo "
 
                 </tbody>
@@ -308,7 +328,7 @@ class __TwigTemplate_752c95aeaef417bc39a6965b8a155020 extends Template
      */
     public function getDebugInfo()
     {
-        return array (  276 => 141,  263 => 134,  259 => 132,  252 => 127,  244 => 121,  242 => 120,  234 => 117,  228 => 114,  221 => 110,  214 => 106,  207 => 102,  202 => 99,  198 => 98,  173 => 75,  163 => 70,  154 => 65,  146 => 59,  144 => 58,  140 => 56,  133 => 51,  125 => 45,  123 => 44,  115 => 41,  109 => 38,  102 => 34,  95 => 30,  88 => 26,  83 => 23,  79 => 22,  59 => 4,  52 => 3,  35 => 1,);
+        return array (  296 => 145,  290 => 144,  284 => 140,  275 => 135,  272 => 134,  263 => 129,  255 => 125,  253 => 124,  248 => 121,  241 => 116,  235 => 112,  233 => 111,  227 => 108,  220 => 104,  213 => 100,  205 => 97,  198 => 93,  193 => 90,  190 => 89,  186 => 88,  161 => 65,  151 => 60,  142 => 55,  132 => 49,  130 => 48,  124 => 45,  118 => 42,  110 => 39,  103 => 35,  96 => 31,  89 => 27,  84 => 24,  80 => 23,  59 => 4,  52 => 3,  35 => 1,);
     }
 
     public function getSourceContext()
@@ -323,13 +343,14 @@ class __TwigTemplate_752c95aeaef417bc39a6965b8a155020 extends Template
         <table class=\"table\">
             <thead>
             <tr>
-                <th scope=\"col\">Product</th>
-                <th scope=\"col\">Name</th>
-                <th scope=\"col\">for</th>
-                <th scope=\"col\">Name</th>
+                <th scope=\"col\">Your Product</th>
+                <th scope=\"col\">Quantity</th>
+                <th scope=\"col\">Target Product</th>
                 <th scope=\"col\">Owner</th>
-                <th scope=\"col\">validated</th>
-                <th scope=\"col\">Delete</th>
+
+                <th scope=\"col\">Quantity</th>
+                <th scope=\"col\">State</th>
+                <th scope=\"col\">Action</th>
 
             </tr>
             </thead>
@@ -342,7 +363,7 @@ class __TwigTemplate_752c95aeaef417bc39a6965b8a155020 extends Template
                     </div>
                 </th>
                 <td>
-                    <p class=\"mb-0 mt-4\">{{ rt.fromProduct.name }}</p>
+                    <p class=\"mb-0 mt-4\">{{ rt.fromQuantity }}</p>
                 </td>
                 <td>
                     <div class=\"d-flex align-items-center\">
@@ -350,30 +371,19 @@ class __TwigTemplate_752c95aeaef417bc39a6965b8a155020 extends Template
                     </div>
                 </td>
                 <td>
-                    <p class=\"mb-0 mt-4\">{{ rt.toProduct.name }}</p>
+                    <p class=\"mb-0 mt-4\">{{ rt.toUser.firstname }} {{ rt.toUser.lastname }}</p>
                 </td>
                 <td>
-                    <p class=\"mb-0 mt-4\">{{ rt.toUser.firstname  }} {{ rt.toUser.lastname  }}</p>
+                    <p class=\"mb-0 mt-4\">{{ rt.toQuantity }}</p>
                 </td>
                 <td>
-                    {% if rt.isComplete %}
-                        <button class=\"btn btn-md rounded-circle bg-light border mt-4\" >
-                            <i class=\"fa fa-check text-success\"></i>
-                        </button>
-
-
-                    {% else %}
-                        <button class=\"btn btn-md rounded-circle bg-light border mt-4\" >
-                            <i class=\"fa fa-times text-danger\"></i>
-                        </button>
-
-                    {% endif %}
+                    <p class=\"mb-0 mt-4\">{{ rt.state  }} </p>
                 </td>
                 <td>
-                    {% if rt.isComplete %}
-                        <button class=\"btn btn-md rounded-circle bg-light border mt-4\" >
-                            <i class=\"fa fa-calendar text-success\"></i>
-                        </button>
+                    {% if rt.state==\"complete\" %}
+                        <a href=\"{{ path('app_livraison_lines_create',{id:rt.id}) }}\" class=\"btn btn-success rounded-circle border mt-4\" >
+                            <i class=\"fas fa-shipping-fast\"></i>
+                        </a>
 
 
                     {% else %}
@@ -399,59 +409,73 @@ class __TwigTemplate_752c95aeaef417bc39a6965b8a155020 extends Template
             <table class=\"table\">
                 <thead>
                 <tr>
-                    <th scope=\"col\">Product</th>
-                    <th scope=\"col\">Name</th>
-                    <th scope=\"col\">for</th>
-                    <th scope=\"col\">Name</th>
+                    <th scope=\"col\">Target Product</th>
                     <th scope=\"col\">Owner</th>
+                    <th scope=\"col\">Quantity</th>
+                    <th scope=\"col\">Your Product</th>
+                    <th scope=\"col\">Quantity</th>
                     <th scope=\"col\">validated</th>
-                    <th scope=\"col\">Delete</th>
+                    <th scope=\"col\">Action</th>
 
                 </tr>
                 </thead>
                 <tbody>
                 {% for rt in sent_request_trades %}
-                    <tr>
-                        <th scope=\"row\">
-                            <div class=\"d-flex align-items-center\">
-                                <img src=\"{{ absolute_url(asset(rt.fromProduct.image)) }}\" class=\"img-fluid me-5 rounded-circle\" style=\"width: 80px; height: 80px;\" alt=\"\">
-                            </div>
-                        </th>
-                        <td>
-                            <p class=\"mb-0 mt-4\">{{ rt.fromProduct.name }}</p>
-                        </td>
-                        <td>
-                            <div class=\"d-flex align-items-center\">
-                                <img src=\"{{ absolute_url(asset(rt.toProduct.image)) }}\" class=\"img-fluid me-5 rounded-circle\" style=\"width: 80px; height: 80px;\" alt=\"\">
-                            </div>
-                        </td>
-                        <td>
-                            <p class=\"mb-0 mt-4\">{{ rt.toProduct.name }}</p>
-                        </td>
-                        <td>
-                            <p class=\"mb-0 mt-4\">{{ rt.toUser.firstname  }} {{ rt.toUser.lastname  }}</p>
-                        </td>
-                        <td>
-                            {% if rt.isComplete %}
-                                <button class=\"btn btn-md rounded-circle bg-light border mt-4\" >
-                                    <i class=\"fa fa-check text-success\"></i>
-                                </button>
+                    {% if rt.state!=\"declined\" %}
+                        <tr>
+                            <th scope=\"row\">
+                                <div class=\"d-flex align-items-center\">
+                                    <img src=\"{{ absolute_url(asset(rt.fromProduct.image)) }}\" class=\"img-fluid me-5 rounded-circle\" style=\"width: 80px; height: 80px;\" alt=\"\">
+                                </div>
+                            </th>
+                            <td>
+                                <p class=\"mb-0 mt-4\">{{ rt.fromUser.firstname }} {{ rt.fromUser.lastname }}</p>
+                            </td>
+                            <td>
+                                <p class=\"mb-0 mt-4\">{{ rt.fromQuantity }}</p>
+                            </td>
+                            <td>
+                                <div class=\"d-flex align-items-center\">
+                                    <img src=\"{{ absolute_url(asset(rt.toProduct.image)) }}\" class=\"img-fluid me-5 rounded-circle\" style=\"width: 80px; height: 80px;\" alt=\"\">
+                                </div>
+                            </td>
+                            <td>
+                                <p class=\"mb-0 mt-4\">{{ rt.toQuantity }}</p>
+                            </td>
+                            <td>
+                                {% if rt.state!='en attente' %}
+                                    <button class=\"btn btn-md rounded-circle bg-light border mt-4\" >
+                                        <i class=\"fa fa-check text-success\"></i>
+                                    </button>
+                                {% else %}
+                                    <button class=\"btn btn-md rounded-circle bg-light border mt-4\" >
+                                        <i class=\"fa fa-times text-danger\"></i>
+                                    </button>
 
+                                {% endif %}
+                            </td>
+                            <td>
+                                <div style=\"display: flex;gap: 10px;align-items: center\">
+                                {% if rt.state!='complete' %}
+                                    <a class=\"btn btn-success rounded-circle border mt-4\" href=\"{{ path('app_profile_trades_validate',{id:rt.id,action:'validate'}) }}\">
+                                        <i class=\"fa fa-check\" aria-hidden=\"true\"></i>
+                                    </a>
+                                    {% else %}
+                                        <a class=\"btn btn-success rounded-circle border mt-4\" href=\"{{ path('app_livraison_lines_create',{id:rt.id}) }}\">
+                                            <i class=\"fas fa-shipping-fast\"></i>
 
-                            {% else %}
-                                <button class=\"btn btn-md rounded-circle bg-light border mt-4\" >
-                                    <i class=\"fa fa-times text-danger\"></i>
-                                </button>
-
+                                        </a>
+                                {% endif %}
+                            {% if rt.state!='complete' %}
+                                <a class=\"btn btn-md rounded-circle bg-light border mt-4\" href=\"{{ path('app_profile_trades_validate',{id:rt.id,action:'decline'}) }}\">
+                                        <i class=\"fa fa-times text-danger\"></i>
+                                    </a>
+                                </div>
                             {% endif %}
-                        </td>
-                        <td>
-                            <a class=\"btn btn-success rounded-circle border mt-4\" href=\"{{ path('app_profile_trades_validate',{id:rt.id}) }}\">
-                                <i class=\"fa fa-check\" aria-hidden=\"true\"></i>
-                            </a>
-                        </td>
+                            </td>
 
-                    </tr>
+                        </tr>
+                    {% endif %}
                 {% endfor %}
 
 
@@ -461,6 +485,6 @@ class __TwigTemplate_752c95aeaef417bc39a6965b8a155020 extends Template
 
     </div>
 
-{% endblock %}", "front/profile/my_trades/my_trades.html.twig", "/Users/hassan/Downloads/app/templates/front/profile/my_trades/my_trades.html.twig");
+{% endblock %}", "front/profile/my_trades/my_trades.html.twig", "/Users/hassan/Downloads/app-2/templates/front/profile/my_trades/my_trades.html.twig");
     }
 }

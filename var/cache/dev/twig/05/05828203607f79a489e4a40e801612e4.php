@@ -155,6 +155,6 @@ class __TwigTemplate_2f790c89d1061ab21de96ede1a02db8e extends Template
         {{ form_end(form) }}
 
     </div>
-{% endblock %}", "front/profile/update_profile.html.twig", "/Users/hassan/Downloads/app/templates/front/profile/update_profile.html.twig");
+{% endblock %}", "front/profile/update_profile.html.twig", "/Users/hassan/Downloads/app-2/templates/front/profile/update_profile.html.twig");
     }
 }

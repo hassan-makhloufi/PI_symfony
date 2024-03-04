@@ -317,6 +317,7 @@ class __TwigTemplate_4e7a136421c5d85619ba68d081a54ac7 extends Template
         function showSpinner(){
             spinner.style.visibility='visible'
         }
+        
         function onChangeCategory(cat_id){
             showSpinner()
             let addedString
@@ -349,7 +350,7 @@ class __TwigTemplate_4e7a136421c5d85619ba68d081a54ac7 extends Template
             document.querySelectorAll('div.fruite-name').forEach(element=>{
                 categoriesElements.push(element)
             })
-            console.log(categoriesElements)
+            
             categoriesElements.forEach(element=>{
                 element.addEventListener('click',(e)=>{
 
@@ -357,7 +358,7 @@ class __TwigTemplate_4e7a136421c5d85619ba68d081a54ac7 extends Template
                    onChangeCategory(element.getAttribute('data-value'))
                 })
             })
-        }
+            }
         function InitializePaginationSelector(){
                 if(paginationElements.length){
                     paginationElements.length=0
@@ -620,6 +621,7 @@ class __TwigTemplate_4e7a136421c5d85619ba68d081a54ac7 extends Template
         function showSpinner(){
             spinner.style.visibility='visible'
         }
+        
         function onChangeCategory(cat_id){
             showSpinner()
             let addedString
@@ -652,7 +654,7 @@ class __TwigTemplate_4e7a136421c5d85619ba68d081a54ac7 extends Template
             document.querySelectorAll('div.fruite-name').forEach(element=>{
                 categoriesElements.push(element)
             })
-            console.log(categoriesElements)
+            
             categoriesElements.forEach(element=>{
                 element.addEventListener('click',(e)=>{
 
@@ -660,7 +662,7 @@ class __TwigTemplate_4e7a136421c5d85619ba68d081a54ac7 extends Template
                    onChangeCategory(element.getAttribute('data-value'))
                 })
             })
-        }
+            }
         function InitializePaginationSelector(){
                 if(paginationElements.length){
                     paginationElements.length=0
@@ -700,6 +702,6 @@ class __TwigTemplate_4e7a136421c5d85619ba68d081a54ac7 extends Template
                 })
         }
     </script>
-{% endblock %}", "front/home/products.html.twig", "/Users/hassan/Downloads/app/templates/front/home/products.html.twig");
+{% endblock %}", "front/home/products.html.twig", "/Users/hassan/Downloads/test/templates/front/home/products.html.twig");
     }
 }

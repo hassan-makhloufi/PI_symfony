@@ -1,0 +1,81 @@
+{% extends 'back/base.html.twig' %}
+{% block contents%}
+    <main id="main" class="main">
+
+        <div class="pagetitle">
+            <h1>Livraison</h1>
+            <nav>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html">admin</a></li>
+                    <li class="breadcrumb-item">shipping</li>
+                    <li class="breadcrumb-item active">list</li>
+                </ol>
+            </nav>
+        </div><!-- End Page Title -->
+
+        <section class="section">
+            <div class="row">
+                <div class="col-lg-12">
+
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Shipping</h5>
+
+                            <!-- Table with stripped rows -->
+                            <table class="table datatable">
+                                <thead>
+                                <tr>
+
+                                    <th>
+                                        Country
+                                    </th>
+                                    <th>
+                                        State
+                                    </th>
+                                    <td>
+                                        User
+                                    </td>
+                                    <td>
+                                        Email
+                                    </td>
+                                    <th>Shipping State</th>
+                                    <th>Action</th>
+                                </thead>
+                                <tbody>
+                                {% for r in livraisons %}
+                                    <tr>
+                                        <td>{{ r.country }} </td>
+                                        <td>{{ r.state }} </td>
+                                        <td>{{ r.adder.firstname }} {{ r.adder.lastname }}  </td>
+
+                                        <td>{{ r.adder.email }}</td>
+
+                                        <td>{{ r.etat }}</td>
+                                        {% if r.etat =='en attente'%}
+                                            <td>
+                                                <div style="display: flex;gap: 5px">
+                                                    <a class="btn btn-success" href="{{ path('app_admin_livraison_update',{state:'shipped',id:r.id}) }}">    <i class="fa fa-check"></i> </a>
+                                                    <a class="btn" href="{{ path('app_admin_livraison_update',{state:'declined',id:r.id}) }}">    <i class="fa fa-times text-danger"></i> </a>
+
+                                                </div>
+                                            </td>
+                                        {% else %}
+                                            <td>{{ r.etat }}</td>
+                                        {% endif %}
+
+
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                            <!-- End Table with stripped rows -->
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main><!-- End #main -->
+{% endblock %}

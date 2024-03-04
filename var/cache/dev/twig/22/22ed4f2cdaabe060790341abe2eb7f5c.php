@@ -26,6 +26,7 @@ class __TwigTemplate_e4e74e23d5c09e36269b06c147528155 extends Template
 
         $this->blocks = [
             'content' => [$this, 'block_content'],
+            'scripts' => [$this, 'block_scripts'],
         ];
     }
 
@@ -98,16 +99,38 @@ class __TwigTemplate_e4e74e23d5c09e36269b06c147528155 extends Template
                             </div>-->
                             <p class=\"mb-4\">The generated Lorem Ipsum is therefore always free from repetition injected humour, or non-characteristic words etc.</p>
                             <p class=\"mb-4\">Susp endisse ultricies nisi vel quam suscipit. Sabertooth peacock flounder; chain pickerel hatchetfish, pencilfish snailfish</p>
+                            <div class=\"input-group quantity mb-5\" style=\"width: 100px;\">
+                                <div class=\"input-group-btn\">
+                                    <a id=\"minus\" class=\"btn btn-sm btn-minus rounded-circle bg-light border\" >
+                                        <i class=\"fa fa-minus\"></i>
+                                    </a>
+                                </div>
+                                <input type=\"text\" id=\"quantityInput\" min=\"1\" max=\"5\" class=\"form-control form-control-sm text-center border-0\" value=\"1\">
+                                <div class=\"input-group-btn\">
+                                    <a id=\"plus\" class=\"btn btn-sm btn-plus rounded-circle bg-light border\">
+                                        <i class=\"fa fa-plus\"></i>
+                                    </a>
+                                </div>
+                            </div>
                             ";
-        // line 36
-        if (((twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 36, $this->source); })()), "user", [], "any", false, false, false, 36) && (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["product"]) || array_key_exists("product", $context) ? $context["product"] : (function () { throw new RuntimeError('Variable "product" does not exist.', 36, $this->source); })()), "adder", [], "any", false, false, false, 36), "id", [], "any", false, false, false, 36) != twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 36, $this->source); })()), "user", [], "any", false, false, false, 36), "id", [], "any", false, false, false, 36))) && twig_get_attribute($this->env, $this->source, (isset($context["product"]) || array_key_exists("product", $context) ? $context["product"] : (function () { throw new RuntimeError('Variable "product" does not exist.', 36, $this->source); })()), "canTradeWith", [twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 36, $this->source); })()), "user", [], "any", false, false, false, 36)], "method", false, false, false, 36))) {
-            // line 37
-            echo "                            <button class=\"btn btn-primary\" data-bs-toggle=\"modal\" data-bs-target=\"#trade-modal\">
-                                Trade
-                            </button>
+        // line 49
+        if (twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 49, $this->source); })()), "user", [], "any", false, false, false, 49)) {
+            // line 50
+            echo "                                <a class=\"forum-reclamation\" style=\"cursor: pointer\" data-bs-toggle=\"modal\" data-bs-target=\"#reclamation-modal\">
+                                    !
+                                </a>
                             ";
         }
-        // line 41
+        // line 54
+        echo "                            ";
+        if ((twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 54, $this->source); })()), "user", [], "any", false, false, false, 54) && twig_get_attribute($this->env, $this->source, (isset($context["product"]) || array_key_exists("product", $context) ? $context["product"] : (function () { throw new RuntimeError('Variable "product" does not exist.', 54, $this->source); })()), "isTradableByUser", [twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 54, $this->source); })()), "user", [], "any", false, false, false, 54)], "method", false, false, false, 54))) {
+            // line 55
+            echo "                            <a  class=\"btn btn-primary\" id=\"trade-button\"  data-bs-toggle=\"modal\" data-bs-target=\"#trade-modal\">
+                                Trade
+                            </a>
+                            ";
+        }
+        // line 59
         echo "                        </div>
                         <div class=\"col-lg-12\">
                             <nav>
@@ -190,6 +213,7 @@ class __TwigTemplate_e4e74e23d5c09e36269b06c147528155 extends Template
                                             </div>
                                             <p>The generated Lorem Ipsum is therefore always free from repetition injected humour, or non-characteristic
                                                 words etc. Susp endisse ultricies nisi vel quam suscipit </p>
+
                                         </div>
                                     </div>
                                     <div class=\"d-flex\">
@@ -267,22 +291,22 @@ class __TwigTemplate_e4e74e23d5c09e36269b06c147528155 extends Template
                                 <h4>Categories</h4>
                                 <ul class=\"list-unstyled fruite-categorie\">
                                     ";
-        // line 199
+        // line 218
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["categories"]) || array_key_exists("categories", $context) ? $context["categories"] : (function () { throw new RuntimeError('Variable "categories" does not exist.', 199, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["categories"]) || array_key_exists("categories", $context) ? $context["categories"] : (function () { throw new RuntimeError('Variable "categories" does not exist.', 218, $this->source); })()));
         foreach ($context['_seq'] as $context["_key"] => $context["c"]) {
-            // line 200
+            // line 219
             echo "                                    <li>
                                         <div class=\"d-flex justify-content-between fruite-name\">
                                             <a href=\"";
-            // line 202
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_products", ["category" => twig_get_attribute($this->env, $this->source, $context["c"], "id", [], "any", false, false, false, 202)]), "html", null, true);
+            // line 221
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_products", ["category" => twig_get_attribute($this->env, $this->source, $context["c"], "id", [], "any", false, false, false, 221)]), "html", null, true);
             echo "\"><i class=\"fas fa-apple-alt me-2\"></i>";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["c"], "name", [], "any", false, false, false, 202), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["c"], "name", [], "any", false, false, false, 221), "html", null, true);
             echo "</a>
                                             <span>(";
-            // line 203
-            echo twig_escape_filter($this->env, twig_length_filter($this->env, twig_get_attribute($this->env, $this->source, $context["c"], "products", [], "any", false, false, false, 203)), "html", null, true);
+            // line 222
+            echo twig_escape_filter($this->env, twig_length_filter($this->env, twig_get_attribute($this->env, $this->source, $context["c"], "products", [], "any", false, false, false, 222)), "html", null, true);
             echo ")</span>
                                         </div>
                                     </li>
@@ -291,7 +315,7 @@ class __TwigTemplate_e4e74e23d5c09e36269b06c147528155 extends Template
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['c'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 207
+        // line 226
         echo "
                                 </ul>
                             </div>
@@ -554,6 +578,71 @@ class __TwigTemplate_e4e74e23d5c09e36269b06c147528155 extends Template
 
     }
 
+    // line 483
+    public function block_scripts($context, array $blocks = [])
+    {
+        $macros = $this->macros;
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "scripts"));
+
+        // line 484
+        echo "    <script>
+        console.log('ala is the best')
+        const quantityInput = document.querySelector('#quantityInput')
+        const tradeButton = document.querySelector('#trade-button');
+        const fromQuantityInputs = document.querySelectorAll('input.from-quantity');
+        const productQuantity = parseInt(\"";
+        // line 489
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["product"]) || array_key_exists("product", $context) ? $context["product"] : (function () { throw new RuntimeError('Variable "product" does not exist.', 489, $this->source); })()), "quanity", [], "any", false, false, false, 489), "html", null, true);
+        echo "\");
+        tradeButton.addEventListener('click',evt => {
+
+                fromQuantityInputs.forEach(input=>{
+                     input.value = quantityInput.value
+                })
+        })
+        const minusButton = document.querySelector('#minus')
+        const plusButton = document.querySelector('#plus')
+        const setMinus = ()=>{
+            const currentValue = parseInt(quantityInput.value)
+            if(currentValue>1){
+                quantityInput.value = `\${currentValue-1}`
+            }
+        }
+        const setPlus = ()=>{
+            const currentValue = parseInt(quantityInput.value)
+            if(currentValue<productQuantity){
+                quantityInput.value = `\${currentValue+1}`
+            }
+        }
+        minusButton.addEventListener('click',evt => {
+            evt.preventDefault()
+            setMinus()
+        })
+        plusButton.addEventListener('click',evt => {
+            evt.preventDefault()
+            setPlus()
+        })
+
+    </script>
+    <script>
+        const product_id = \"";
+        // line 521
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["product"]) || array_key_exists("product", $context) ? $context["product"] : (function () { throw new RuntimeError('Variable "product" does not exist.', 521, $this->source); })()), "id", [], "any", false, false, false, 521), "html", null, true);
+        echo "\"
+        const typeInput = document.querySelector('#reclamation-type');
+        document.querySelector('.forum-reclamation').addEventListener('click',evt => {
+             typeInput.value = product_id
+            typeInput.setAttribute('name',\"product_id\")
+
+        })
+    </script>
+";
+        
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
+
+    }
+
     /**
      * @codeCoverageIgnore
      */
@@ -575,7 +664,7 @@ class __TwigTemplate_e4e74e23d5c09e36269b06c147528155 extends Template
      */
     public function getDebugInfo()
     {
-        return array (  295 => 207,  285 => 203,  279 => 202,  275 => 200,  271 => 199,  111 => 41,  105 => 37,  103 => 36,  89 => 25,  85 => 24,  77 => 19,  59 => 3,  52 => 2,  35 => 1,);
+        return array (  631 => 521,  596 => 489,  589 => 484,  582 => 483,  319 => 226,  309 => 222,  303 => 221,  299 => 219,  295 => 218,  134 => 59,  128 => 55,  125 => 54,  119 => 50,  117 => 49,  90 => 25,  86 => 24,  78 => 19,  60 => 3,  53 => 2,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -615,10 +704,28 @@ class __TwigTemplate_e4e74e23d5c09e36269b06c147528155 extends Template
                             </div>-->
                             <p class=\"mb-4\">The generated Lorem Ipsum is therefore always free from repetition injected humour, or non-characteristic words etc.</p>
                             <p class=\"mb-4\">Susp endisse ultricies nisi vel quam suscipit. Sabertooth peacock flounder; chain pickerel hatchetfish, pencilfish snailfish</p>
-                            {% if app.user and product.adder.id!=app.user.id and product.canTradeWith(app.user) %}
-                            <button class=\"btn btn-primary\" data-bs-toggle=\"modal\" data-bs-target=\"#trade-modal\">
+                            <div class=\"input-group quantity mb-5\" style=\"width: 100px;\">
+                                <div class=\"input-group-btn\">
+                                    <a id=\"minus\" class=\"btn btn-sm btn-minus rounded-circle bg-light border\" >
+                                        <i class=\"fa fa-minus\"></i>
+                                    </a>
+                                </div>
+                                <input type=\"text\" id=\"quantityInput\" min=\"1\" max=\"5\" class=\"form-control form-control-sm text-center border-0\" value=\"1\">
+                                <div class=\"input-group-btn\">
+                                    <a id=\"plus\" class=\"btn btn-sm btn-plus rounded-circle bg-light border\">
+                                        <i class=\"fa fa-plus\"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            {% if app.user %}
+                                <a class=\"forum-reclamation\" style=\"cursor: pointer\" data-bs-toggle=\"modal\" data-bs-target=\"#reclamation-modal\">
+                                    !
+                                </a>
+                            {% endif %}
+                            {% if app.user and product.isTradableByUser(app.user) %}
+                            <a  class=\"btn btn-primary\" id=\"trade-button\"  data-bs-toggle=\"modal\" data-bs-target=\"#trade-modal\">
                                 Trade
-                            </button>
+                            </a>
                             {% endif %}
                         </div>
                         <div class=\"col-lg-12\">
@@ -702,6 +809,7 @@ class __TwigTemplate_e4e74e23d5c09e36269b06c147528155 extends Template
                                             </div>
                                             <p>The generated Lorem Ipsum is therefore always free from repetition injected humour, or non-characteristic
                                                 words etc. Susp endisse ultricies nisi vel quam suscipit </p>
+
                                         </div>
                                     </div>
                                     <div class=\"d-flex\">
@@ -1042,6 +1150,53 @@ class __TwigTemplate_e4e74e23d5c09e36269b06c147528155 extends Template
     </div>
     <!-- Single Product End -->
 
+{% endblock %}
+{% block scripts %}
+    <script>
+        console.log('ala is the best')
+        const quantityInput = document.querySelector('#quantityInput')
+        const tradeButton = document.querySelector('#trade-button');
+        const fromQuantityInputs = document.querySelectorAll('input.from-quantity');
+        const productQuantity = parseInt(\"{{ product.quanity }}\");
+        tradeButton.addEventListener('click',evt => {
+
+                fromQuantityInputs.forEach(input=>{
+                     input.value = quantityInput.value
+                })
+        })
+        const minusButton = document.querySelector('#minus')
+        const plusButton = document.querySelector('#plus')
+        const setMinus = ()=>{
+            const currentValue = parseInt(quantityInput.value)
+            if(currentValue>1){
+                quantityInput.value = `\${currentValue-1}`
+            }
+        }
+        const setPlus = ()=>{
+            const currentValue = parseInt(quantityInput.value)
+            if(currentValue<productQuantity){
+                quantityInput.value = `\${currentValue+1}`
+            }
+        }
+        minusButton.addEventListener('click',evt => {
+            evt.preventDefault()
+            setMinus()
+        })
+        plusButton.addEventListener('click',evt => {
+            evt.preventDefault()
+            setPlus()
+        })
+
+    </script>
+    <script>
+        const product_id = \"{{ product.id }}\"
+        const typeInput = document.querySelector('#reclamation-type');
+        document.querySelector('.forum-reclamation').addEventListener('click',evt => {
+             typeInput.value = product_id
+            typeInput.setAttribute('name',\"product_id\")
+
+        })
+    </script>
 {% endblock %}", "front/home/single.html.twig", "C:\\Users\\alaro\\Desktop\\training\\app\\templates\\front\\home\\single.html.twig");
     }
 }

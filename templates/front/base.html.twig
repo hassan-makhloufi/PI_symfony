@@ -8,7 +8,15 @@
     <meta content="" name="keywords">
     <meta content="" name="description">
 
+
     <!-- Google Web Fonts -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+          integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+          crossorigin=""/>
+    <style>
+
+        #map { height: 100%;width: 100% }
+    </style>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Raleway:wght@600;800&display=swap" rel="stylesheet">
@@ -29,6 +37,7 @@
 
     <!-- Template Stylesheet -->
     <link href="{{ absolute_url(asset('assets/front/css/style.css'))}}" rel="stylesheet">
+
     {% block stylesheets %}
 
     {% endblock %}
@@ -58,7 +67,7 @@
     </div>
     <div class="container px-0">
         <nav class="navbar navbar-light bg-white navbar-expand-xl">
-            <a href="" class="navbar-brand"><h1 class="text-primary display-6">hwija</h1></a>
+            <a href="index.html" class="navbar-brand"><h1 class="text-primary display-6">hwija</h1></a>
             <button class="navbar-toggler py-2 px-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                 <span class="fa fa-bars text-primary"></span>
             </button>
@@ -66,6 +75,8 @@
                 <div class="navbar-nav mx-auto">
                     <a href="{{ path('app_home') }}" class=" nav-item nav-link {% if nav_bar_active is defined and nav_bar_active=='home' %} active {% endif %}">Home</a>
                     <a href="{{ path('app_products') }}" class="nav-item nav-link {% if nav_bar_active is defined and nav_bar_active=='products' %} active {% endif %}">Shop</a>
+                    <a href="{{ path('app_forum') }}" class="nav-item nav-link {% if nav_bar_active is defined and nav_bar_active=='forum' %} active {% endif %}">Forum</a>
+
                     {% if app.user %}
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">profile</a>
@@ -93,12 +104,22 @@
                 </div>
                 <div class="d-flex m-3 me-0">
                     <button class="btn-search btn border border-secondary btn-md-square rounded-circle bg-white me-4" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fas fa-search text-primary"></i></button>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link" data-bs-toggle="dropdown">
+                            <i class="fa fa-bell fa-2x"></i>
+                            <span id="notification-number" class="position-absolute bg-secondary rounded-circle d-flex align-items-center justify-content-center text-dark px-1" style="top: -5px; left: 15px; height: 20px; min-width: 20px;" >3</span>
+                        </a>
+                        <div id="notification-content" class="dropdown-menu m-0 bg-secondary rounded-0">
+                            {% include 'front/home/notifications/notifications.html.twig' %}
+                        </div>
 
+                    </div>
                     {% if app.user %}
                     <a  href="{{ path('app_profile_products') }}" class="my-auto">
                         <i class="fa fa-user fa-2x" aria-hidden="true"></i>
                     </a>
                     {% endif %}
+
                 </div>
             </div>
         </nav>
@@ -120,6 +141,37 @@
         </div>
     </div>
 </div>
+<div class="modal fade" id="response-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content rounded-0">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Response</h5>
+            </div>
+            <div class="modal-body" id="response-content">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci aperiam corporis cupiditate dicta error fuga fugiat hic inventore nobis odio, provident quas, quia quod quos reprehenderit saepe sed temporibus, veniam.
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="reclamation-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content rounded-0">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Write Your Reclamation !</h5>
+            </div>
+            <div class="modal-body">
+                <form action="{{ path('app_reclamation_create') }}" method="post">
+                   <textarea class="w-100 form-control border-0 mb-4" id="reclamation-message" name="message"  rows="5" cols="10" placeholder="Your Message"></textarea>
+                    <input type="hidden" name="product_id" id="reclamation-type" value="">
+                    <button class="w-100 btn form-control border-secondary py-3 bg-white text-primary " type="submit">Submit</button>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
 {% if active is defined and  active=='my_products' %}
 <div class="modal fade" id="add-product-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -142,6 +194,20 @@
                 <input type="text" name="{{ field_name(form.short_description) }}" value="{{ field_value(form.short_description) }}" class="w-100 form-control border-0 py-3 mb-4" placeholder="short description ...">
                 <input type="text" name="{{ field_name(form.long_description) }}" value="{{ field_value(form.long_description) }}" class="w-100 form-control border-0 py-3 mb-4" placeholder="long description ...">
                 {{ form_widget(form.category, {'attr': {'class': 'w-100 form-control border-0 py-3 mb-4'}}) }}
+                <div class="input-group quantity mb-5" style="width: 100px;">
+                    <div class="input-group-btn">
+                        <button class="btn btn-sm btn-minus rounded-circle bg-light border" >
+                            <i class="fa fa-minus"></i>
+                        </button>
+                    </div>
+
+                    <input type="text"  class="form-control form-control-sm text-center border-0" name="{{ field_name(form.quanity) }}"  >
+                    <div class="input-group-btn">
+                        <button class="btn btn-sm btn-plus rounded-circle bg-light border">
+                            <i class="fa fa-plus"></i>
+                        </button>
+                    </div>
+                </div>
                 {{ form_widget(form.image) }}
 
                 <button class="w-100 btn form-control border-secondary py-3 bg-white text-primary " type="submit">Submit</button>
@@ -151,12 +217,59 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
             </div>
         </div>
     </div>
 </div>
 {% endif %}
+{%  if livraison_lines is defined %}
+    <div class="modal fade" id="location-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog  modal-fullscreen" role="document">
+            <div class="modal-content rounded-0">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">please choose your location</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body d-flex align-items-center">
+                    <div id="map"></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <a type="button" id="save-location" class="btn btn-primary" data-bs-dismiss="modal">Save Changes</a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+{% endif %}
+{% if active is defined and  active=='update_comment' %}
+    <div class="modal fade" id="update-comment-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" >
+            <div class="modal-content">
+
+
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Update Comment</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="text-center mx-auto" style="max-width: 700px;">
+
+
+                    </div>
+                    <form id="update_comment_form" action="" method="post">
+                        <textarea class="w-100 form-control border-0 mb-4" name="content" id="update_comment_input" rows="5" cols="10" placeholder="Your Comment"></textarea>
+                        <button class="w-100 btn form-control border-secondary py-3 bg-white text-primary " type="submit">Submit</button>
+                    </form>
+
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+{% endif %}
+
 {% if my_products is defined %}
     <div class="modal fade" id="trade-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog  modal-fullscreen" role="document">
@@ -173,7 +286,8 @@
                             <div class="row g-4">
                                 {% for c in my_products %}
                                     <div class="col-md-6 col-lg-4 col-xl-3">
-                                        <div class="rounded position-relative fruite-item">
+                                        <div class="rounded position-relative fruite-item {% if c.quanity==0 %} out-stock {% endif %} ">
+
                                             <div class="fruite-img">
                                                 <img src="{{ absolute_url(asset(c.image)) }}" class="img-fluid w-100 rounded-top" alt="">
                                             </div>
@@ -181,12 +295,19 @@
                                             <div class="p-4 border border-secondary border-top-0 rounded-bottom">
                                                 <h4>{{ c.name }}</h4>
                                                 <p>{{ c.longDescription }}</p>
-                                                {% if c.canUseForTrade(app.user) %}
+                                                {% if c.quanity==0 %}
+                                                    <div  out-stock  style="position: absolute;top: 1.5em;right: 1.5em;color: red;font-weight: 700" >
+                                                        out of stock
+                                                    </div>
+                                                {% endif %}
+                                                {% if c.quanity>0 %}
                                                 <div class="d-flex justify-content-between flex-lg-wrap">
                                                     <form method="post" action="{{path('app_trade')}}" >
                                                         <input type="hidden" name="from" value="{{ c.id }}">
                                                         <input type="hidden" name="to" value="{{ product.id }}">
-                                                           <button class="btn border border-secondary rounded-pill px-3 text-primary" type="submit" > trade </button>
+                                                        <input class="from-quantity" type="hidden" name="fromQuantity" value="1">
+
+                                                        <button class="btn border border-secondary rounded-pill px-3 text-primary" type="submit" > trade </button>
                                                     </form>
 
                                                 </div>
@@ -202,8 +323,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                </div>
+                 </div>
             </div>
         </div>
     </div>
@@ -298,7 +418,9 @@
 <a href="#" class="btn btn-primary border-3 border-primary rounded-circle back-to-top"><i class="fa fa-arrow-up"></i></a>
 
 
-
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+        crossorigin=""></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="{{ absolute_url(asset('assets/front/lib/easing/easing.min.js'))}}"></script>
@@ -308,6 +430,25 @@
 
 <!-- Template Javascript -->
 <script src="{{ absolute_url(asset('assets/front/js/main.js'))}}"></script>
+<script>
+    const NotificationsPath = "{{ path('app_notification') }}"
+    const notificationSpan = document.querySelector('#notification-number');
+    const notificationContent = document.querySelector('#notification-content');
+     (async function (){
+       await fetch(NotificationsPath).then(data=>{
+
+            return data.json()
+        }).then(d=>{
+            if(d.status!==400){
+                notificationContent.innerHTML = d.data
+                notificationSpan.innerHTML = d.notification
+            }
+            else{
+                return null
+            }
+        })
+    })()
+</script>
 {% block scripts %}
 {% endblock %}
 </body>

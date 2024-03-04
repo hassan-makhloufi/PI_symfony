@@ -128,6 +128,6 @@ class __TwigTemplate_e3e0c528eaba0b02cfb8267056e5940c extends Template
 
         </div>
     </div>
-{% endblock %}", "front/home/login.html.twig", "/Users/hassan/Downloads/app/templates/front/home/login.html.twig");
+{% endblock %}", "front/home/login.html.twig", "/Users/hassan/Downloads/app-2/templates/front/home/login.html.twig");
     }
 }

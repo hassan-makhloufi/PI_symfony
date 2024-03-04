@@ -1,0 +1,62 @@
+:root{
+    --space:8px;
+}
+.forum-topic{
+    display: grid;
+    grid-template-columns: 40px 1fr 30px;
+    padding: calc(2 * var(--space) );
+    gap: calc(2 * var(--space) );
+
+}
+.forum-topic:hover{
+    background-color: #fff;
+}
+.profile-pict{
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+}
+.profile-pict img{
+    max-width: 100%;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+
+}
+.forum-title{
+    font-family: "Raleway",sans-serif;
+    font-weight: 700;
+}
+.forum-topic-body{
+    position: relative;
+}
+.forum-topic-meta{
+
+}
+
+.forum-topic-tags {
+
+    gap: var(--space);
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    justify-content: flex-end;
+
+}
+.tags a{
+    font-family: "Raleway",sans-serif;
+    line-height: 18px;
+    font-weight: 400;
+    border-radius: 3px;
+    padding: 5px;
+
+}
+.forum-topic-meta a{
+    color: #45595b;
+}
+.forums{
+    background-color: #f7fafb
+}
+
+

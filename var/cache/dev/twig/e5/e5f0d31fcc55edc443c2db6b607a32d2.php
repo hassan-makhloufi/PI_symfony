@@ -37,65 +37,84 @@ class __TwigTemplate_0e74ee267767517a3a51a0196c9438f3 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "front/home/products/productlist.html.twig"));
 
         // line 1
+        echo "
+";
+        // line 2
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["products"]) || array_key_exists("products", $context) ? $context["products"] : (function () { throw new RuntimeError('Variable "products" does not exist.', 1, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["products"]) || array_key_exists("products", $context) ? $context["products"] : (function () { throw new RuntimeError('Variable "products" does not exist.', 2, $this->source); })()));
         foreach ($context['_seq'] as $context["_key"] => $context["p"]) {
-            // line 2
+            // line 3
             echo "    <div class=\"col-md-6 col-lg-6 col-xl-4\">
-        <div class=\"rounded position-relative fruite-item\">
+        <div class=\"rounded position-relative fruite-item ";
+            // line 4
+            if ((twig_get_attribute($this->env, $this->source, $context["p"], "quanity", [], "any", false, false, false, 4) == 0)) {
+                echo " out-stock ";
+            }
+            echo "\">
             <div class=\"fruite-img\">
                 <img src=\"";
-            // line 5
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\HttpFoundationExtension']->generateAbsoluteUrl($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(twig_get_attribute($this->env, $this->source, $context["p"], "image", [], "any", false, false, false, 5))), "html", null, true);
+            // line 6
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\HttpFoundationExtension']->generateAbsoluteUrl($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(twig_get_attribute($this->env, $this->source, $context["p"], "image", [], "any", false, false, false, 6))), "html", null, true);
             echo "\" class=\"img-fluid w-100 rounded-top\" alt=\"\">
             </div>
             <div class=\"text-white bg-secondary px-3 py-1 rounded position-absolute\" style=\"top: 10px; left: 10px;\">
                 ";
-            // line 8
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["p"], "category", [], "any", false, false, false, 8), "name", [], "any", false, false, false, 8), "html", null, true);
+            // line 9
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["p"], "category", [], "any", false, false, false, 9), "name", [], "any", false, false, false, 9), "html", null, true);
             echo "</div>
             <div class=\"p-4 border border-secondary border-top-0 rounded-bottom\">
                 <h4>";
-            // line 10
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["p"], "name", [], "any", false, false, false, 10), "html", null, true);
+            // line 11
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["p"], "name", [], "any", false, false, false, 11), "html", null, true);
             echo "</h4>
                 <p>";
-            // line 11
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["p"], "longDescription", [], "any", false, false, false, 11), "html", null, true);
+            // line 12
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["p"], "longDescription", [], "any", false, false, false, 12), "html", null, true);
             echo "</p>
                 <div class=\"d-flex justify-content-between flex-lg-wrap\">
                     <a href=\"";
-            // line 13
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_product_single", ["id" => twig_get_attribute($this->env, $this->source, $context["p"], "id", [], "any", false, false, false, 13)]), "html", null, true);
+            // line 14
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_product_single", ["id" => twig_get_attribute($this->env, $this->source, $context["p"], "id", [], "any", false, false, false, 14)]), "html", null, true);
             echo "\" class=\"btn border border-secondary rounded-pill px-3 text-primary\"><i class=\"fa fa-eye me-2 text-primary\"></i> view more</a>
                 </div>
+
             </div>
-        </div>
+            ";
+            // line 18
+            if ((twig_get_attribute($this->env, $this->source, $context["p"], "quanity", [], "any", false, false, false, 18) == 0)) {
+                // line 19
+                echo "            <div  out-stock  style=\"position: absolute;top: 1.5em;right: 1.5em;color: red;font-weight: 700\" >
+                out of stock
+            </div>
+            ";
+            }
+            // line 23
+            echo "        </div>
     </div>
 ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['p'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 19
+        // line 26
         echo "                                ";
-        if (((isset($context["numberOfPages"]) || array_key_exists("numberOfPages", $context) ? $context["numberOfPages"] : (function () { throw new RuntimeError('Variable "numberOfPages" does not exist.', 19, $this->source); })()) > 0)) {
-            // line 20
+        if (((isset($context["numberOfPages"]) || array_key_exists("numberOfPages", $context) ? $context["numberOfPages"] : (function () { throw new RuntimeError('Variable "numberOfPages" does not exist.', 26, $this->source); })()) > 0)) {
+            // line 27
             echo "                                    <div class=\"col-12\">
                                         <div class=\"pagination d-flex justify-content-center mt-5\">
                                             <a href=\"#\" class=\"rounded\">&laquo;</a>
                                             ";
-            // line 23
+            // line 30
             $context['_parent'] = $context;
-            $context['_seq'] = twig_ensure_traversable(range(1, (isset($context["numberOfPages"]) || array_key_exists("numberOfPages", $context) ? $context["numberOfPages"] : (function () { throw new RuntimeError('Variable "numberOfPages" does not exist.', 23, $this->source); })())));
+            $context['_seq'] = twig_ensure_traversable(range(1, (isset($context["numberOfPages"]) || array_key_exists("numberOfPages", $context) ? $context["numberOfPages"] : (function () { throw new RuntimeError('Variable "numberOfPages" does not exist.', 30, $this->source); })())));
             foreach ($context['_seq'] as $context["_key"] => $context["p"]) {
-                // line 24
+                // line 31
                 echo "                                                <a href=\"";
                 echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_products", ["page" => $context["p"]]), "html", null, true);
                 echo "\"
                                                    class=\"paginationSelector ";
-                // line 25
-                if (($context["p"] == (isset($context["currentPage"]) || array_key_exists("currentPage", $context) ? $context["currentPage"] : (function () { throw new RuntimeError('Variable "currentPage" does not exist.', 25, $this->source); })()))) {
+                // line 32
+                if (($context["p"] == (isset($context["currentPage"]) || array_key_exists("currentPage", $context) ? $context["currentPage"] : (function () { throw new RuntimeError('Variable "currentPage" does not exist.', 32, $this->source); })()))) {
                     echo "active";
                 }
                 echo " rounded\">";
@@ -106,7 +125,7 @@ class __TwigTemplate_0e74ee267767517a3a51a0196c9438f3 extends Template
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['p'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 27
+            // line 34
             echo "                                            <a href=\"#\" class=\"rounded\">&raquo;</a>
 
                                         </div>
@@ -139,14 +158,15 @@ class __TwigTemplate_0e74ee267767517a3a51a0196c9438f3 extends Template
      */
     public function getDebugInfo()
     {
-        return array (  110 => 27,  98 => 25,  93 => 24,  89 => 23,  84 => 20,  81 => 19,  69 => 13,  64 => 11,  60 => 10,  55 => 8,  49 => 5,  44 => 2,  40 => 1,);
+        return array (  129 => 34,  117 => 32,  112 => 31,  108 => 30,  103 => 27,  100 => 26,  92 => 23,  86 => 19,  84 => 18,  77 => 14,  72 => 12,  68 => 11,  63 => 9,  57 => 6,  50 => 4,  47 => 3,  43 => 2,  40 => 1,);
     }
 
     public function getSourceContext()
     {
-        return new Source("{% for p in products %}
+        return new Source("
+{% for p in products %}
     <div class=\"col-md-6 col-lg-6 col-xl-4\">
-        <div class=\"rounded position-relative fruite-item\">
+        <div class=\"rounded position-relative fruite-item {% if p.quanity==0 %} out-stock {% endif %}\">
             <div class=\"fruite-img\">
                 <img src=\"{{ absolute_url(asset(p.image)) }}\" class=\"img-fluid w-100 rounded-top\" alt=\"\">
             </div>
@@ -158,7 +178,13 @@ class __TwigTemplate_0e74ee267767517a3a51a0196c9438f3 extends Template
                 <div class=\"d-flex justify-content-between flex-lg-wrap\">
                     <a href=\"{{path('app_product_single',{id:p.id})}}\" class=\"btn border border-secondary rounded-pill px-3 text-primary\"><i class=\"fa fa-eye me-2 text-primary\"></i> view more</a>
                 </div>
+
             </div>
+            {% if p.quanity==0 %}
+            <div  out-stock  style=\"position: absolute;top: 1.5em;right: 1.5em;color: red;font-weight: 700\" >
+                out of stock
+            </div>
+            {% endif %}
         </div>
     </div>
 {% endfor %}
@@ -174,6 +200,6 @@ class __TwigTemplate_0e74ee267767517a3a51a0196c9438f3 extends Template
 
                                         </div>
                                     </div>
-                                {% endif %}", "front/home/products/productlist.html.twig", "/Users/hassan/Downloads/app/templates/front/home/products/productlist.html.twig");
+                                {% endif %}", "front/home/products/productlist.html.twig", "/Users/hassan/Downloads/app-2/templates/front/home/products/productlist.html.twig");
     }
 }

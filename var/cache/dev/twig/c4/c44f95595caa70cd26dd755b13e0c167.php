@@ -383,7 +383,101 @@ class __TwigTemplate_f0bbebb8db4f488e6b598c4c5a56473f extends Template
                     </a>
                 </li>
             </ul>
-        </li><!-- End Components Nav -->
+        </li>
+        <li class=\"nav-item\">
+            <a class=\"nav-link collapsed\" data-bs-target=\"#forum-nav\" data-bs-toggle=\"collapse\" href=\"#\">
+                <i class=\"bi bi-menu-button-wide\"></i><span>forums</span><i class=\"bi bi-chevron-down ms-auto\"></i>
+            </a>
+            <ul id=\"forum-nav\" class=\"nav-content collapse \" data-bs-parent=\"#sidebar-nav\">
+
+
+                <li>
+                    <a href=\"";
+        // line 312
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_admin_forums");
+        echo "\">
+                        <i class=\"bi bi-circle\"></i><span>list</span>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li class=\"nav-item\">
+            <a class=\"nav-link collapsed\" data-bs-target=\"#product-nav\" data-bs-toggle=\"collapse\" href=\"#\">
+                <i class=\"bi bi-menu-button-wide\"></i><span>products</span><i class=\"bi bi-chevron-down ms-auto\"></i>
+            </a>
+            <ul id=\"product-nav\" class=\"nav-content collapse \" data-bs-parent=\"#sidebar-nav\">
+
+
+                <li>
+                    <a href=\"";
+        // line 326
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_admin_products");
+        echo "\">
+                        <i class=\"bi bi-circle\"></i><span>list</span>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li class=\"nav-item\">
+            <a class=\"nav-link collapsed\" data-bs-target=\"#rec-nav\" data-bs-toggle=\"collapse\" href=\"#\">
+                <i class=\"bi bi-menu-button-wide\"></i><span>Reclamations</span><i class=\"bi bi-chevron-down ms-auto\"></i>
+            </a>
+            <ul id=\"rec-nav\" class=\"nav-content collapse \" data-bs-parent=\"#sidebar-nav\">
+
+
+                <li>
+                    <a href=\"";
+        // line 340
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_admin_reclamation");
+        echo "\">
+                        <i class=\"bi bi-circle\"></i><span>list</span>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li class=\"nav-item\">
+            <a class=\"nav-link collapsed\" data-bs-target=\"#liv-nav\" data-bs-toggle=\"collapse\" href=\"#\">
+                <i class=\"bi bi-menu-button-wide\"></i><span>Livraison</span><i class=\"bi bi-chevron-down ms-auto\"></i>
+            </a>
+            <ul id=\"liv-nav\" class=\"nav-content collapse \" data-bs-parent=\"#sidebar-nav\">
+
+
+                <li>
+                    <a href=\"";
+        // line 354
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_admin_livraison");
+        echo "\">
+                        <i class=\"bi bi-circle\"></i><span>list</span>
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+        <li class=\"nav-item\">
+            <a class=\"nav-link collapsed\" data-bs-target=\"#forum_categories_nav\" data-bs-toggle=\"collapse\" href=\"#\">
+                <i class=\"bi bi-menu-button-wide\"></i><span>Forum Categories</span><i class=\"bi bi-chevron-down ms-auto\"></i>
+            </a>
+            <ul id=\"forum_categories_nav\" class=\"nav-content collapse \" data-bs-parent=\"#sidebar-nav\">
+
+                <li>
+                    <a href=\"";
+        // line 368
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_forum_category_create");
+        echo "\">
+                        <i class=\"bi bi-circle\"></i><span>add</span>
+                    </a>
+                </li>
+                <li>
+                    <a href=\"";
+        // line 373
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_forum_category");
+        echo "\">
+                        <i class=\"bi bi-circle\"></i><span>list</span>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <!-- End Components Nav -->
 
       <!-- End Icons Nav -->
 
@@ -442,9 +536,9 @@ class __TwigTemplate_f0bbebb8db4f488e6b598c4c5a56473f extends Template
 
 </aside><!-- End Sidebar-->
 ";
-        // line 361
+        // line 437
         $this->displayBlock('contents', $context, $blocks);
-        // line 363
+        // line 439
         echo "<footer id=\"footer\" class=\"footer\">
     <div class=\"copyright\">
         &copy; Copyright <strong><span>NiceAdmin</span></strong>. All Rights Reserved
@@ -462,47 +556,47 @@ class __TwigTemplate_f0bbebb8db4f488e6b598c4c5a56473f extends Template
 
 <!-- Vendor JS Files -->
 <script src=\" ";
-        // line 379
+        // line 455
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\HttpFoundationExtension']->generateAbsoluteUrl($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/back/vendor/apexcharts/apexcharts.min.js ")), "html", null, true);
         echo "\"></script>
 <script src=\" ";
-        // line 380
+        // line 456
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\HttpFoundationExtension']->generateAbsoluteUrl($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/back/vendor/bootstrap/js/bootstrap.bundle.min.js ")), "html", null, true);
         echo "\"></script>
 <script src=\" ";
-        // line 381
+        // line 457
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\HttpFoundationExtension']->generateAbsoluteUrl($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/back/vendor/chart.js/chart.umd.js ")), "html", null, true);
         echo "\"></script>
 <script src=\" ";
-        // line 382
+        // line 458
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\HttpFoundationExtension']->generateAbsoluteUrl($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/back/vendor/echarts/echarts.min.js ")), "html", null, true);
         echo "\"></script>
 <script src=\" ";
-        // line 383
+        // line 459
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\HttpFoundationExtension']->generateAbsoluteUrl($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/back/vendor/quill/quill.min.js ")), "html", null, true);
         echo "\"></script>
 <script src=\" ";
-        // line 384
+        // line 460
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\HttpFoundationExtension']->generateAbsoluteUrl($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/back/vendor/simple-datatables/simple-datatables.js ")), "html", null, true);
         echo "\"></script>
 <script src=\" ";
-        // line 385
+        // line 461
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\HttpFoundationExtension']->generateAbsoluteUrl($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/back/vendor/tinymce/tinymce.min.js ")), "html", null, true);
         echo "\"></script>
 <script src=\" ";
-        // line 386
+        // line 462
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\HttpFoundationExtension']->generateAbsoluteUrl($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/back/vendor/php-email-form/validate.js")), "html", null, true);
         echo "\"></script>
 
 <!-- Template Main JS File -->
 <script src=\" ";
-        // line 389
+        // line 465
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\HttpFoundationExtension']->generateAbsoluteUrl($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/back/js/main.js")), "html", null, true);
         echo "\"></script>
 ";
-        // line 390
+        // line 466
         $this->displayBlock('scripts', $context, $blocks);
-        // line 392
+        // line 468
         echo "</body>
 
 </html>";
@@ -525,7 +619,7 @@ class __TwigTemplate_f0bbebb8db4f488e6b598c4c5a56473f extends Template
 
     }
 
-    // line 361
+    // line 437
     public function block_contents($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -537,7 +631,7 @@ class __TwigTemplate_f0bbebb8db4f488e6b598c4c5a56473f extends Template
 
     }
 
-    // line 390
+    // line 466
     public function block_scripts($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -570,7 +664,7 @@ class __TwigTemplate_f0bbebb8db4f488e6b598c4c5a56473f extends Template
      */
     public function getDebugInfo()
     {
-        return array (  541 => 390,  529 => 361,  522 => 33,  515 => 32,  506 => 392,  504 => 390,  500 => 389,  494 => 386,  490 => 385,  486 => 384,  482 => 383,  478 => 382,  474 => 381,  470 => 380,  466 => 379,  448 => 363,  446 => 361,  380 => 298,  372 => 293,  126 => 50,  108 => 34,  106 => 32,  101 => 30,  95 => 27,  91 => 26,  87 => 25,  83 => 24,  79 => 23,  75 => 22,  71 => 21,  61 => 14,  57 => 13,  43 => 1,);
+        return array (  635 => 466,  623 => 437,  616 => 33,  609 => 32,  600 => 468,  598 => 466,  594 => 465,  588 => 462,  584 => 461,  580 => 460,  576 => 459,  572 => 458,  568 => 457,  564 => 456,  560 => 455,  542 => 439,  540 => 437,  473 => 373,  465 => 368,  448 => 354,  431 => 340,  414 => 326,  397 => 312,  380 => 298,  372 => 293,  126 => 50,  108 => 34,  106 => 32,  101 => 30,  95 => 27,  91 => 26,  87 => 25,  83 => 24,  79 => 23,  75 => 22,  71 => 21,  61 => 14,  57 => 13,  43 => 1,);
     }
 
     public function getSourceContext()
@@ -877,7 +971,83 @@ class __TwigTemplate_f0bbebb8db4f488e6b598c4c5a56473f extends Template
                     </a>
                 </li>
             </ul>
-        </li><!-- End Components Nav -->
+        </li>
+        <li class=\"nav-item\">
+            <a class=\"nav-link collapsed\" data-bs-target=\"#forum-nav\" data-bs-toggle=\"collapse\" href=\"#\">
+                <i class=\"bi bi-menu-button-wide\"></i><span>forums</span><i class=\"bi bi-chevron-down ms-auto\"></i>
+            </a>
+            <ul id=\"forum-nav\" class=\"nav-content collapse \" data-bs-parent=\"#sidebar-nav\">
+
+
+                <li>
+                    <a href=\"{{ path('app_admin_forums') }}\">
+                        <i class=\"bi bi-circle\"></i><span>list</span>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li class=\"nav-item\">
+            <a class=\"nav-link collapsed\" data-bs-target=\"#product-nav\" data-bs-toggle=\"collapse\" href=\"#\">
+                <i class=\"bi bi-menu-button-wide\"></i><span>products</span><i class=\"bi bi-chevron-down ms-auto\"></i>
+            </a>
+            <ul id=\"product-nav\" class=\"nav-content collapse \" data-bs-parent=\"#sidebar-nav\">
+
+
+                <li>
+                    <a href=\"{{ path('app_admin_products') }}\">
+                        <i class=\"bi bi-circle\"></i><span>list</span>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li class=\"nav-item\">
+            <a class=\"nav-link collapsed\" data-bs-target=\"#rec-nav\" data-bs-toggle=\"collapse\" href=\"#\">
+                <i class=\"bi bi-menu-button-wide\"></i><span>Reclamations</span><i class=\"bi bi-chevron-down ms-auto\"></i>
+            </a>
+            <ul id=\"rec-nav\" class=\"nav-content collapse \" data-bs-parent=\"#sidebar-nav\">
+
+
+                <li>
+                    <a href=\"{{ path('app_admin_reclamation') }}\">
+                        <i class=\"bi bi-circle\"></i><span>list</span>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li class=\"nav-item\">
+            <a class=\"nav-link collapsed\" data-bs-target=\"#liv-nav\" data-bs-toggle=\"collapse\" href=\"#\">
+                <i class=\"bi bi-menu-button-wide\"></i><span>Livraison</span><i class=\"bi bi-chevron-down ms-auto\"></i>
+            </a>
+            <ul id=\"liv-nav\" class=\"nav-content collapse \" data-bs-parent=\"#sidebar-nav\">
+
+
+                <li>
+                    <a href=\"{{ path('app_admin_livraison') }}\">
+                        <i class=\"bi bi-circle\"></i><span>list</span>
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+        <li class=\"nav-item\">
+            <a class=\"nav-link collapsed\" data-bs-target=\"#forum_categories_nav\" data-bs-toggle=\"collapse\" href=\"#\">
+                <i class=\"bi bi-menu-button-wide\"></i><span>Forum Categories</span><i class=\"bi bi-chevron-down ms-auto\"></i>
+            </a>
+            <ul id=\"forum_categories_nav\" class=\"nav-content collapse \" data-bs-parent=\"#sidebar-nav\">
+
+                <li>
+                    <a href=\"{{ path('app_forum_category_create') }}\">
+                        <i class=\"bi bi-circle\"></i><span>add</span>
+                    </a>
+                </li>
+                <li>
+                    <a href=\"{{ path('app_forum_category') }}\">
+                        <i class=\"bi bi-circle\"></i><span>list</span>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <!-- End Components Nav -->
 
       <!-- End Icons Nav -->
 

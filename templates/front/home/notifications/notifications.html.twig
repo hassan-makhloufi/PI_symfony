@@ -1,0 +1,6 @@
+
+{% if notifications is defined %}
+    {% for n in notifications %}
+        <a href="{{ path('app_notification_single',{id:n.id}) }}" class="dropdown-item">{{ n.message }}</a>
+    {% endfor %}
+{% endif %}

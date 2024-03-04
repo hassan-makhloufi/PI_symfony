@@ -1,0 +1,57 @@
+{% extends 'back/base.html.twig' %}
+{% block contents %}
+    {% if action and action=='update' %}
+        {% set pageName ='Update' %}
+    {% else  %}
+        {% set pageName ='Add' %}
+    {% endif %}
+    <main id="main" class="main">
+
+        <div class="pagetitle">
+            <h1>{{ pageName }} response</h1>
+            <nav>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-item">Response</li>
+                    <li class="breadcrumb-item active">{{ pageName }}</li>
+                </ol>
+            </nav>
+        </div><!-- End Page Title -->
+
+        <section class="section">
+
+
+
+
+
+
+
+            <div class="card">
+                <div class="card-body">
+
+                    <!-- General Form Elements -->
+                    {{ form_start(form) }}
+
+                    <div class="row mb-3">
+                        <label for="inputText" class="col-sm-2 col-form-label"> short description</label>
+                        <div class="col-sm-10">
+                            <input type="text"  name="{{ field_name(form.message) }}" value="{{ field_value(form.message) }}" rows="5" cols="10" class="form-control">
+
+
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <button type="submit" class="btn btn-primary">{{ pageName }} Response</button>
+                    </div>
+
+
+                    {{ form_end(form) }}
+                </div>
+            </div>
+
+        </section>
+    </main>
+{% endblock %}
+{% block scripts  %}
+
+{% endblock %}

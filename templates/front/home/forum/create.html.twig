@@ -1,0 +1,25 @@
+{% extends 'front/base.html.twig' %}
+{% block content %}
+
+    <div class="container-fluid py-5 mb-5 hero-header">
+        <div class="container py-5">
+            <div class="text-center mx-auto" style="max-width: 700px;">
+                <h1> {%  if action is defined and action=='update' %} update {% else %} create {% endif %} a forum</h1>
+
+            </div>
+            {{ form_start(form) }}
+
+
+            <input type="text" name="{{ field_name(form.title) }}" value="{{ field_value(form.title) }}" class="w-100 form-control border-0 py-3 mb-4" placeholder="title ...">
+
+            {{ form_widget(form.description, {'attr': {'class': 'w-100 form-control border-0 mb-4'},'placeholder':'description ...'}) }}
+
+            {{ form_widget(form.forumCategory, {'attr': {'class': 'w-100 form-control border-0 py-3 mb-4'}}) }}
+            {{ form_widget(form.image) }}
+            <button class="w-100 btn form-control border-secondary py-3 bg-white text-primary " type="submit">Submit</button>
+
+            {{ form_end(form) }}
+
+        </div>
+    </div>
+{% endblock %}

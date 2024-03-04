@@ -29,8 +29,16 @@ class TradeRequest
     #[ORM\JoinColumn(nullable: false)]
     private ?Product $toProduct = null;
 
-    #[ORM\Column(nullable: true)]
-    private ?bool $complete = null;
+    #[ORM\Column(length: 255)]
+    private ?string $state = null;
+
+    #[ORM\Column]
+    private ?int $fromQuantity = null;
+
+    #[ORM\Column]
+    private ?int $toQuantity = null;
+
+
 
     public function getId(): ?int
     {
@@ -85,15 +93,43 @@ class TradeRequest
         return $this;
     }
 
-    public function isComplete(): ?bool
+    public function getState(): ?string
     {
-        return $this->complete;
+        return $this->state;
     }
 
-    public function setComplete(?bool $complete): static
+    public function setState(string $state): static
     {
-        $this->complete = $complete;
+        $this->state = $state;
 
         return $this;
     }
+
+    public function getFromQuantity(): ?int
+    {
+        return $this->fromQuantity;
+    }
+
+    public function setFromQuantity(int $fromQuantity): static
+    {
+        $this->fromQuantity = $fromQuantity;
+
+        return $this;
+    }
+
+    public function getToQuantity(): ?int
+    {
+        return $this->toQuantity;
+    }
+
+    public function setToQuantity(int $toQuantity): static
+    {
+        $this->toQuantity = $toQuantity;
+
+        return $this;
+    }
+
+
+
+
 }

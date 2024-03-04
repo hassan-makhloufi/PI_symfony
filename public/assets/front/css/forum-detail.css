@@ -1,0 +1,124 @@
+.forum-page-header{
+    display: grid;
+    margin-top: 97px !important;
+
+
+}
+.author{
+    display: flex;
+    align-items: center;
+
+}
+.author a{
+    color: black;
+}
+.forum-tags{
+    display: flex;
+
+
+}
+
+.tag a{
+    padding:2px;
+    color: #fff;
+    font-family: "Raleway",sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+
+
+
+}
+.author .profile-pict{
+    margin-right: 8px;
+    border-radius: 50%;
+}
+.forum-page-topic{
+    display: flex;
+    gap: 0.5em;
+    align-items: center;
+
+}
+.content{
+    padding: 50px;
+    font-family: "Raleway",sans-serif;
+    background-color: #f7fafb;
+}
+.responses-header{
+
+    font-weight: 700;
+    font-size: 24px;
+    font-style: normal;
+    margin-top: 24px;
+    margin-bottom: 16px;
+}
+.responses{
+    border-top: 1px solid #d5e3ec;
+}
+.response-profile-pict{
+    width: 50px;
+    height: 50px;
+}
+.response-profile-pict img{
+    border-radius: 50%;
+    max-width: 100%;
+
+}
+.response{
+    padding: 16px;
+    gap: 16px;
+    display: grid;
+    grid-template-columns: 50px 1fr;
+    grid-row-gap: 8px;
+    align-content: flex-start;
+}
+.response-profile-pict{
+    grid-row: 1/span 2;
+}
+.response-body{
+    padding: 16px;
+    box-shadow: 0 2px 4px #d8e1e8;
+    border-radius: 3px;
+    color: #121c42;
+    background-color: #fff;
+}
+.response-header{
+    align-items: center;
+    display: flex;
+    gap: 5px;
+}
+.response-header .username{
+    color: black;
+
+}
+.response-header a{
+    color: #dc3545;
+}
+.response-header .edit-button{
+    color: #198754;
+    border:none;
+    background-color: transparent;
+}
+.forum-react{
+    border: 3px solid #45595b;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+.forum-react.active{
+    border: 3px solid #198754;
+
+}
+.forum-react a{
+    padding-top: 5px;
+    font-size: 20px;
+    text-align: center;
+    color: #45595b;
+}
+.forum-react a.active{
+
+    color:#198754;
+}
+

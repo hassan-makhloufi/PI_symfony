@@ -58,7 +58,7 @@ class __TwigTemplate_b9fb89bd23efcd4dde698ed7e4c312e8 extends Template
         // line 3
         echo "
     <button class=\"btn btn-primary\" data-bs-toggle=\"modal\" data-bs-target=\"#add-product-modal\">
-        add a new product
+        add a new product location-modal
     </button>
 
     <div id=\"tab-1\" class=\"tab-pane fade show p-0 active\">
@@ -160,7 +160,7 @@ class __TwigTemplate_b9fb89bd23efcd4dde698ed7e4c312e8 extends Template
 {% block tabcontent %}
 
     <button class=\"btn btn-primary\" data-bs-toggle=\"modal\" data-bs-target=\"#add-product-modal\">
-        add a new product
+        add a new product location-modal
     </button>
 
     <div id=\"tab-1\" class=\"tab-pane fade show p-0 active\">
@@ -201,6 +201,6 @@ class __TwigTemplate_b9fb89bd23efcd4dde698ed7e4c312e8 extends Template
     </div>-->
 
 
-{% endblock %}", "front/profile/my_products/my_products.html.twig", "/Users/hassan/Downloads/app/templates/front/profile/my_products/my_products.html.twig");
+{% endblock %}", "front/profile/my_products/my_products.html.twig", "/Users/hassan/Downloads/app-2/templates/front/profile/my_products/my_products.html.twig");
     }
 }

@@ -2078,6 +2078,6 @@ class __TwigTemplate_8f2239cbd0228cfb1bed96b0f4aed737 extends Template
         </div>
     </div>
 
-{% endblock %}", "front/home/home.html.twig", "/Users/hassan/Downloads/app/templates/front/home/home.html.twig");
+{% endblock %}", "front/home/home.html.twig", "/Users/hassan/Downloads/app-2/templates/front/home/home.html.twig");
     }
 }

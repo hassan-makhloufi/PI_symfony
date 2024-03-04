@@ -1,0 +1,40 @@
+{% extends 'front/profile/profile_base.html.twig' %}
+
+{% block tabcontent %}
+{% if livraison_lines|length > 0 %}
+    <div class="page-content">
+        <div id="location-text" style="display: none" > your products will be shipped to <p id="exact-location" style="color: black;font-weight: 700"> Tunisia</p> </div>
+        <a id="ship" style="display: none" class="btn btn-primary">
+            ship
+        </a>
+        <div class="livraisons">
+            {% for l in livraison_lines %}
+                <div class="livraison-card">
+                    <img src="{{ absolute_url(asset(l.getProduct().image)) }}" alt="" >
+                    <div class="quantity"> <p>X{{ l.getQuantity() }}</p></div>
+                    <div class="ship">
+                        <i class="fas fa-shipping-fast"></i>
+
+                    </div>
+                    <div class="action">
+                        <a href="{{ path('app_livraison_lines_delete',{id:l.id}) }}">
+                            <i class="fa fa-times text-danger"></i>
+                        </a>
+                    </div>
+                </div>
+            {% endfor %}
+
+
+        </div>
+
+    </div>
+    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#location-modal">
+        specify location
+    </button>
+{%else  %}
+{% endif %}
+   <div class="page-content">
+       <p> you have no shipping lines</p>
+   </div>
+
+{% endblock %}

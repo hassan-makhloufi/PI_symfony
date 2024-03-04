@@ -259,6 +259,6 @@ class __TwigTemplate_c7698854ab488c11a6ac607ee2d6ee5b extends Template
 
 </main><!-- End #main -->
 {% endblock %}
-", "back/categories/list.html.twig", "/Users/hassan/Downloads/app/templates/back/categories/list.html.twig");
+", "back/categories/list.html.twig", "/Users/hassan/Downloads/app-2/templates/back/categories/list.html.twig");
     }
 }

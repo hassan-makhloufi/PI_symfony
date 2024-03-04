@@ -1,0 +1,209 @@
+{% extends 'front/base.html.twig' %}
+{% block stylesheets %}
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="{{ absolute_url(asset('assets/front/css/forum-detail.css'))}}" rel="stylesheet">
+
+{% endblock %}
+{% block content %}
+    <div class="container-fluid fruite py-5 forums">
+        <div class="container py-5">
+
+            <div class="forum-page-header">
+                <h2>
+                    {{ forum.title }}
+                </h2>
+                <div class="forum-page-topic">
+                    <a href="" class="author" style="color: #747d88;">
+                        <img class="profile-pict" src="{{ absolute_url(asset('default-profile-pict.png')) }}" alt="" width="25">
+                     {{ forum.author.firstname }} {{ forum.author.lastname  }}
+                    </a>
+                    <div>
+                        {{ forum.getTimeAgo() }}
+                    </div>
+                    <div class="forum-tags">
+                        <div class="tag">
+                            <a style="background-color: #3f88fd; border-top-left-radius: 3px;
+                                    border-bottom-left-radius: 3px;" href="">
+                                {{ forum.forumCategory.name }}
+                            </a>
+                        </div>
+
+                    </div>
+                    {% if app.user %}
+                       {% if forum.isLikedByUser(app.user) %}
+                           <div class="forum-react active">
+                               <a class="btn-like active" href="">
+                                   <span class="material-icons md-18">thumb_up</span>
+                               </a>
+                           </div>
+                        {% else %}
+                            <div class="forum-react">
+                                <a class="btn-like" href="">
+                                    <span class="material-icons md-18">thumb_up</span>
+                                </a>
+                            </div>
+                       {% endif %}
+                        <a class="forum-reclamation" id="reclamation-forum-{{ forum.id }}" style="cursor: pointer" data-bs-toggle="modal" data-bs-target="#reclamation-modal">
+                            !
+                        </a>
+                    {% endif %}
+                </div>
+
+            </div>
+
+
+        </div>
+        <div class="container content">
+            {{forum.description}}
+            {% if forum.image %}
+                <img src="{{absolute_url(asset(forum.image))   }}" alt=""> 
+            {% endif %}
+            <div class="responses-header">
+                {{ forum.comments | length }} comments
+            </div>
+            <div class="responses">
+                {%  for c in forum.comments %}
+                    <div class="response">
+                        <div class="response-profile-pict">
+                            <img class="profile-pict" src="{{ absolute_url(asset('default-profile-pict.png')) }}" alt="" width="25">
+                        </div>
+                        <div class="response-header">
+                            <div class="username">
+                                {{ c.author.firstname }} {{ c.author.lastname }} ,
+                            </div>
+                            <div class="date">
+                                {{ c.getTimeAgo() }}
+                            </div>
+
+                            {% if app.user and app.user.id ==c.author.id %}
+                                <a  href="{{ path('app_comment_delete',{'id':c.id,'postId':forum.id}) }}"> <i class="fa fa-trash"></i>  </a>
+                                <button class="edit-button" id="edit-comment-{{ c.id }}" data-bs-toggle="modal" data-bs-target="#update-comment-modal">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+
+
+
+                            {% endif %}
+                            {% if app.user %}
+                                <a class="forum-reclamation" id="reclamation-comment-{{ c.id }}" style="cursor: pointer" data-bs-toggle="modal" data-bs-target="#reclamation-modal">
+                                    !
+                                </a>
+                            {% endif %}
+                        </div>
+
+                        <div class="response-body" >
+                          {{ c.content }}
+                        </div>
+                        <input id="content-{{ c.id }}" type="hidden" value="{{ c.content }}">
+                        
+
+                    </div>
+                {% endfor %}
+                {% if form is defined %}
+                    <div class="response">
+                        <div class="response-profile-pict">
+                            <img class="profile-pict" src="{{ absolute_url(asset('default-profile-pict.png')) }}" alt="" width="25">
+                        </div>
+                        <div class="response-header">
+                            <div class="username">
+                                comment this post ,
+                            </div>
+
+
+                        </div>
+                        <div class="response-body">
+                            {{ form_start(form) }}
+                                <textarea class="w-100 form-control border-0 mb-4" name="{{ field_name(form.content) }}" rows="5" cols="10" placeholder="Your Comment"></textarea>
+
+                                <button class="w-100 btn form-control border-secondary py-3 bg-white text-primary " type="submit">publish</button>
+
+                            {{ form_end(form) }}
+                        </div>
+
+                    </div>
+                {% endif %}
+
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block scripts %}
+    <script>
+
+        const updateInput = document.querySelector('#update_comment_input');
+        const formUpdate = document.querySelector('#update_comment_form');
+        let action = "{{ path('app_comment_update',{id:'comment-id',postId:forum.id}) }}";
+        document.querySelectorAll('.edit-button').forEach(button=>{
+
+            button.addEventListener('click',ev => {
+
+                const commentId = button.getAttribute('id').replace('edit-comment-','')
+             //   console.log(commentId);
+                const content = document.querySelector('#content-'+commentId).value;
+
+                formUpdate.setAttribute('action',action.replace('/comment-id/',`/${commentId}/`))
+                updateInput.value = content
+            })
+        })
+
+    </script>
+    <script>
+        let likeDiv = document.querySelector('.forum-react')
+        const path = "{{ path('app_forum_like',{id:forum.id}) }}"
+        const likeButton = document.querySelector('.btn-like');
+        const dislikeForum = ()=>{
+                likeDiv.classList.remove('active')
+                likeButton.classList.remove('active')
+        }
+        const likeForum = ()=>{
+
+            likeDiv.classList.add('active')
+            likeButton.classList.add('active')
+        }
+        likeButton.addEventListener('click',async evt => {
+            evt.preventDefault();
+             let content =  await fetch(path,{
+                      method:'POST',
+                      headers:{
+                          'X-Requested-With': 'XMLHttpRequest'
+                      }
+                  }).then(response=>{
+                      return response.json();
+                  })
+           if(content.status==200){
+                if(content.action==='like'){
+                    likeForum()
+                }
+                else{
+                    dislikeForum()
+                }
+           }
+           else{
+               alert('something bad happened');
+           }
+
+
+        })
+    </script>
+    <script>
+            const reclamationType = document.querySelector('#reclamation-type')
+            document.querySelectorAll('.forum-reclamation').forEach(element=>{
+                element.addEventListener('click',evt => {
+                    const type = element.getAttribute('id')
+                    if(type.includes('forum')){
+                        const forum_id = type.replace('reclamation-forum-','')
+                       reclamationType.setAttribute('name','forum_id')
+                        reclamationType.value = forum_id;
+                    }
+                    else{
+                        const comment_id = type.replace('reclamation-comment-','')
+                        reclamationType.setAttribute('name','comment_id')
+                        reclamationType.value = comment_id;
+                    }
+
+                })
+            })
+
+
+    </script>
+{% endblock %}

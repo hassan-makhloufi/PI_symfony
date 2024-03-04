@@ -166,6 +166,6 @@ class __TwigTemplate_275ce44aac58c4b99e7c4d4c278a585e extends Template
         </div>
     </div>
 {% endblock %}
-", "front/home/register.html.twig", "/Users/hassan/Downloads/app/templates/front/home/register.html.twig");
+", "front/home/register.html.twig", "/Users/hassan/Downloads/app-2/templates/front/home/register.html.twig");
     }
 }

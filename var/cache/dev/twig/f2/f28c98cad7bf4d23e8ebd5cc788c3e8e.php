@@ -58,7 +58,7 @@ class __TwigTemplate_d1c235905f3489331b5835a006af780f extends Template
         // line 3
         echo "
     <button class=\"btn btn-primary\" data-bs-toggle=\"modal\" data-bs-target=\"#add-product-modal\">
-        add a new product
+        add a new product location-modal
     </button>
 
     <div id=\"tab-1\" class=\"tab-pane fade show p-0 active\">
@@ -160,7 +160,7 @@ class __TwigTemplate_d1c235905f3489331b5835a006af780f extends Template
 {% block tabcontent %}
 
     <button class=\"btn btn-primary\" data-bs-toggle=\"modal\" data-bs-target=\"#add-product-modal\">
-        add a new product
+        add a new product location-modal
     </button>
 
     <div id=\"tab-1\" class=\"tab-pane fade show p-0 active\">

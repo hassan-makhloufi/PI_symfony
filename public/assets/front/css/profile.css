@@ -152,4 +152,61 @@ a {
     text-shadow: 1px 1px 1px #ccc;
     font-size: 1.5em;
 }
+.page-content{
+    margin-top: 33px;
+}
+.livraisons{
+    display: flex;
+    gap: 20px;
+    padding: 40px;
 
+}
+.livraison-card{
+    width: 200px;
+    height: 200px;
+
+    border-radius: 20px;
+    border: solid 2px #d5e3ec;
+    position: relative;
+}
+.livraison-card img{
+    max-width: 100%;
+    max-height: 100%;
+    padding: 5px;
+    border-radius: 20px;
+
+}
+
+
+.livraisons .quantity{
+    align-items: center;
+    height: 1.5em;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    background-color: #FFB524;
+    border-radius: 3px;
+
+}
+.quantity p{
+    padding-top: 2px;
+    text-align: center;
+    font-size: 15px;
+    padding-left: 20px;
+    padding-right: 20px;
+    color: white;
+}
+.ship{
+    height: 1.5em;
+    position: absolute;
+    top: 30%;
+    right: 40%;
+    font-size: 40px;
+
+}
+.action{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

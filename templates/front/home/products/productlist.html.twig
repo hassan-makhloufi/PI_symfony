@@ -1,6 +1,7 @@
+
 {% for p in products %}
     <div class="col-md-6 col-lg-6 col-xl-4">
-        <div class="rounded position-relative fruite-item">
+        <div class="rounded position-relative fruite-item {% if p.quanity==0 %} out-stock {% endif %}">
             <div class="fruite-img">
                 <img src="{{ absolute_url(asset(p.image)) }}" class="img-fluid w-100 rounded-top" alt="">
             </div>
@@ -12,7 +13,13 @@
                 <div class="d-flex justify-content-between flex-lg-wrap">
                     <a href="{{path('app_product_single',{id:p.id})}}" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-eye me-2 text-primary"></i> view more</a>
                 </div>
+
             </div>
+            {% if p.quanity==0 %}
+            <div  out-stock  style="position: absolute;top: 1.5em;right: 1.5em;color: red;font-weight: 700" >
+                out of stock
+            </div>
+            {% endif %}
         </div>
     </div>
 {% endfor %}

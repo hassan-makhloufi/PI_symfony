@@ -1,0 +1,26 @@
+{% extends 'front/profile/profile_base.html.twig' %}
+
+{% block tabcontent %}
+    {% for r in reclamations %}
+
+        <div style="  padding: 16px;
+    box-shadow: 0 2px 4px #d8e1e8;
+    border-radius: 3px;
+    color: #121c42;
+    background-color: #fff;" >
+            <div style="display: flex;gap: 10px;align-items: center">
+                <div style=" color: black;">           Reclamation on a  <a href="{{ r.link }}"> {{ r.getType() }} </a></div>
+                <a style="color: #dc3545"  href="{{ path('app_reclamation_delete',{'id':r.id}) }}"> <i class="fa fa-trash"></i>  </a>
+                <a style="border: none;color: green" class="edit-button" id="reclamation-edit-btn-{{ r.id }}" data-bs-toggle="modal" data-bs-target="#reclamation-modal">
+                    <i class="fas fa-edit"></i>
+                </a>
+                <input id="reclamation-edit-input-{{ r.id }}" type="hidden" value="{{ r.message }}">
+            </div>
+            {{ r.message }}
+            {% if r.getResponse() %}
+                <input type="hidden" id="response-input-{{ r.id }}" value="{{ r.getResponse().message }}">
+                <a class="response-button" id='response-btn-{{ r.id }}' data-bs-toggle="modal" data-bs-target="#response-modal"> check response</a>
+            {% endif %}
+        </div>
+    {% endfor %}
+{% endblock %}

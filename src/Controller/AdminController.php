@@ -3,9 +3,11 @@
 namespace App\Controller;
 
 use App\Entity\Category;
+use App\Entity\Notification;
 use App\Entity\ReclamationResponse;
 use App\Form\CategoryType;
 use App\Form\ResponseType;
+use App\Form\UpdateProductType;
 use App\Repository\CategoryRepository;
 use App\Repository\ForumRepository;
 use App\Repository\LivraisonRepository;
@@ -156,6 +158,31 @@ class AdminController extends AbstractController
         }
         return $this->redirectToRoute('app_admin_products');
     }
+    #[Route('/admin/products/update/{id}',name:'app_admin_product_update')]
+    public function updateProduct(Request $request,int $id,ProductRepository $productRepository,ValidatorInterface $validator,FlasherInterface $flasher,EntityManagerInterface $entityManager){
+        $product = $productRepository->find($id);
+        $form = $this->createForm(UpdateProductType::class,$product);
+        $form->handleRequest($request);
+        if($form->isSubmitted()){
+               $errors =  $validator->validate($product);
+               if(count($errors)>0){
+                   foreach ($errors as $e){
+                       $flasher->addError($e->getMessage());
+                   }
+               }
+               else{
+                   $entityManager->flush();
+                   $flasher->addSuccess('product updated successfully');
+               }
+               return $this->redirectToRoute('app_admin_products');
+
+        }
+        else{
+            return $this->render('back/products/add.html.twig',[
+                'form'=>$form
+            ]);
+        }
+    }
     #[Route('/admin/reclamations', name: 'app_admin_reclamation')]
     public function findAllReclamations(ReclamationRepository $reclamationRepository){
         return $this->render('back/reclamations/list.html.twig',[
@@ -179,6 +206,12 @@ class AdminController extends AbstractController
                 else{
                     $response->setReclamation($reclamation);
                     $entityManager->persist($response);
+                    $notification = new Notification();
+                    $notification->setMessage('admin has responded to your reclamation ');
+                    $notification->setSentTo($reclamation->getAuthor());
+                    $notification->setLink('app_reclamation');
+                    $notification->setSeen(false);
+                    $entityManager->persist($notification);
                     $entityManager->flush();
                 }
 

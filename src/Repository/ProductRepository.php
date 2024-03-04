@@ -30,9 +30,7 @@ class ProductRepository extends ServiceEntityRepository
         if($category_id){
             $query->where('p.category = :cat_id')->setParameter('cat_id',$category_id);
         }
-        if($q){
-            $query->where('p.name like :query')->setParameter('query','%'.$q);
-        }
+
         $firstResult = ($pageNumber-1)*$pageLimit;
         $numberOfRows = count($query->getQuery()->execute());
         $query = $query->setFirstResult($firstResult)->setMaxResults($pageLimit)->getQuery();

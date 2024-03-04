@@ -28,6 +28,7 @@ class __TwigTemplate_3613fa0d6874d1ebe73b05e33973779d extends Template
             'stylesheets' => [$this, 'block_stylesheets'],
             'content' => [$this, 'block_content'],
             'tabcontent' => [$this, 'block_tabcontent'],
+            'scripts' => [$this, 'block_scripts'],
         ];
     }
 
@@ -200,15 +201,57 @@ class __TwigTemplate_3613fa0d6874d1ebe73b05e33973779d extends Template
                                     <span class=\"text-dark\" style=\"width: 130px;\">Appoitments</span>
                                 </a>
                             </li>
+                            <li class=\"nav-item\">
+                                <a class=\"d-flex m-2 py-2 bg-light rounded-pill ";
+        // line 93
+        if (((isset($context["active"]) || array_key_exists("active", $context) ? $context["active"] : (function () { throw new RuntimeError('Variable "active" does not exist.', 93, $this->source); })()) == "livraison-lines")) {
+            echo "active";
+        } else {
+            echo " ";
+        }
+        echo "\"  href=\"";
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_livraison_lines");
+        echo "\">
+                                    <span class=\"text-dark\" style=\"width: 130px;\">shippings-lines</span>
+                                </a>
+                            </li>
+                            <li class=\"nav-item\">
+                                <a class=\"d-flex m-2 py-2 bg-light rounded-pill ";
+        // line 98
+        if (((isset($context["active"]) || array_key_exists("active", $context) ? $context["active"] : (function () { throw new RuntimeError('Variable "active" does not exist.', 98, $this->source); })()) == "livraisons")) {
+            echo "active";
+        } else {
+            echo " ";
+        }
+        echo "\"  href=\"";
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_livraison");
+        echo "\">
+                                    <span class=\"text-dark\" style=\"width: 130px;\">shippings</span>
+                                </a>
+                            </li>
+                              <li class=\"nav-item\">
+                                <a class=\"d-flex m-2 py-2 bg-light rounded-pill ";
+        // line 103
+        if (((isset($context["active"]) || array_key_exists("active", $context) ? $context["active"] : (function () { throw new RuntimeError('Variable "active" does not exist.', 103, $this->source); })()) == "reclamations")) {
+            echo "active";
+        } else {
+            echo " ";
+        }
+        echo "\"  href=\"";
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_reclamation");
+        echo "\">
+                                    <span class=\"text-dark\" style=\"width: 130px;\">reclamations</span>
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </div>
                 <div class=\"tab-content\">
 
                         ";
-        // line 97
+        // line 112
         $this->displayBlock('tabcontent', $context, $blocks);
-        // line 103
+        // line 118
         echo "                </div>
         </div>
     </div>
@@ -218,19 +261,140 @@ class __TwigTemplate_3613fa0d6874d1ebe73b05e33973779d extends Template
 
     }
 
-    // line 97
+    // line 112
     public function block_tabcontent($context, array $blocks = [])
     {
         $macros = $this->macros;
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "tabcontent"));
 
-        // line 98
+        // line 113
         echo "
                             <!-- <div class=\"modal fade\" id=\"exampleModal\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"exampleModalLabel\" aria-hidden=\"true\">
 
                              </div>-->
                         ";
+        
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
+
+    }
+
+    // line 122
+    public function block_scripts($context, array $blocks = [])
+    {
+        $macros = $this->macros;
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "scripts"));
+
+        // line 123
+        echo "
+     <script>
+     currentLocation = {
+         country:\"\",
+         state:\"\",
+         adress:\"\"
+     }
+
+    let lat = 33.892166;
+    let lang = 9.561555;
+    const locationText = document.querySelector('#location-text')
+    const exactLocationElement = document.querySelector('#exact-location')
+    const shipButton = document.querySelector('#ship')
+    shipButton.addEventListener('click',async ev=> {
+            const formData = new FormData();
+            formData.append('country',currentLocation.country);
+            formData.append('state',currentLocation.state);
+            formData.append('adress',currentLocation.adress);
+            let result = await fetch(\"";
+        // line 141
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_livraison_create");
+        echo "\",{
+                method:'POST',
+                body:formData
+            }).then(res=>{
+                return res.json();
+            })
+            if(result.status===200){
+                window.location.href = \"";
+        // line 148
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_livraison");
+        echo "\";
+            }
+
+
+
+
+    })
+  const saveChangesButton = document.querySelector('#save-location');
+    saveChangesButton.addEventListener('click',async evt => {
+        const exactLocation = await fetch(`https://geocode.maps.co/reverse?lat=\${lat}&lon=\${lang}&api_key=65e287387edeb078195716ybk0ecf88`).then(d=>{
+            return d.json()
+        })
+        if(locationText.style.display==='none'){
+            locationText.style.display = 'block'
+        }
+        if(shipButton.style.display==='none'){
+            shipButton.style.display = 'block'
+        }
+
+        exactLocationElement.innerHTML = `\${exactLocation.address.country},\${exactLocation.address.state},\${exactLocation.address.state_district}`
+        currentLocation.country = exactLocation.address.country
+        currentLocation.state = exactLocation.address.state
+        currentLocation.adress = exactLocation.address.state_district
+    })
+     setTimeout(function () {
+  var map = L.map('map').setView([33.892166, 9.561555], 13);
+
+  function onMapClick(e) {
+     marker.setLatLng(e.latlng);
+     lat = e.latlng.lat;
+     lang = e.latlng.lng;
+  }
+
+map.on('click', onMapClick);
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href=\"https://www.openstreetmap.org/copyright\">OpenStreetMap</a> contributors'
+}).addTo(map);
+
+const marker = L.marker([33.892166, 9.561555]).addTo(map)
+    .openPopup();
+}, 2000);
+
+
+</script>
+<script>
+    const editPath = \"";
+        // line 193
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_reclamation_update", ["id" => "reclamation-to-edit"]);
+        echo "\"
+    const input = document.querySelector('#reclamation-message')
+    const form = document.querySelector('#reclamation-modal').querySelector('form')
+    document.querySelectorAll('.edit-button').forEach(element=>{
+        element.addEventListener('click',ev => {
+                const id = element.getAttribute('id').replace('reclamation-edit-btn-','')
+                const message = document.querySelector(`#reclamation-edit-input-\${id}`).value
+                input.value = message
+                const path = editPath.replace('reclamation-to-edit',`\${id}`);
+                form.setAttribute('action',path)
+        })
+
+    })
+</script>
+<script>
+
+    const responseContent = document.querySelector('#response-content')
+   document.querySelectorAll('.response-button').forEach(element=>{
+        element.addEventListener('click',ev => {
+                const id = element.getAttribute('id').replace('response-btn-','')
+                const message = document.querySelector(`#response-input-\${id}`).value
+                responseContent.innerHTML = message
+
+        })
+
+    })
+
+</script>
+";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
 
@@ -257,7 +421,7 @@ class __TwigTemplate_3613fa0d6874d1ebe73b05e33973779d extends Template
      */
     public function getDebugInfo()
     {
-        return array (  229 => 98,  222 => 97,  212 => 103,  210 => 97,  192 => 88,  180 => 83,  165 => 77,  151 => 72,  118 => 44,  79 => 7,  72 => 6,  61 => 3,  54 => 2,  37 => 1,);
+        return array (  368 => 193,  320 => 148,  310 => 141,  290 => 123,  283 => 122,  272 => 113,  265 => 112,  255 => 118,  253 => 112,  235 => 103,  221 => 98,  207 => 93,  193 => 88,  181 => 83,  166 => 77,  152 => 72,  119 => 44,  80 => 7,  73 => 6,  62 => 3,  55 => 2,  38 => 1,);
     }
 
     public function getSourceContext()
@@ -353,6 +517,21 @@ class __TwigTemplate_3613fa0d6874d1ebe73b05e33973779d extends Template
                                     <span class=\"text-dark\" style=\"width: 130px;\">Appoitments</span>
                                 </a>
                             </li>
+                            <li class=\"nav-item\">
+                                <a class=\"d-flex m-2 py-2 bg-light rounded-pill {% if active=='livraison-lines' %}active{% else %} {% endif %}\"  href=\"{{path('app_livraison_lines') }}\">
+                                    <span class=\"text-dark\" style=\"width: 130px;\">shippings-lines</span>
+                                </a>
+                            </li>
+                            <li class=\"nav-item\">
+                                <a class=\"d-flex m-2 py-2 bg-light rounded-pill {% if active=='livraisons' %}active{% else %} {% endif %}\"  href=\"{{path('app_livraison') }}\">
+                                    <span class=\"text-dark\" style=\"width: 130px;\">shippings</span>
+                                </a>
+                            </li>
+                              <li class=\"nav-item\">
+                                <a class=\"d-flex m-2 py-2 bg-light rounded-pill {% if active=='reclamations' %}active{% else %} {% endif %}\"  href=\"{{path('app_reclamation') }}\">
+                                    <span class=\"text-dark\" style=\"width: 130px;\">reclamations</span>
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -367,6 +546,106 @@ class __TwigTemplate_3613fa0d6874d1ebe73b05e33973779d extends Template
                 </div>
         </div>
     </div>
+{% endblock %}
+        {% block scripts %}
+
+     <script>
+     currentLocation = {
+         country:\"\",
+         state:\"\",
+         adress:\"\"
+     }
+
+    let lat = 33.892166;
+    let lang = 9.561555;
+    const locationText = document.querySelector('#location-text')
+    const exactLocationElement = document.querySelector('#exact-location')
+    const shipButton = document.querySelector('#ship')
+    shipButton.addEventListener('click',async ev=> {
+            const formData = new FormData();
+            formData.append('country',currentLocation.country);
+            formData.append('state',currentLocation.state);
+            formData.append('adress',currentLocation.adress);
+            let result = await fetch(\"{{ path('app_livraison_create') }}\",{
+                method:'POST',
+                body:formData
+            }).then(res=>{
+                return res.json();
+            })
+            if(result.status===200){
+                window.location.href = \"{{ path('app_livraison') }}\";
+            }
+
+
+
+
+    })
+  const saveChangesButton = document.querySelector('#save-location');
+    saveChangesButton.addEventListener('click',async evt => {
+        const exactLocation = await fetch(`https://geocode.maps.co/reverse?lat=\${lat}&lon=\${lang}&api_key=65e287387edeb078195716ybk0ecf88`).then(d=>{
+            return d.json()
+        })
+        if(locationText.style.display==='none'){
+            locationText.style.display = 'block'
+        }
+        if(shipButton.style.display==='none'){
+            shipButton.style.display = 'block'
+        }
+
+        exactLocationElement.innerHTML = `\${exactLocation.address.country},\${exactLocation.address.state},\${exactLocation.address.state_district}`
+        currentLocation.country = exactLocation.address.country
+        currentLocation.state = exactLocation.address.state
+        currentLocation.adress = exactLocation.address.state_district
+    })
+     setTimeout(function () {
+  var map = L.map('map').setView([33.892166, 9.561555], 13);
+
+  function onMapClick(e) {
+     marker.setLatLng(e.latlng);
+     lat = e.latlng.lat;
+     lang = e.latlng.lng;
+  }
+
+map.on('click', onMapClick);
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href=\"https://www.openstreetmap.org/copyright\">OpenStreetMap</a> contributors'
+}).addTo(map);
+
+const marker = L.marker([33.892166, 9.561555]).addTo(map)
+    .openPopup();
+}, 2000);
+
+
+</script>
+<script>
+    const editPath = \"{{ path('app_reclamation_update',{id:'reclamation-to-edit'}) }}\"
+    const input = document.querySelector('#reclamation-message')
+    const form = document.querySelector('#reclamation-modal').querySelector('form')
+    document.querySelectorAll('.edit-button').forEach(element=>{
+        element.addEventListener('click',ev => {
+                const id = element.getAttribute('id').replace('reclamation-edit-btn-','')
+                const message = document.querySelector(`#reclamation-edit-input-\${id}`).value
+                input.value = message
+                const path = editPath.replace('reclamation-to-edit',`\${id}`);
+                form.setAttribute('action',path)
+        })
+
+    })
+</script>
+<script>
+
+    const responseContent = document.querySelector('#response-content')
+   document.querySelectorAll('.response-button').forEach(element=>{
+        element.addEventListener('click',ev => {
+                const id = element.getAttribute('id').replace('response-btn-','')
+                const message = document.querySelector(`#response-input-\${id}`).value
+                responseContent.innerHTML = message
+
+        })
+
+    })
+
+</script>
 {% endblock %}", "front/profile/profile_base.html.twig", "C:\\Users\\alaro\\Desktop\\training\\app\\templates\\front\\profile\\profile_base.html.twig");
     }
 }

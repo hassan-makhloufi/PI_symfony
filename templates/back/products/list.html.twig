@@ -1,0 +1,71 @@
+{% extends 'back/base.html.twig' %}
+{% block contents%}
+    <main id="main" class="main">
+
+        <div class="pagetitle">
+            <h1>categories</h1>
+            <nav>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html">admin</a></li>
+                    <li class="breadcrumb-item">products</li>
+                    <li class="breadcrumb-item active">list</li>
+                </ol>
+            </nav>
+        </div><!-- End Page Title -->
+
+        <section class="section">
+            <div class="row">
+                <div class="col-lg-12">
+
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Products</h5>
+
+                            <!-- Table with stripped rows -->
+                            <table class="table datatable">
+                                <thead>
+                                <tr>
+
+                                    <th>
+                                        name
+                                    </th>
+                                    <th>quantity</th>
+                                    <th>category</th>
+                                    <th>belongs To</th>
+                                    <th> delete </th>
+                                </thead>
+                                <tbody>
+                                {% for c in products %}
+                                    <tr>
+                                        <td>{{ c.name }}</td>
+                                        <td>{{ c.quanity }}</td>
+
+                                        <td>{{ c.category.name }}</td>
+                                        <td>{{ c.adder.firstname }}</td>
+
+                                        <td>
+                                            {% if c.isDeletable %}
+                                                <a class="btn btn-danger" href="{{ path('app_admin_products_delete',{id:c.id}) }}"><i class="fa fa-trash" aria-hidden="true"></i> </a>
+
+                                            {% else  %}
+                                                undeletable
+                                            {% endif %}
+                                            <a class="btn btn-success" href="{{ path('app_admin_product_update',{id:c.id}) }}"><i class="fa fa-edit" aria-hidden="true"></i> </a>
+
+                                        </td>
+
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                            <!-- End Table with stripped rows -->
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main><!-- End #main -->
+{% endblock %}

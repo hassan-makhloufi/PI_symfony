@@ -1,0 +1,66 @@
+{% extends 'back/base.html.twig' %}
+{% block contents%}
+    <main id="main" class="main">
+
+        <div class="pagetitle">
+            <h1>categories</h1>
+            <nav>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html">admin</a></li>
+                    <li class="breadcrumb-item">reclamation</li>
+                    <li class="breadcrumb-item active">list</li>
+                </ol>
+            </nav>
+        </div><!-- End Page Title -->
+
+        <section class="section">
+            <div class="row">
+                <div class="col-lg-12">
+
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Products</h5>
+
+                            <!-- Table with stripped rows -->
+                            <table class="table datatable">
+                                <thead>
+                                <tr>
+
+                                    <th>
+                                        author
+                                    </th>
+                                    <th>
+                                        type
+                                    </th>
+                                    <th>body</th>
+                                    <th>responded</th>
+                                </thead>
+                                <tbody>
+                                {% for r in reclamations %}
+                                    <tr>
+                                        <td>{{ r.author.firstname }} {{ r.author.lastname }}</td>
+                                        <td>{{ r.getType() }}</td>
+
+                                        <td>{{ r.message }}</td>
+                                        {% if (r.reclamationResponses | length)==0 %}
+                                            <td><a class="btn btn-success" href="{{ path('app_admin_response_create',{reclamation_id:r.id}) }}">    <i class="fa fa-plus"></i> </a></td>
+                                        {% else %}
+                                            <td><a href="{{ path('app_admin_response_update',{id:r.getResponse().id}) }}"> <i class="fas fa-edit"></i></a> </td>
+                                            {% endif %}
+
+
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                            <!-- End Table with stripped rows -->
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main><!-- End #main -->
+{% endblock %}

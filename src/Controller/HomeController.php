@@ -52,7 +52,7 @@ class HomeController extends AbstractController
 
         return $this->render('front/home/single.html.twig',$result);
     }
-    #[Route('/products', name: 'app_products')]
+        #[Route('/products', name: 'app_products')]
     public function products(ProductRepository $productRepository,CategoryRepository $categoryRepository,Request$request)
     {
         $page = $request->query->get('page',1);
